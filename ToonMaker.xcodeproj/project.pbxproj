@@ -12,6 +12,8 @@
 		C407AF042099809700B7ECC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF022099809700B7ECC7 /* Main.storyboard */; };
 		C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407AF052099809900B7ECC7 /* Assets.xcassets */; };
 		C407AF092099809900B7ECC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */; };
+		C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF16209987CD00B7ECC7 /* Constants.swift */; };
+		C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C407AF052099809900B7ECC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C407AF082099809900B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C407AF0A2099809900B7ECC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C407AF16209987CD00B7ECC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +42,7 @@
 		C407AEF22099809700B7ECC7 = {
 			isa = PBXGroup;
 			children = (
-				C407AEFD2099809700B7ECC7 /* ToonMaker */,
+				C407AEFD2099809700B7ECC7 /* Sources */,
 				C407AEFC2099809700B7ECC7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,17 +55,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C407AEFD2099809700B7ECC7 /* ToonMaker */ = {
+		C407AEFD2099809700B7ECC7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				C407AF10209985B800B7ECC7 /* Models */,
 				C407AF11209985C200B7ECC7 /* Views */,
 				C407AF12209985CB00B7ECC7 /* Controllers */,
 				C407AF13209985D300B7ECC7 /* Stores */,
+				C407AF1820998CEA00B7ECC7 /* Extensions */,
 				C407AF14209985D900B7ECC7 /* Helpers */,
 				C407AF15209985F700B7ECC7 /* Resources */,
 			);
-			path = ToonMaker;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C407AF10209985B800B7ECC7 /* Models */ = {
@@ -98,6 +103,7 @@
 			children = (
 				C407AEFE2099809700B7ECC7 /* AppDelegate.swift */,
 				C407AF0A2099809900B7ECC7 /* Info.plist */,
+				C407AF16209987CD00B7ECC7 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -110,6 +116,14 @@
 				C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C407AF1820998CEA00B7ECC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +199,8 @@
 			files = (
 				C407AF012099809700B7ECC7 /* ViewController.swift in Sources */,
 				C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */,
+				C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */,
+				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
-				INFOPLIST_FILE = ToonMaker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ToonMaker/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -349,7 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
-				INFOPLIST_FILE = ToonMaker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ToonMaker/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
