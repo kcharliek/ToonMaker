@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213161713609D4D8DC9FB303 /* Pods_ToonMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */; };
 		C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AEFE2099809700B7ECC7 /* AppDelegate.swift */; };
-		C407AF012099809700B7ECC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF002099809700B7ECC7 /* ViewController.swift */; };
 		C407AF042099809700B7ECC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF022099809700B7ECC7 /* Main.storyboard */; };
 		C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407AF052099809900B7ECC7 /* Assets.xcassets */; };
 		C407AF092099809900B7ECC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */; };
 		C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF16209987CD00B7ECC7 /* Constants.swift */; };
 		C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */; };
+		C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1D2099929500B7ECC7 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407AEFB2099809700B7ECC7 /* ToonMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToonMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407AEFE2099809700B7ECC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C407AF002099809700B7ECC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C407AF032099809700B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C407AF052099809900B7ECC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C407AF082099809900B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C407AF0A2099809900B7ECC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C407AF16209987CD00B7ECC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		C407AF1D2099929500B7ECC7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213161713609D4D8DC9FB303 /* Pods_ToonMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				C407AEFD2099809700B7ECC7 /* Sources */,
 				C407AEFC2099809700B7ECC7 /* Products */,
+				EA37D24C0661BF0BBBA8E67F /* Pods */,
+				D9742BF0DA6F8C1876F758CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,7 +93,7 @@
 		C407AF12209985CB00B7ECC7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C407AF002099809700B7ECC7 /* ViewController.swift */,
+				C407AF1D2099929500B7ECC7 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -126,6 +133,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D9742BF0DA6F8C1876F758CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA37D24C0661BF0BBBA8E67F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */,
+				EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C407AF0D2099809900B7ECC7 /* Build configuration list for PBXNativeTarget "ToonMaker" */;
 			buildPhases = (
+				4143E3B4C653AEE8F0A9EF28 /* [CP] Check Pods Manifest.lock */,
 				C407AEF72099809700B7ECC7 /* Sources */,
 				C407AEF82099809700B7ECC7 /* Frameworks */,
 				C407AEF92099809700B7ECC7 /* Resources */,
@@ -192,15 +217,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4143E3B4C653AEE8F0A9EF28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToonMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C407AEF72099809700B7ECC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C407AF012099809700B7ECC7 /* ViewController.swift in Sources */,
 				C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */,
 				C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */,
 				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
+				C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,16 +388,14 @@
 		};
 		C407AF0E2099809900B7ECC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
 				INFOPLIST_FILE = "$(SRCROOT)/ToonMaker/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chk.ToonMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -361,16 +405,14 @@
 		};
 		C407AF0F2099809900B7ECC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
 				INFOPLIST_FILE = "$(SRCROOT)/ToonMaker/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chk.ToonMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
