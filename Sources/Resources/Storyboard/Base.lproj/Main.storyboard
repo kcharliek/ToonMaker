@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="툰메이커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66r-D3-KRN">
+                                <rect key="frame" x="177.66666666666666" y="136.66666666666666" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rj-6f-vaI">
+                                <rect key="frame" x="103" y="444" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="웹툰 새로 만들기"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMI-wl-5VF">
+                                <rect key="frame" x="103" y="375" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="내 서재"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="66r-D3-KRN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RR3-QN-lYN"/>
+                            <constraint firstItem="66r-D3-KRN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="eIc-ok-dA9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114.375" y="114.08450704225352"/>
+        </scene>
+        <!--허생전-->
+        <scene sceneID="M3A-PJ-CqK">
+            <objects>
+                <viewController storyboardIdentifier="ToonMakerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vlF-kP-PQo" customClass="ToonMakerViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ouZ-7K-YWf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dp9-rd-Fcz">
+                                <rect key="frame" x="20.666666666666657" y="107" width="372.66666666666674" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dp9-rd-Fcz" secondAttribute="height" multiplier="2:3" id="sgm-Kk-gVS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dp9-rd-Fcz" firstAttribute="width" secondItem="ouZ-7K-YWf" secondAttribute="width" multiplier="0.9" id="6Xd-zo-kDA"/>
+                            <constraint firstItem="Dp9-rd-Fcz" firstAttribute="centerY" secondItem="ouZ-7K-YWf" secondAttribute="centerY" multiplier="1.05" id="GEW-3j-iMB"/>
+                            <constraint firstItem="Dp9-rd-Fcz" firstAttribute="centerX" secondItem="ouZ-7K-YWf" secondAttribute="centerX" id="J7Q-AK-vlm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N3D-4c-vq6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="허생전" id="N1V-i0-gjg">
+                        <barButtonItem key="rightBarButtonItem" title="새 페이지" id="Jgm-Jc-b2d"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2J-Rb-UM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="805"/>
+        </scene>
+        <!--Page Editor View Controller-->
+        <scene sceneID="Prx-Qw-rLn">
+            <objects>
+                <viewController storyboardIdentifier="PageEditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anq-3P-ulp" customClass="PageEditorViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZNQ-OG-RbE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-5W-Tn7">
+                                <rect key="frame" x="66.333333333333343" y="68.333333333333314" width="281.33333333333326" height="562.66666666666674"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jnX-5W-Tn7" secondAttribute="height" multiplier="1:1" id="4ln-f2-cVM"/>
+                                    <constraint firstAttribute="width" secondItem="jnX-5W-Tn7" secondAttribute="height" multiplier="1:2" id="oYN-Fp-J3I"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4ln-f2-cVM"/>
+                                        <exclude reference="oYN-Fp-J3I"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="4ln-f2-cVM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="oYN-Fp-J3I"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="apz-1K-r9q">
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="FN6-si-5VZ"/>
+                                    <constraint firstAttribute="height" constant="55" id="y56-vo-asa"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mW4-NT-sbW">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FN6-si-5VZ"/>
+                                        <exclude reference="y56-vo-asa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="FN6-si-5VZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="y56-vo-asa"/>
+                                    </mask>
+                                </variation>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="centerX" secondItem="ZNQ-OG-RbE" secondAttribute="centerX" multiplier="0.95" id="0li-gP-Kp6"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jtp-cU-7eG" secondAttribute="leading" id="1lx-2F-vBG"/>
+                            <constraint firstItem="Jtp-cU-7eG" firstAttribute="bottom" secondItem="apz-1K-r9q" secondAttribute="bottom" id="1w0-cT-Y72"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="centerY" secondItem="ZNQ-OG-RbE" secondAttribute="centerY" multiplier="0.95" id="4ph-4s-RVM"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Jtp-cU-7eG" secondAttribute="top" id="BmL-uj-3qO"/>
+                            <constraint firstItem="apz-1K-r9q" firstAttribute="leading" secondItem="Jtp-cU-7eG" secondAttribute="leading" id="C3x-4P-eUD"/>
+                            <constraint firstItem="Jtp-cU-7eG" firstAttribute="bottom" secondItem="apz-1K-r9q" secondAttribute="bottom" id="CUc-Rf-9xb"/>
+                            <constraint firstItem="apz-1K-r9q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jnX-5W-Tn7" secondAttribute="trailing" constant="50" id="Hg4-xR-Us6"/>
+                            <constraint firstItem="Jtp-cU-7eG" firstAttribute="trailing" secondItem="apz-1K-r9q" secondAttribute="trailing" id="Uj0-tS-e1l"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="centerY" secondItem="ZNQ-OG-RbE" secondAttribute="centerY" id="aFE-lc-iw9"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="leading" secondItem="Jtp-cU-7eG" secondAttribute="leading" priority="250" id="av8-Za-Vit"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="centerX" secondItem="ZNQ-OG-RbE" secondAttribute="centerX" id="fsg-Ff-RtM"/>
+                            <constraint firstItem="apz-1K-r9q" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jnX-5W-Tn7" secondAttribute="bottom" constant="50" id="oPx-wR-GOA"/>
+                            <constraint firstItem="Jtp-cU-7eG" firstAttribute="trailing" secondItem="apz-1K-r9q" secondAttribute="trailing" id="s3i-Jx-Jtm"/>
+                            <constraint firstItem="jnX-5W-Tn7" firstAttribute="top" secondItem="Jtp-cU-7eG" secondAttribute="top" priority="250" id="vlL-6m-CDb"/>
+                            <constraint firstItem="apz-1K-r9q" firstAttribute="top" secondItem="Jtp-cU-7eG" secondAttribute="top" id="yXi-bE-Qwl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jtp-cU-7eG"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1w0-cT-Y72"/>
+                                <exclude reference="CUc-Rf-9xb"/>
+                                <exclude reference="Uj0-tS-e1l"/>
+                                <exclude reference="s3i-Jx-Jtm"/>
+                                <exclude reference="0li-gP-Kp6"/>
+                                <exclude reference="1lx-2F-vBG"/>
+                                <exclude reference="4ph-4s-RVM"/>
+                                <exclude reference="BmL-uj-3qO"/>
+                                <exclude reference="aFE-lc-iw9"/>
+                                <exclude reference="av8-Za-Vit"/>
+                                <exclude reference="fsg-Ff-RtM"/>
+                                <exclude reference="vlL-6m-CDb"/>
+                                <exclude reference="C3x-4P-eUD"/>
+                                <exclude reference="Hg4-xR-Us6"/>
+                                <exclude reference="oPx-wR-GOA"/>
+                                <exclude reference="yXi-bE-Qwl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="CUc-Rf-9xb"/>
+                                <include reference="s3i-Jx-Jtm"/>
+                                <include reference="0li-gP-Kp6"/>
+                                <include reference="1lx-2F-vBG"/>
+                                <include reference="aFE-lc-iw9"/>
+                                <include reference="vlL-6m-CDb"/>
+                                <include reference="Hg4-xR-Us6"/>
+                                <include reference="yXi-bE-Qwl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="1w0-cT-Y72"/>
+                                <include reference="Uj0-tS-e1l"/>
+                                <include reference="4ph-4s-RVM"/>
+                                <include reference="BmL-uj-3qO"/>
+                                <include reference="av8-Za-Vit"/>
+                                <include reference="fsg-Ff-RtM"/>
+                                <include reference="C3x-4P-eUD"/>
+                                <include reference="oPx-wR-GOA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="EditMenuCollectionView" destination="apz-1K-r9q" id="NH1-VX-nyk"/>
+                        <outlet property="editorView" destination="jnX-5W-Tn7" id="1Tw-r5-Rel"/>
+                        <outletCollection property="EditorViewAspectRatioConstraints" destination="4ln-f2-cVM" collectionClass="NSMutableArray" id="e0e-dE-94r"/>
+                        <outletCollection property="EditorViewAspectRatioConstraints" destination="oYN-Fp-J3I" collectionClass="NSMutableArray" id="Uyq-BP-LsQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qux-Qc-bG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2267" y="839"/>
+        </scene>
+        <!--만화방-->
+        <scene sceneID="B9Z-H3-21Y">
+            <objects>
+                <viewController storyboardIdentifier="BookShelfViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jti-J3-jN9" customClass="BookShelfViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xdd-T6-Roz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NMS-OJ-RaT">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xS6-4s-hjS">
+                                    <size key="itemSize" width="101" height="94"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NMS-OJ-RaT" firstAttribute="top" secondItem="szb-9i-bpp" secondAttribute="top" id="OX0-M9-iHh"/>
+                            <constraint firstItem="NMS-OJ-RaT" firstAttribute="leading" secondItem="szb-9i-bpp" secondAttribute="leading" id="P88-Y1-rZa"/>
+                            <constraint firstItem="szb-9i-bpp" firstAttribute="trailing" secondItem="NMS-OJ-RaT" secondAttribute="trailing" id="sZL-Zg-xX2"/>
+                            <constraint firstItem="szb-9i-bpp" firstAttribute="bottom" secondItem="NMS-OJ-RaT" secondAttribute="bottom" id="vQ0-K5-aDN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="szb-9i-bpp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="만화방" id="gtd-rH-J4d">
+                        <barButtonItem key="leftBarButtonItem" title="닫기" id="kas-O4-dkC"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ec-cf-RKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303" y="-351"/>
+        </scene>
+    </scenes>
+</document>

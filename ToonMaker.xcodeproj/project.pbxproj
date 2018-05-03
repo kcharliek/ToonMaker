@@ -18,6 +18,29 @@
 		C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */; };
 		C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE22209B229700AEEE7D /* WebToonModel.swift */; };
 		C403AE25209B333800AEEE7D /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE24209B333800AEEE7D /* Component.swift */; };
+		C403AE3C209B36D700AEEE7D /* NanumPen.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE28209B36CD00AEEE7D /* NanumPen.otf */; };
+		C403AE3D209B36D700AEEE7D /* NanumBarunGothicUltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE29209B36CD00AEEE7D /* NanumBarunGothicUltraLight.otf */; };
+		C403AE3E209B36D700AEEE7D /* NanumBarunpenBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2A209B36CE00AEEE7D /* NanumBarunpenBold.otf */; };
+		C403AE3F209B36D700AEEE7D /* NanumBrush.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2B209B36CE00AEEE7D /* NanumBrush.otf */; };
+		C403AE40209B36D700AEEE7D /* NanumGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2C209B36CF00AEEE7D /* NanumGothicBold.otf */; };
+		C403AE41209B36D700AEEE7D /* NanumMyeongjo.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2D209B36CF00AEEE7D /* NanumMyeongjo.otf */; };
+		C403AE42209B36D700AEEE7D /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2E209B36D000AEEE7D /* NanumSquareRoundOTFEB.otf */; };
+		C403AE43209B36D700AEEE7D /* NanumGothicExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2F209B36D000AEEE7D /* NanumGothicExtraBold.otf */; };
+		C403AE44209B36D700AEEE7D /* NanumBarunpenRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE30209B36D100AEEE7D /* NanumBarunpenRegular.otf */; };
+		C403AE45209B36D700AEEE7D /* NanumBarunGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE31209B36D100AEEE7D /* NanumBarunGothicBold.otf */; };
+		C403AE46209B36D700AEEE7D /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE32209B36D200AEEE7D /* NanumGothicLight.otf */; };
+		C403AE47209B36D700AEEE7D /* NanumMyeongjoExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE33209B36D200AEEE7D /* NanumMyeongjoExtraBold.otf */; };
+		C403AE48209B36D700AEEE7D /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE34209B36D300AEEE7D /* NanumSquareRoundOTFB.otf */; };
+		C403AE49209B36D700AEEE7D /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE35209B36D300AEEE7D /* NanumSquareRoundOTFL.otf */; };
+		C403AE4A209B36D700AEEE7D /* NanumBarunGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE36209B36D400AEEE7D /* NanumBarunGothicLight.otf */; };
+		C403AE4B209B36D700AEEE7D /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE37209B36D400AEEE7D /* NanumSquareRoundOTFR.otf */; };
+		C403AE4C209B36D700AEEE7D /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE38209B36D500AEEE7D /* NanumSquareOTFBold.otf */; };
+		C403AE4D209B36D700AEEE7D /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE39209B36D500AEEE7D /* NanumBarunGothic.otf */; };
+		C403AE4E209B36D700AEEE7D /* NanumGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE3A209B36D600AEEE7D /* NanumGothic.otf */; };
+		C403AE4F209B36D700AEEE7D /* NanumMyeongjoBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE3B209B36D600AEEE7D /* NanumMyeongjoBold.otf */; };
+		C403AE53209B36E500AEEE7D /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */; };
+		C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */; };
+		C403AE55209B36E500AEEE7D /* NanumSquareOTFLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */; };
 		C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AEFE2099809700B7ECC7 /* AppDelegate.swift */; };
 		C407AF042099809700B7ECC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF022099809700B7ECC7 /* Main.storyboard */; };
 		C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407AF052099809900B7ECC7 /* Assets.xcassets */; };
@@ -40,6 +63,29 @@
 		C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
 		C403AE22209B229700AEEE7D /* WebToonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonModel.swift; sourceTree = "<group>"; };
 		C403AE24209B333800AEEE7D /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		C403AE28209B36CD00AEEE7D /* NanumPen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.otf; sourceTree = "<group>"; };
+		C403AE29209B36CD00AEEE7D /* NanumBarunGothicUltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.otf; sourceTree = "<group>"; };
+		C403AE2A209B36CE00AEEE7D /* NanumBarunpenBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenBold.otf; sourceTree = "<group>"; };
+		C403AE2B209B36CE00AEEE7D /* NanumBrush.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBrush.otf; sourceTree = "<group>"; };
+		C403AE2C209B36CF00AEEE7D /* NanumGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.otf; sourceTree = "<group>"; };
+		C403AE2D209B36CF00AEEE7D /* NanumMyeongjo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumMyeongjo.otf; sourceTree = "<group>"; };
+		C403AE2E209B36D000AEEE7D /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
+		C403AE2F209B36D000AEEE7D /* NanumGothicExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.otf; sourceTree = "<group>"; };
+		C403AE30209B36D100AEEE7D /* NanumBarunpenRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenRegular.otf; sourceTree = "<group>"; };
+		C403AE31209B36D100AEEE7D /* NanumBarunGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.otf; sourceTree = "<group>"; };
+		C403AE32209B36D200AEEE7D /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
+		C403AE33209B36D200AEEE7D /* NanumMyeongjoExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumMyeongjoExtraBold.otf; sourceTree = "<group>"; };
+		C403AE34209B36D300AEEE7D /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
+		C403AE35209B36D300AEEE7D /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
+		C403AE36209B36D400AEEE7D /* NanumBarunGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.otf; sourceTree = "<group>"; };
+		C403AE37209B36D400AEEE7D /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
+		C403AE38209B36D500AEEE7D /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		C403AE39209B36D500AEEE7D /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
+		C403AE3A209B36D600AEEE7D /* NanumGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothic.otf; sourceTree = "<group>"; };
+		C403AE3B209B36D600AEEE7D /* NanumMyeongjoBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumMyeongjoBold.otf; sourceTree = "<group>"; };
+		C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
 		C407AEFB2099809700B7ECC7 /* ToonMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToonMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407AEFE2099809700B7ECC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C407AF032099809700B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +124,45 @@
 			children = (
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		C403AE26209B367800AEEE7D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */,
+				C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */,
+				C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */,
+				C403AE39209B36D500AEEE7D /* NanumBarunGothic.otf */,
+				C403AE31209B36D100AEEE7D /* NanumBarunGothicBold.otf */,
+				C403AE36209B36D400AEEE7D /* NanumBarunGothicLight.otf */,
+				C403AE29209B36CD00AEEE7D /* NanumBarunGothicUltraLight.otf */,
+				C403AE2A209B36CE00AEEE7D /* NanumBarunpenBold.otf */,
+				C403AE30209B36D100AEEE7D /* NanumBarunpenRegular.otf */,
+				C403AE2B209B36CE00AEEE7D /* NanumBrush.otf */,
+				C403AE3A209B36D600AEEE7D /* NanumGothic.otf */,
+				C403AE2C209B36CF00AEEE7D /* NanumGothicBold.otf */,
+				C403AE2F209B36D000AEEE7D /* NanumGothicExtraBold.otf */,
+				C403AE32209B36D200AEEE7D /* NanumGothicLight.otf */,
+				C403AE2D209B36CF00AEEE7D /* NanumMyeongjo.otf */,
+				C403AE3B209B36D600AEEE7D /* NanumMyeongjoBold.otf */,
+				C403AE33209B36D200AEEE7D /* NanumMyeongjoExtraBold.otf */,
+				C403AE28209B36CD00AEEE7D /* NanumPen.otf */,
+				C403AE38209B36D500AEEE7D /* NanumSquareOTFBold.otf */,
+				C403AE34209B36D300AEEE7D /* NanumSquareRoundOTFB.otf */,
+				C403AE2E209B36D000AEEE7D /* NanumSquareRoundOTFEB.otf */,
+				C403AE35209B36D300AEEE7D /* NanumSquareRoundOTFL.otf */,
+				C403AE37209B36D400AEEE7D /* NanumSquareRoundOTFR.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C403AE27209B367F00AEEE7D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C407AF022099809700B7ECC7 /* Main.storyboard */,
+				C403AE16209AC39800AEEE7D /* Alert.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C407AEF22099809700B7ECC7 = {
@@ -163,10 +248,10 @@
 		C407AF15209985F700B7ECC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C407AF022099809700B7ECC7 /* Main.storyboard */,
+				C403AE27209B367F00AEEE7D /* Storyboard */,
+				C403AE26209B367800AEEE7D /* Font */,
 				C407AF052099809900B7ECC7 /* Assets.xcassets */,
 				C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */,
-				C403AE16209AC39800AEEE7D /* Alert.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -256,11 +341,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C403AE46209B36D700AEEE7D /* NanumGothicLight.otf in Resources */,
+				C403AE47209B36D700AEEE7D /* NanumMyeongjoExtraBold.otf in Resources */,
+				C403AE42209B36D700AEEE7D /* NanumSquareRoundOTFEB.otf in Resources */,
+				C403AE55209B36E500AEEE7D /* NanumSquareOTFLight.otf in Resources */,
+				C403AE4E209B36D700AEEE7D /* NanumGothic.otf in Resources */,
 				C403AE1B209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib in Resources */,
 				C407AF092099809900B7ECC7 /* LaunchScreen.storyboard in Resources */,
+				C403AE3D209B36D700AEEE7D /* NanumBarunGothicUltraLight.otf in Resources */,
+				C403AE48209B36D700AEEE7D /* NanumSquareRoundOTFB.otf in Resources */,
+				C403AE3F209B36D700AEEE7D /* NanumBrush.otf in Resources */,
+				C403AE45209B36D700AEEE7D /* NanumBarunGothicBold.otf in Resources */,
+				C403AE4A209B36D700AEEE7D /* NanumBarunGothicLight.otf in Resources */,
 				C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */,
+				C403AE4D209B36D700AEEE7D /* NanumBarunGothic.otf in Resources */,
+				C403AE4F209B36D700AEEE7D /* NanumMyeongjoBold.otf in Resources */,
+				C403AE41209B36D700AEEE7D /* NanumMyeongjo.otf in Resources */,
+				C403AE3C209B36D700AEEE7D /* NanumPen.otf in Resources */,
+				C403AE49209B36D700AEEE7D /* NanumSquareRoundOTFL.otf in Resources */,
 				C407AF042099809700B7ECC7 /* Main.storyboard in Resources */,
+				C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */,
+				C403AE4C209B36D700AEEE7D /* NanumSquareOTFBold.otf in Resources */,
+				C403AE4B209B36D700AEEE7D /* NanumSquareRoundOTFR.otf in Resources */,
+				C403AE53209B36E500AEEE7D /* NanumSquareOTFExtraBold.otf in Resources */,
 				C403AE17209AC39800AEEE7D /* Alert.storyboard in Resources */,
+				C403AE43209B36D700AEEE7D /* NanumGothicExtraBold.otf in Resources */,
+				C403AE40209B36D700AEEE7D /* NanumGothicBold.otf in Resources */,
+				C403AE3E209B36D700AEEE7D /* NanumBarunpenBold.otf in Resources */,
+				C403AE44209B36D700AEEE7D /* NanumBarunpenRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

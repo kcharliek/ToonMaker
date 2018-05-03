@@ -39,5 +39,31 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareOTFExtraBold.otf</string>
+		<string>NanumSquareOTFLight.otf</string>
+		<string>NanumSquareOTFRegular.otf</string>
+		<string>NanumBarunGothic.otf</string>
+		<string>NanumBarunGothicBold.otf</string>
+		<string>NanumBarunGothicLight.otf</string>
+		<string>NanumBarunGothicUltraLight.otf</string>
+		<string>NanumBarunpenBold.otf</string>
+		<string>NanumBarunpenRegular.otf</string>
+		<string>NanumBrush.otf</string>
+		<string>NanumGothic.otf</string>
+		<string>NanumGothicBold.otf</string>
+		<string>NanumGothicExtraBold.otf</string>
+		<string>NanumGothicLight.otf</string>
+		<string>NanumMyeongjo.otf</string>
+		<string>NanumMyeongjoBold.otf</string>
+		<string>NanumMyeongjoExtraBold.otf</string>
+		<string>NanumPen.otf</string>
+		<string>NanumSquareOTFBold.otf</string>
+		<string>NanumSquareRoundOTFB.otf</string>
+		<string>NanumSquareRoundOTFEB.otf</string>
+		<string>NanumSquareRoundOTFL.otf</string>
+		<string>NanumSquareRoundOTFR.otf</string>
+	</array>
 </dict>
 </plist>
