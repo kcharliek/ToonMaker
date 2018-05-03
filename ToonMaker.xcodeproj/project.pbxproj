@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		213161713609D4D8DC9FB303 /* Pods_ToonMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */; };
+		C403AE0F209ABDE100AEEE7D /* PageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE0E209ABDE100AEEE7D /* PageEditorViewController.swift */; };
+		C403AE11209ABDF400AEEE7D /* ToonMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE10209ABDF400AEEE7D /* ToonMakerViewController.swift */; };
+		C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */; };
+		C403AE17209AC39800AEEE7D /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C403AE16209AC39800AEEE7D /* Alert.storyboard */; };
+		C403AE1A209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE18209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift */; };
+		C403AE1B209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403AE19209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib */; };
+		C403AE1F209AC8B900AEEE7D /* LayoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */; };
+		C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */; };
+		C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE22209B229700AEEE7D /* WebToonModel.swift */; };
+		C403AE25209B333800AEEE7D /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE24209B333800AEEE7D /* Component.swift */; };
 		C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AEFE2099809700B7ECC7 /* AppDelegate.swift */; };
 		C407AF042099809700B7ECC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF022099809700B7ECC7 /* Main.storyboard */; };
 		C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407AF052099809900B7ECC7 /* Assets.xcassets */; };
@@ -20,6 +30,16 @@
 /* Begin PBXFileReference section */
 		6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.debug.xcconfig"; sourceTree = "<group>"; };
 		BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C403AE0E209ABDE100AEEE7D /* PageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageEditorViewController.swift; sourceTree = "<group>"; };
+		C403AE10209ABDF400AEEE7D /* ToonMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonMakerViewController.swift; sourceTree = "<group>"; };
+		C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C403AE16209AC39800AEEE7D /* Alert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
+		C403AE18209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		C403AE19209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutModel.swift; sourceTree = "<group>"; };
+		C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
+		C403AE22209B229700AEEE7D /* WebToonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonModel.swift; sourceTree = "<group>"; };
+		C403AE24209B333800AEEE7D /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		C407AEFB2099809700B7ECC7 /* ToonMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToonMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407AEFE2099809700B7ECC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C407AF032099809700B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +64,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C403AE14209AC2F300AEEE7D /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C403AE18209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift */,
+				C403AE19209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		C403AE15209AC2FE00AEEE7D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		C407AEF22099809700B7ECC7 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +115,9 @@
 		C407AF10209985B800B7ECC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */,
+				C403AE22209B229700AEEE7D /* WebToonModel.swift */,
+				C403AE24209B333800AEEE7D /* Component.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,6 +125,8 @@
 		C407AF11209985C200B7ECC7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C403AE15209AC2FE00AEEE7D /* TableViewCell */,
+				C403AE14209AC2F300AEEE7D /* CollectionViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -93,7 +134,11 @@
 		C407AF12209985CB00B7ECC7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */,
 				C407AF1D2099929500B7ECC7 /* MainViewController.swift */,
+				C403AE0E209ABDE100AEEE7D /* PageEditorViewController.swift */,
+				C403AE10209ABDF400AEEE7D /* ToonMakerViewController.swift */,
+				C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -121,6 +166,7 @@
 				C407AF022099809700B7ECC7 /* Main.storyboard */,
 				C407AF052099809900B7ECC7 /* Assets.xcassets */,
 				C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */,
+				C403AE16209AC39800AEEE7D /* Alert.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -161,6 +207,7 @@
 				C407AEF72099809700B7ECC7 /* Sources */,
 				C407AEF82099809700B7ECC7 /* Frameworks */,
 				C407AEF92099809700B7ECC7 /* Resources */,
+				00247B525926D1842CD72517 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,15 +256,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C403AE1B209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib in Resources */,
 				C407AF092099809900B7ECC7 /* LaunchScreen.storyboard in Resources */,
 				C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */,
 				C407AF042099809700B7ECC7 /* Main.storyboard in Resources */,
+				C403AE17209AC39800AEEE7D /* Alert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00247B525926D1842CD72517 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4143E3B4C653AEE8F0A9EF28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,10 +318,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C403AE11209ABDF400AEEE7D /* ToonMakerViewController.swift in Sources */,
+				C403AE25209B333800AEEE7D /* Component.swift in Sources */,
+				C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */,
 				C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */,
+				C403AE1A209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift in Sources */,
 				C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */,
 				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
+				C403AE0F209ABDE100AEEE7D /* PageEditorViewController.swift in Sources */,
+				C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */,
 				C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */,
+				C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */,
+				C403AE1F209AC8B900AEEE7D /* LayoutModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,9 +476,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
-				INFOPLIST_FILE = "$(SRCROOT)/ToonMaker/Helpers/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chk.ToonMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -410,9 +496,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
-				INFOPLIST_FILE = "$(SRCROOT)/ToonMaker/Helpers/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chk.ToonMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
