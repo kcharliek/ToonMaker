@@ -41,6 +41,8 @@
 		C403AE53209B36E500AEEE7D /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */; };
 		C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */; };
 		C403AE55209B36E500AEEE7D /* NanumSquareOTFLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */; };
+		C403AE58209B40C700AEEE7D /* BookShelfCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE56209B40C700AEEE7D /* BookShelfCollectionViewCell.swift */; };
+		C403AE59209B40C700AEEE7D /* BookShelfCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403AE57209B40C700AEEE7D /* BookShelfCollectionViewCell.xib */; };
 		C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AEFE2099809700B7ECC7 /* AppDelegate.swift */; };
 		C407AF042099809700B7ECC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF022099809700B7ECC7 /* Main.storyboard */; };
 		C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407AF052099809900B7ECC7 /* Assets.xcassets */; };
@@ -48,6 +50,16 @@
 		C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF16209987CD00B7ECC7 /* Constants.swift */; };
 		C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */; };
 		C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1D2099929500B7ECC7 /* MainViewController.swift */; };
+		C45FCCE9209D7D0E00EA7A28 /* LayoutConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FCCE8209D7D0E00EA7A28 /* LayoutConstraintExtensions.swift */; };
+		C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4968B35209C0FB500E93783 /* Popover.storyboard */; };
+		C4968B3A209C11A900E93783 /* PopoverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4968B38209C11A900E93783 /* PopoverListTableViewCell.swift */; };
+		C4D4CA9C209C388500685C5D /* PopoverListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4CA9B209C388500685C5D /* PopoverListViewController.swift */; };
+		C4DF4476209EAE4400D90A80 /* PaintProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */; };
+		C4DF4478209ED7C300D90A80 /* DrawCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4477209ED7C300D90A80 /* DrawCommand.swift */; };
+		C4DF447A209ED7DD00D90A80 /* MakeBubbleCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */; };
+		C4DF447C209ED89B00D90A80 /* MakeStickerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */; };
+		C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447D209EDAFC00D90A80 /* PaintView.swift */; };
+		C4DF4480209EDC2E00D90A80 /* PaintCommandInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +98,8 @@
 		C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
 		C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
 		C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
+		C403AE56209B40C700AEEE7D /* BookShelfCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfCollectionViewCell.swift; sourceTree = "<group>"; };
+		C403AE57209B40C700AEEE7D /* BookShelfCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookShelfCollectionViewCell.xib; sourceTree = "<group>"; };
 		C407AEFB2099809700B7ECC7 /* ToonMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToonMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407AEFE2099809700B7ECC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C407AF032099809700B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +109,16 @@
 		C407AF16209987CD00B7ECC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		C407AF1D2099929500B7ECC7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C45FCCE8209D7D0E00EA7A28 /* LayoutConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintExtensions.swift; sourceTree = "<group>"; };
+		C4968B35209C0FB500E93783 /* Popover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
+		C4968B38209C11A900E93783 /* PopoverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverListTableViewCell.swift; sourceTree = "<group>"; };
+		C4D4CA9B209C388500685C5D /* PopoverListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverListViewController.swift; sourceTree = "<group>"; };
+		C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintProtocols.swift; sourceTree = "<group>"; };
+		C4DF4477209ED7C300D90A80 /* DrawCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawCommand.swift; sourceTree = "<group>"; };
+		C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBubbleCommand.swift; sourceTree = "<group>"; };
+		C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeStickerCommand.swift; sourceTree = "<group>"; };
+		C4DF447D209EDAFC00D90A80 /* PaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
+		C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintCommandInvoker.swift; sourceTree = "<group>"; };
 		EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +139,8 @@
 			children = (
 				C403AE18209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift */,
 				C403AE19209AC40D00AEEE7D /* EditMenuCollectionViewCell.xib */,
+				C403AE56209B40C700AEEE7D /* BookShelfCollectionViewCell.swift */,
+				C403AE57209B40C700AEEE7D /* BookShelfCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -122,6 +148,7 @@
 		C403AE15209AC2FE00AEEE7D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C4968B38209C11A900E93783 /* PopoverListTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -161,6 +188,7 @@
 			children = (
 				C407AF022099809700B7ECC7 /* Main.storyboard */,
 				C403AE16209AC39800AEEE7D /* Alert.storyboard */,
+				C4968B35209C0FB500E93783 /* Popover.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -186,13 +214,13 @@
 		C407AEFD2099809700B7ECC7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C407AF15209985F700B7ECC7 /* Resources */,
 				C407AF10209985B800B7ECC7 /* Models */,
 				C407AF11209985C200B7ECC7 /* Views */,
 				C407AF12209985CB00B7ECC7 /* Controllers */,
 				C407AF13209985D300B7ECC7 /* Stores */,
 				C407AF1820998CEA00B7ECC7 /* Extensions */,
 				C407AF14209985D900B7ECC7 /* Helpers */,
-				C407AF15209985F700B7ECC7 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -200,8 +228,9 @@
 		C407AF10209985B800B7ECC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */,
+				C4DF4474209EAE1F00D90A80 /* Drawing */,
 				C403AE22209B229700AEEE7D /* WebToonModel.swift */,
+				C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */,
 				C403AE24209B333800AEEE7D /* Component.swift */,
 			);
 			path = Models;
@@ -212,6 +241,7 @@
 			children = (
 				C403AE15209AC2FE00AEEE7D /* TableViewCell */,
 				C403AE14209AC2F300AEEE7D /* CollectionViewCell */,
+				C4DF447D209EDAFC00D90A80 /* PaintView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +249,7 @@
 		C407AF12209985CB00B7ECC7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C4968B37209C10A300E93783 /* Popover */,
 				C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */,
 				C407AF1D2099929500B7ECC7 /* MainViewController.swift */,
 				C403AE0E209ABDE100AEEE7D /* PageEditorViewController.swift */,
@@ -260,8 +291,29 @@
 			isa = PBXGroup;
 			children = (
 				C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */,
+				C45FCCE8209D7D0E00EA7A28 /* LayoutConstraintExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C4968B37209C10A300E93783 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4CA9B209C388500685C5D /* PopoverListViewController.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		C4DF4474209EAE1F00D90A80 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */,
+				C4DF4477209ED7C300D90A80 /* DrawCommand.swift */,
+				C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */,
+				C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */,
+				C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */,
+			);
+			path = Drawing;
 			sourceTree = "<group>";
 		};
 		D9742BF0DA6F8C1876F758CB /* Frameworks */ = {
@@ -360,6 +412,7 @@
 				C403AE3C209B36D700AEEE7D /* NanumPen.otf in Resources */,
 				C403AE49209B36D700AEEE7D /* NanumSquareRoundOTFL.otf in Resources */,
 				C407AF042099809700B7ECC7 /* Main.storyboard in Resources */,
+				C403AE59209B40C700AEEE7D /* BookShelfCollectionViewCell.xib in Resources */,
 				C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */,
 				C403AE4C209B36D700AEEE7D /* NanumSquareOTFBold.otf in Resources */,
 				C403AE4B209B36D700AEEE7D /* NanumSquareRoundOTFR.otf in Resources */,
@@ -368,6 +421,7 @@
 				C403AE43209B36D700AEEE7D /* NanumGothicExtraBold.otf in Resources */,
 				C403AE40209B36D700AEEE7D /* NanumGothicBold.otf in Resources */,
 				C403AE3E209B36D700AEEE7D /* NanumBarunpenBold.otf in Resources */,
+				C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */,
 				C403AE44209B36D700AEEE7D /* NanumBarunpenRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +436,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Actions/Actions.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
@@ -390,7 +445,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Actions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
@@ -430,13 +486,23 @@
 				C403AE25209B333800AEEE7D /* Component.swift in Sources */,
 				C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */,
 				C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */,
+				C4DF4476209EAE4400D90A80 /* PaintProtocols.swift in Sources */,
+				C4DF447C209ED89B00D90A80 /* MakeStickerCommand.swift in Sources */,
 				C403AE1A209AC40D00AEEE7D /* EditMenuCollectionViewCell.swift in Sources */,
 				C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */,
 				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
+				C4DF4478209ED7C300D90A80 /* DrawCommand.swift in Sources */,
+				C403AE58209B40C700AEEE7D /* BookShelfCollectionViewCell.swift in Sources */,
 				C403AE0F209ABDE100AEEE7D /* PageEditorViewController.swift in Sources */,
+				C4D4CA9C209C388500685C5D /* PopoverListViewController.swift in Sources */,
 				C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */,
+				C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */,
 				C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */,
+				C45FCCE9209D7D0E00EA7A28 /* LayoutConstraintExtensions.swift in Sources */,
+				C4968B3A209C11A900E93783 /* PopoverListTableViewCell.swift in Sources */,
 				C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */,
+				C4DF4480209EDC2E00D90A80 /* PaintCommandInvoker.swift in Sources */,
+				C4DF447A209ED7DD00D90A80 /* MakeBubbleCommand.swift in Sources */,
 				C403AE1F209AC8B900AEEE7D /* LayoutModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

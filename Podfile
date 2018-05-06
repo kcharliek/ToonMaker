@@ -8,10 +8,9 @@ target 'ToonMaker' do
   # Pods for ToonMaker
   pod 'SnapKit'
   pod 'Toaster'
-  pod 'Alamofire'
   pod 'Hero'
   pod 'Then'
-  
-  
+  pod 'Actions'
+  pod 'DropDown'
   
 end

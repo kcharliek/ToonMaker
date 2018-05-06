@@ -9,6 +9,19 @@
 import UIKit
 
 class MainViewController: BaseViewController {
+
+    
+    @IBAction func bookShelfBtnClicked(_ sender: Any) {
+        
+    }
+    
+    @IBAction func newToonBtnClicked(_ sender: Any) {
+        let nav = UINavigationController()
+        let toonMakerVC = ToonMakerViewController.make()
+        toonMakerVC.isNewBook = true
+        nav.viewControllers = [toonMakerVC]
+        present(nav, animated: true, completion: nil)
+    }
     
     // MARK: - Method
     public func make() -> MainViewController {

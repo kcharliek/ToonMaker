@@ -9,10 +9,16 @@
 import UIKit
 
 class EditMenuCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setIcon(image: UIImage) {
+        iconImageView.image = image
     }
     
     static var toString: String {

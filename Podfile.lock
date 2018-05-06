@@ -1,12 +1,14 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Actions (2.2.1)
+  - DropDown (2.3.2)
   - Hero (1.2.0)
   - SnapKit (4.0.0)
   - Then (2.3.0)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
-  - Alamofire
+  - Actions
+  - DropDown
   - Hero
   - SnapKit
   - Then
@@ -14,19 +16,21 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
+    - Actions
+    - DropDown
     - Hero
     - SnapKit
     - Then
     - Toaster
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Actions: 6158e6d06ebb505181726abfbca7cb0ca8356067
+  DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: abcbc85e5fd7ef8c53d043776a9f3dc1b6ad41f8
+PODFILE CHECKSUM: 4881d26ec198c0a40d0720db199ebbb94da5cae0
 
 COCOAPODS: 1.5.0

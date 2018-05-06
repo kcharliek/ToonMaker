@@ -14,11 +14,23 @@ class WebToon {
     var creationDate: Date?
     var modifiedDate: Date?
     
-    var pages : [WebToonPage]?
+    var pages = [WebToonPage]()
 }
 
 class WebToonPage {
-    var layout: ToonLayout?
+    var layout: ToonLayout? {
+        didSet {
+            guard let layout = layout else { return }
+            var newScenes = [WebToonScene]()
+            for sceneLayout in layout.sceneLayouts {
+                let scene = WebToonScene()
+                scene.layout = sceneLayout
+                newScenes.append(scene)
+            }
+            scenes = newScenes
+        }
+    }
+    
     var scenes: [WebToonScene]?
 }
 
