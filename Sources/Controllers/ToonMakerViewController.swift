@@ -10,13 +10,17 @@ import UIKit
 import Then
 import SnapKit
 import Actions
-import DropDown
+import PKHUD
 
 class ToonMakerViewController: BaseViewController {
-    @IBOutlet weak var toonPageView: UIView!
+    // MARK: - Constant
+    let sceneSpacing: CGFloat = 5
     
+    // MARK: - IBOutlet
+    @IBOutlet weak var toonPageView: UIView!
     @IBOutlet weak var moreBarButtonItem: UIBarButtonItem!
     
+    // MARK: - Variable
     var webToonModel: WebToon?
     var currentPage: Int = -1
 //    {
@@ -26,20 +30,21 @@ class ToonMakerViewController: BaseViewController {
 //            }
 //        }
 //    }
-    var dropDown: DropDown!
     var pageModel: WebToonPage? {
         didSet {
-            drawScenes()
+            if isViewDidAppearCalled {
+                drawScenes()
+            }
         }
     }
+    var isViewDidAppearCalled: Bool = false // For checking the layout completion
     var isNewBook: Bool = false
-    let sceneSpacing: CGFloat = 5
     
     // MARK: - Actions
     
     @IBAction func moreBtnClicked(_ sender: UIButton) {
         let menus = ["템플릿 변경", "책 설정", "페이지 설정"]
-        let _ = PopoverListViewController.make(source: menus).then {
+        let _ = ListPopoverViewController.make(source: menus).then {
             $0.modalPresentationStyle = .popover
             $0.popoverPresentationController?.delegate = self
             $0.popoverPresentationController?.backgroundColor = .white
@@ -72,7 +77,7 @@ class ToonMakerViewController: BaseViewController {
     @objc func sceneSelected(sender: Any) {
         let sender = sender as! UIImageView
         let selectedScene = pageModel?.scenes?[sender.tag]
-        let editorVC = PageEditorViewController.make(model: selectedScene)
+        let editorVC = SceneEditorViewController.make(model: selectedScene)
         navigationController?.pushViewController(editorVC, animated: true)
     }
     // MARK: - Method
@@ -82,11 +87,15 @@ class ToonMakerViewController: BaseViewController {
     }
     
     private func drawScenes() {
+        HUD.show(.systemActivity)
+        for v in toonPageView.subviews { v.removeFromSuperview() }
+        
         guard let toonLayout = pageModel?.layout else { return }
         
         var idx = 0
+        toonPageView.layoutIfNeeded()
+        
         for sceneLayout in toonLayout.sceneLayouts {
-            toonPageView.layoutIfNeeded()
             let sceneFrame = sceneLayout.frame(in: toonPageView.bounds)
             let _ = UIImageView().then {
                 $0.frame = sceneFrame.insetBy(dx: sceneSpacing, dy: sceneSpacing)
@@ -98,6 +107,7 @@ class ToonMakerViewController: BaseViewController {
             }
             idx = idx + 1
         }
+        HUD.hide()
     }
     
     public static func make() -> ToonMakerViewController {
@@ -115,28 +125,31 @@ class ToonMakerViewController: BaseViewController {
     }
     
     func configureUI() {
-        dropDown = DropDown().then {
-            $0.anchorView = moreBarButtonItem
-            $0.selectionAction = { [unowned self] (index: Int, item: String) in
-                print("Selected item: \(item) at index: \(index)")
-            }
-            $0.dataSource = ["삭제"]
-        }
     }
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if isNewBook {
             makeNewBook()
         }
+        
         configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        HUD.show(.systemActivity)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        isViewDidAppearCalled = true
+        drawScenes() //draw page after all layout is completed
     }
 }
 

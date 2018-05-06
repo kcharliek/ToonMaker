@@ -8,7 +8,18 @@
 
 import UIKit
 
-class PaintView: UIView {
+class PaintView: UIView, Canvas {
+    
+    // MARK: - Canvase Protocol Implementation
+    
+    var context: CGContext {
+        return UIGraphicsGetCurrentContext()!
+    }
+    var contentView: UIView {
+        return self
+    }
+    
+    
 
     /*
     // Only override draw() if you perform custom drawing.

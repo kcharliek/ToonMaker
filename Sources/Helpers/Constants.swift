@@ -13,11 +13,12 @@ enum Config {
 }
 
 enum TMColor {
-    static let primaryColor = Color.Material.pink
+    static let primaryColor = Color.Material.blueGrey900
 //    static let secondaryColor = Color.init(red: 0, green: 0, blue: 0)
 }
 
 enum Storyboard {
     static let main = UIStoryboard(name: "Main", bundle: nil)
     static let alert = UIStoryboard(name: "Alert", bundle: nil)
+    static let popover = UIStoryboard(name: "Popover", bundle: nil)
 }

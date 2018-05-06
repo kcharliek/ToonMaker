@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "148A2BD4760353EDD31FF30F2F36E2F3"
+               BlueprintIdentifier = "79E66F77796B3011DA348167AEDC7981"
                BuildableName = "Pods_ToonMaker.framework"
                BlueprintName = "Pods-ToonMaker"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "148A2BD4760353EDD31FF30F2F36E2F3"
+            BlueprintIdentifier = "79E66F77796B3011DA348167AEDC7981"
             BuildableName = "Pods_ToonMaker.framework"
             BlueprintName = "Pods-ToonMaker"
             ReferencedContainer = "container:Pods.xcodeproj">

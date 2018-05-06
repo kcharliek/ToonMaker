@@ -8,15 +8,12 @@
 
 import UIKit
 
-protocol PaintCommand { }
-extension PaintCommand {
-    //For Optional Implementation
-    func add(in canvas: Canvas ){ }
-    func draw(in canvas: Canvas){ }
+@objc protocol PaintCommand {
+    @objc optional func add(in canvas: Canvas )
+    @objc optional func draw(in canvas: Canvas)
 }
 
-protocol Canvas {
+@objc protocol Canvas {
     var context: CGContext { get }
-    var view: UIView { get }
+    var contentView: UIView { get }
 }
-

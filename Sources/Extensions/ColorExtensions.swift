@@ -440,7 +440,6 @@ public extension Color {
         /// red: 255, green: 252, blue: 0
         public static let snapchat = Color(red: 255, green: 252, blue: 0)!
     }
-    
 }
 
 // MARK: - Material colors

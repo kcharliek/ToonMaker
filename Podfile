@@ -11,6 +11,5 @@ target 'ToonMaker' do
   pod 'Hero'
   pod 'Then'
   pod 'Actions'
-  pod 'DropDown'
-  
+  pod 'PKHUD'
 end
