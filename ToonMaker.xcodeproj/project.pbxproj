@@ -50,11 +50,13 @@
 		C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF16209987CD00B7ECC7 /* Constants.swift */; };
 		C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */; };
 		C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1D2099929500B7ECC7 /* MainViewController.swift */; };
+		C433786420A126960092016D /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433786320A126960092016D /* Dot.swift */; };
+		C433786620A13DB40092016D /* EditorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433786520A13DB40092016D /* EditorConfiguration.swift */; };
 		C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4968B35209C0FB500E93783 /* Popover.storyboard */; };
 		C4968B3A209C11A900E93783 /* ListPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */; };
 		C4D4CA9C209C388500685C5D /* ListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */; };
 		C4DF4476209EAE4400D90A80 /* PaintProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */; };
-		C4DF4478209ED7C300D90A80 /* DrawCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4477209ED7C300D90A80 /* DrawCommand.swift */; };
+		C4DF4478209ED7C300D90A80 /* DotCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4477209ED7C300D90A80 /* DotCommand.swift */; };
 		C4DF447A209ED7DD00D90A80 /* MakeBubbleCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */; };
 		C4DF447C209ED89B00D90A80 /* MakeStickerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */; };
 		C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447D209EDAFC00D90A80 /* PaintView.swift */; };
@@ -66,6 +68,8 @@
 		C4DF448D209F0D0D00D90A80 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF448C209F0D0D00D90A80 /* TableViewCell.swift */; };
 		C4DF448F209F1FAF00D90A80 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */; };
 		C4DF4491209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */; };
+		C4DF4493209FF9B900D90A80 /* EditorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4492209FF9B900D90A80 /* EditorEnums.swift */; };
+		C4DF449520A0987B00D90A80 /* LineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF449420A0987B00D90A80 /* LineCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,11 +119,13 @@
 		C407AF16209987CD00B7ECC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		C407AF1D2099929500B7ECC7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C433786320A126960092016D /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
+		C433786520A13DB40092016D /* EditorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorConfiguration.swift; sourceTree = "<group>"; };
 		C4968B35209C0FB500E93783 /* Popover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverTableViewCell.swift; sourceTree = "<group>"; };
 		C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverViewController.swift; sourceTree = "<group>"; };
 		C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintProtocols.swift; sourceTree = "<group>"; };
-		C4DF4477209ED7C300D90A80 /* DrawCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawCommand.swift; sourceTree = "<group>"; };
+		C4DF4477209ED7C300D90A80 /* DotCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotCommand.swift; sourceTree = "<group>"; };
 		C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBubbleCommand.swift; sourceTree = "<group>"; };
 		C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeStickerCommand.swift; sourceTree = "<group>"; };
 		C4DF447D209EDAFC00D90A80 /* PaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 		C4DF448C209F0D0D00D90A80 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuDrawWidthPopoverViewController.swift; sourceTree = "<group>"; };
+		C4DF4492209FF9B900D90A80 /* EditorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorEnums.swift; sourceTree = "<group>"; };
+		C4DF449420A0987B00D90A80 /* LineCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCommand.swift; sourceTree = "<group>"; };
 		EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +248,7 @@
 		C407AF10209985B800B7ECC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C4DF4474209EAE1F00D90A80 /* Drawing */,
+				C4DF4474209EAE1F00D90A80 /* Editor */,
 				C403AE22209B229700AEEE7D /* WebToonModel.swift */,
 				C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */,
 				C403AE24209B333800AEEE7D /* Component.swift */,
@@ -317,16 +325,20 @@
 			path = Popover;
 			sourceTree = "<group>";
 		};
-		C4DF4474209EAE1F00D90A80 /* Drawing */ = {
+		C4DF4474209EAE1F00D90A80 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				C433786520A13DB40092016D /* EditorConfiguration.swift */,
 				C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */,
-				C4DF4477209ED7C300D90A80 /* DrawCommand.swift */,
 				C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */,
 				C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */,
 				C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */,
+				C4DF4492209FF9B900D90A80 /* EditorEnums.swift */,
+				C4DF4477209ED7C300D90A80 /* DotCommand.swift */,
+				C4DF449420A0987B00D90A80 /* LineCommand.swift */,
+				C433786320A126960092016D /* Dot.swift */,
 			);
-			path = Drawing;
+			path = Editor;
 			sourceTree = "<group>";
 		};
 		C4DF4481209EFD8000D90A80 /* EditorMenu */ = {
@@ -529,14 +541,16 @@
 				C403AE25209B333800AEEE7D /* Component.swift in Sources */,
 				C4DF4489209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift in Sources */,
 				C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */,
+				C4DF449520A0987B00D90A80 /* LineCommand.swift in Sources */,
 				C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */,
 				C4DF4476209EAE4400D90A80 /* PaintProtocols.swift in Sources */,
 				C4DF4483209EFE3900D90A80 /* EditorMenuColorPopoverViewController.swift in Sources */,
+				C433786620A13DB40092016D /* EditorConfiguration.swift in Sources */,
 				C4DF447C209ED89B00D90A80 /* MakeStickerCommand.swift in Sources */,
 				C403AE1A209AC40D00AEEE7D /* EditorMenuCollectionViewCell.swift in Sources */,
 				C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */,
 				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
-				C4DF4478209ED7C300D90A80 /* DrawCommand.swift in Sources */,
+				C4DF4478209ED7C300D90A80 /* DotCommand.swift in Sources */,
 				C403AE58209B40C700AEEE7D /* BookShelfCollectionViewCell.swift in Sources */,
 				C4DF448D209F0D0D00D90A80 /* TableViewCell.swift in Sources */,
 				C403AE0F209ABDE100AEEE7D /* SceneEditorViewController.swift in Sources */,
@@ -544,8 +558,10 @@
 				C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */,
 				C4DF4486209EFF8A00D90A80 /* BasePopoverViewController.swift in Sources */,
 				C4DF448F209F1FAF00D90A80 /* UIImageExtensions.swift in Sources */,
+				C4DF4493209FF9B900D90A80 /* EditorEnums.swift in Sources */,
 				C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */,
 				C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */,
+				C433786420A126960092016D /* Dot.swift in Sources */,
 				C4968B3A209C11A900E93783 /* ListPopoverTableViewCell.swift in Sources */,
 				C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */,
 				C4DF4491209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift in Sources */,
@@ -700,7 +716,10 @@
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chk.ToonMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -717,7 +736,10 @@
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chk.ToonMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

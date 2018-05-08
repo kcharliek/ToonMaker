@@ -8,17 +8,18 @@
 
 import UIKit
 
-var mode: Menu = .grab {
-    didSet {
+class EditorConfiguration {
+    var penWidth: CGFloat = 5.0
+    var eraserWidth: CGFloat = 7.0
+    var currentColor: Color = .black
+    var canUndo: Bool = false
+    var canRedo: Bool = false
+    
+    var commandInvoker: PaintCommandInvoker!
+    
+    
+    
+    init() {
+        commandInvoker = PaintCommandInvoker()
     }
 }
-var penWidth: CGFloat = 5.0
-var eraserWidth: CGFloat = 7.0
-
-var currentColor: Color = .black
-var canUndo: Bool = false
-var canRedo: Bool = false
-var lastPoint: CGPoint = CGPoint.zero
-let commandInvoker = PaintCommandInvoker()
-var lastDot: Dot?
-var lineCommand: LineCommand?

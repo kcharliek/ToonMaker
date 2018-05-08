@@ -9,7 +9,7 @@
 import UIKit
 
 class MakeStickerCommand: PaintCommand {
-    func add(in canvas: Canvas) {
+    func execute(in canvas: Canvas) {
         
     }
 }

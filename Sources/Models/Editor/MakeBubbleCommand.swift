@@ -9,8 +9,7 @@
 import UIKit
 
 class MakeBubbleCommand: PaintCommand {
-    
-    func add(in canvas: Canvas) {
+    func execute(in canvas: Canvas) {
         
     }
 }

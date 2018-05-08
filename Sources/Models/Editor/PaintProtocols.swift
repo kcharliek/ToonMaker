@@ -9,8 +9,7 @@
 import UIKit
 
 @objc protocol PaintCommand {
-    @objc optional func add(in canvas: Canvas )
-    @objc optional func draw(in canvas: Canvas)
+    func execute(in canvas: Canvas)
 }
 
 @objc protocol Canvas {

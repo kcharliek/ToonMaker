@@ -10,16 +10,27 @@ import UIKit
 
 class PaintCommandInvoker {
     private var commands = [PaintCommand]()
- 
-    func addCommand(cmd: PaintCommand) {
-        commands.append(cmd)
+    private var itr: Int = -1
+    
+    func add(command: PaintCommand) {
+        if itr >= 0 {
+            commands = Array(commands[0...itr])
+        }
+        commands.append(command)
+        itr = commands.count - 1
     }
     
-    func doCommand() {
- 
+    func redoCommands() -> [PaintCommand]? {
+        guard itr < commands.count - 1 else { return commands }
+        
+        itr = itr + 1
+        return Array(commands[0...itr])
     }
- 
-    func undoCommand() {
- 
+    
+    func undoCommands() -> [PaintCommand]? {
+        guard itr > 0 else { itr = -1; return nil }
+        
+        itr = itr - 1
+        return Array(commands[0...itr])
     }
  }

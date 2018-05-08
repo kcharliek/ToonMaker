@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+enum Menu {
+    case grab
+    case color
+    case pen
+    case eraser
+    case sticker
+    case bubble
+    case undo
+    case redo
+    case save
+}

@@ -67,6 +67,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-5W-Tn7" customClass="PaintView" customModule="ToonMaker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="110" width="320" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jnX-5W-Tn7" secondAttribute="height" multiplier="2:1" placeholder="YES" id="4ln-f2-cVM"/>
                                     <constraint firstAttribute="width" secondItem="jnX-5W-Tn7" secondAttribute="height" placeholder="YES" id="oYN-Fp-J3I"/>
@@ -87,6 +88,9 @@
                                         <include reference="oYN-Fp-J3I"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="grp-LO-hqb" appends="YES" id="B2g-fA-u3M"/>
+                                </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="apz-1K-r9q">
                                 <rect key="frame" x="5" y="519" width="310" height="44"/>
@@ -208,6 +212,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qux-Qc-bG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="grp-LO-hqb">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="anq-3P-ulp" id="rWz-cy-yAH"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1555" y="839"/>
         </scene>

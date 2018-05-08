@@ -9,18 +9,6 @@
 import UIKit
 import Then
 
-enum Menu {
-    case grab
-    case color
-    case pen
-    case eraser
-    case sticker
-    case bubble
-    case undo
-    case redo
-    case save
-}
-
 class SceneEditorViewController: BaseViewController {
     let menus: [(Menu, UIImage)] = [(.save,#imageLiteral(resourceName: "editor_menu_save")), (.color,#imageLiteral(resourceName: "editor_menu_color")), (.grab, #imageLiteral(resourceName: "editor_menu_grab")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo"))]
     
@@ -31,22 +19,71 @@ class SceneEditorViewController: BaseViewController {
     // MARK: - Variable
     var model: WebToonScene?
     var isLandscape: Bool = false
-    var currentColor: Color = .black {
-        didSet {
-            let indexPath = IndexPath(item: 1, section: 0) //color cell
-            menuCollectionView.reloadItems(at: [indexPath])
-        }
-    }
+    var mode: Menu = .grab
+    var config: EditorConfiguration! = EditorConfiguration()
     
-    var penWidth: CGFloat = 5.0
-    var eraserWidth: CGFloat = 7.0
+    //Temporary Variables For Drawing Line
+    var lastPoint: CGPoint = CGPoint.zero
+    var lineCommand: LineCommand?
+    var lastDot: Dot?
     
     // MARK: - Actions
     @IBAction func backBtnClicked(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
+        let point = sender.location(in: sender.view)
+        switch sender.state {
+        case .began:
+            panBeganAt(point: point)
+        case .changed:
+            panChangedAt(point: point)
+        case .ended, .cancelled, .failed:
+            panEndAt(point: point)
+        default:
+            break
+        }
+    }
+    
+    func undo() {
+        editorView.reset()
+        editorView.execute(commands: config.commandInvoker.undoCommands())
+    }
+    
+    func redo() {
+        editorView.reset()
+        editorView.execute(commands: config.commandInvoker.redoCommands())
+    }
+    
     // MARK: - Method
+    func panBeganAt(point: CGPoint) {
+        lastPoint = point
+        lineCommand = LineCommand()
+    }
+    
+    func panChangedAt(point: CGPoint) {
+        let width: CGFloat = mode == .pen ? config.penWidth : config.eraserWidth
+        let color: Color = mode == .eraser ? .white : config.currentColor
+        let dot = Dot(a: lastPoint, b: point, width: width, color: color)
+        
+        let dotCommand = DotCommand(current: dot, previous: lastDot)
+        editorView.execute(commands: [dotCommand])
+        lineCommand?.addDotCommand(command: dotCommand)
+        
+        lastDot = dot
+        lastPoint = point
+    }
+    
+    func panEndAt(point: CGPoint) {
+        if let lineCommand = lineCommand {
+            config.commandInvoker.add(command: lineCommand)
+        }
+        lastPoint = CGPoint.zero
+        lastDot = nil
+        lineCommand = nil
+    }
+    
     public static func make(model: WebToonScene?) -> SceneEditorViewController {
         let vc = Storyboard.main.instantiateViewController(withIdentifier: "SceneEditorViewController") as! SceneEditorViewController
         vc.model = model
@@ -126,7 +163,7 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
         cell.type = menus[indexPath.row].0
         
         var menuImage = menus[indexPath.row].1
-        if cell.type == .color, let tintedImage = menuImage.tinted(with: currentColor) {
+        if cell.type == .color, let tintedImage = menuImage.tinted(with: config.currentColor) {
             menuImage = tintedImage
         }
         cell.setIcon(image: menuImage)
@@ -159,11 +196,14 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
                     $0.popoverPresentationController?.sourceRect = cell.bounds
                     $0.popoverPresentationController?.sourceView = cell
                     $0.type = cell.type
-                    $0.dotWidth = cell.type == .pen ? penWidth : eraserWidth
+                    $0.dotWidth = cell.type == .pen ? config.penWidth : config.eraserWidth
                     $0.preferredContentSize = CGSize(width: 300, height: 125)
                     present($0, animated: true, completion: nil)
                 }
-            }
+            }else if cell.type == .undo { undo() }
+            else if cell.type == .redo { redo() }
+            
+            mode = cell.type
         }
     }
     
@@ -177,13 +217,15 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension SceneEditorViewController: TMPopoverDelegate {
     func popover(_ controller: BasePopoverViewController, didSelectColor color: UIColor) {
-        currentColor = color
+        config.currentColor = color
+        let indexPath = IndexPath(item: 1, section: 0) //color cell
+        menuCollectionView.reloadItems(at: [indexPath])
     }
     
     func popover(_ controller: BasePopoverViewController, didSelectValue value: CGFloat) {
         if let vc = controller as? EditorMenuDrawWidthPopoverViewController {
-            if vc.type == .pen { penWidth = value }
-            else { eraserWidth = value }
+            if vc.type == .pen { config.penWidth = value }
+            else { config.eraserWidth = value }
         }
     }
 }
