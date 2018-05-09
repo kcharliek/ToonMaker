@@ -13,11 +13,16 @@ class PaintCommandInvoker {
     private var itr: Int = -1
     
     func add(command: PaintCommand) {
-        if itr >= 0 {
-            commands = Array(commands[0...itr])
-        }
+        if itr >= 0 { commands = Array(commands[0...itr]) }
+        else { commands.removeAll() }
+        
         commands.append(command)
         itr = commands.count - 1
+    }
+    
+    func removeAllCommands() {
+        commands.removeAll()
+        itr = -1
     }
     
     func redoCommands() -> [PaintCommand]? {

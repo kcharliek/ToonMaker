@@ -18,10 +18,16 @@ class ToonMakerViewController: BaseViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak var toonPageView: UIView!
-    @IBOutlet weak var moreBarButtonItem: UIBarButtonItem!
+//    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var layoutBarButtonItem: UIBarButtonItem!
     
     // MARK: - Variable
-    var webToonModel: WebToon?
+    var webToonModel: WebToon! {
+        didSet {
+            pageModel = webToonModel.pages[0]
+            title = webToonModel.title
+        }
+    }
     var currentPage: Int = -1
 //    {
 //        didSet {
@@ -30,7 +36,7 @@ class ToonMakerViewController: BaseViewController {
 //            }
 //        }
 //    }
-    var pageModel: WebToonPage? {
+    var pageModel: WebToonPage! {
         didSet {
             if isViewDidAppearCalled {
                 drawScenes()
@@ -38,20 +44,31 @@ class ToonMakerViewController: BaseViewController {
         }
     }
     var isViewDidAppearCalled: Bool = false // For checking the layout completion
-    var isNewBook: Bool = false
     
     // MARK: - Actions
     
-    @IBAction func moreBtnClicked(_ sender: UIButton) {
-        let menus = ["템플릿 변경", "책 설정", "페이지 설정"]
-        let _ = ListPopoverViewController.make(source: menus).then {
-            $0.modalPresentationStyle = .popover
-            $0.popoverPresentationController?.delegate = self
-            $0.popoverPresentationController?.backgroundColor = .white
-            $0.rowHeight = 35
-            $0.preferredContentSize = CGSize(width: 100, height: $0.rowHeight * CGFloat(menus.count))
-            present($0, animated: true, completion: nil)
+    @IBAction func saveBtnClicked(_ sender: UIButton) {
+        
+        
+    }
+    
+    @IBAction func layoutBtnClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "레이아웃 변경", message: "레이아웃을 변경하면 페이지 안의 모든 이미지는 삭제됩니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
+            let _ = LayoutSamplePopoverViewController.make().then {
+                $0.modalPresentationStyle = .popover
+                $0.delegate = self
+                $0.popoverPresentationController?.delegate = self
+                $0.popoverPresentationController?.backgroundColor = .white
+                $0.popoverPresentationController?.barButtonItem = self.layoutBarButtonItem
+                $0.preferredContentSize = CGSize(width: 320, height: 400)
+                self.present($0, animated: true, completion: nil)
+            }
         }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func viewSwiped(_ sender: UISwipeGestureRecognizer) {
@@ -62,6 +79,7 @@ class ToonMakerViewController: BaseViewController {
             go(page: currentPage - 1)
         }
     }
+    
     
     @IBAction func goBeforePageBtnClicked(_ sender: Any) {
         go(page: currentPage - 1)
@@ -114,16 +132,6 @@ class ToonMakerViewController: BaseViewController {
         return Storyboard.main.instantiateViewController(withIdentifier: "ToonMakerViewController") as! ToonMakerViewController
     }
     
-    func makeNewBook() {
-        let newWebToon = WebToon()
-        let newPage = WebToonPage()
-        newPage.layout = ToonLayout.Type5()
-        newWebToon.pages.append(newPage)
-        
-        webToonModel = newWebToon
-        pageModel = newPage
-    }
-    
     func configureUI() {
     }
     
@@ -131,11 +139,6 @@ class ToonMakerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if isNewBook {
-            makeNewBook()
-        }
-        
         configureUI()
     }
     
@@ -143,6 +146,7 @@ class ToonMakerViewController: BaseViewController {
         super.viewWillAppear(animated)
         HUD.show(.systemActivity)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -150,6 +154,13 @@ class ToonMakerViewController: BaseViewController {
         
         isViewDidAppearCalled = true
         drawScenes() //draw page after all layout is completed
+    }
+}
+
+extension ToonMakerViewController: TMPopoverDelegate {
+    func popover(_ controller: BasePopoverViewController, didSelectLayout layout: ToonLayout) {
+        pageModel?.layout = layout
+        drawScenes()
     }
 }
 
@@ -162,10 +173,12 @@ extension ToonMakerViewController: UIGestureRecognizerDelegate {
 extension ToonMakerViewController: UIPopoverPresentationControllerDelegate {
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.permittedArrowDirections = .any
-        popoverPresentationController.barButtonItem = moreBarButtonItem
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
 }

@@ -18,4 +18,5 @@ enum Menu {
     case undo
     case redo
     case save
+    case clear
 }

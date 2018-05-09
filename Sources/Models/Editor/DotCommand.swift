@@ -30,6 +30,7 @@ class DotCommand: PaintCommand {
         if let previous = previous {
             let previousCenter = previous.center
             let currentCenter = current.center
+            
             canvas.context.move(to: CGPoint(x: previousCenter.x, y: previousCenter.y))
             canvas.context.addLine(to: CGPoint(x: currentCenter.x, y: currentCenter.y))
         }else {

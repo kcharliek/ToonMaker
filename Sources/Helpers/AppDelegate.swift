@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    var orientationLock = UIInterfaceOrientationMask.portrait
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureUI()
 
@@ -24,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = Color.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.white]
         UINavigationBar.appearance().isTranslucent = false
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return self.orientationLock
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

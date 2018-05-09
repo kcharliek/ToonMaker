@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,60 +12,106 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumGothic.otf">
+            <string>NanumGothicOTF</string>
+        </array>
+        <array key="NanumGothicBold.otf">
+            <string>NanumGothicOTFBold</string>
+        </array>
+        <array key="NanumGothicExtraBold.otf">
+            <string>NanumGothicOTFExtraBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="툰메이커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66r-D3-KRN">
-                                <rect key="frame" x="130.5" y="103" width="59" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="툰 메이커" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66r-D3-KRN">
+                                <rect key="frame" x="0.0" y="167.66666666666666" width="414" height="33"/>
+                                <fontDescription key="fontDescription" name="NanumGothicOTFExtraBold" family="NanumGothicOTF" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rj-6f-vaI">
-                                <rect key="frame" x="103" y="444" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="웹툰 새로 만들기"/>
-                                <connections>
-                                    <action selector="newToonBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yIG-R8-xhz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMI-wl-5VF">
-                                <rect key="frame" x="103" y="375" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="내 서재"/>
-                                <connections>
-                                    <action selector="bookShelfBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vrT-Xq-YDY"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="N7E-fY-XME">
+                                <rect key="frame" x="0.0" y="456.33333333333331" width="414" height="107.99999999999994"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMI-wl-5VF">
+                                        <rect key="frame" x="103.66666666666669" y="0.0" width="207" height="44"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="MJc-Cs-jaQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NanumGothicOTFBold" family="NanumGothicOTF" pointSize="15"/>
+                                        <state key="normal" title="웹툰 보관함">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="bookShelfBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vrT-Xq-YDY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rj-6f-vaI">
+                                        <rect key="frame" x="103.66666666666669" y="64.000000000000057" width="207" height="44"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="NanumGothicOTFBold" family="NanumGothicOTF" pointSize="15"/>
+                                        <state key="normal" title="새로 만들기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="newToonBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yIG-R8-xhz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7rj-6f-vaI" firstAttribute="width" secondItem="HMI-wl-5VF" secondAttribute="width" id="Ppj-71-iOs"/>
+                                    <constraint firstItem="7rj-6f-vaI" firstAttribute="height" secondItem="HMI-wl-5VF" secondAttribute="height" id="Pvo-Pm-jOT"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="66r-D3-KRN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RR3-QN-lYN"/>
-                            <constraint firstItem="66r-D3-KRN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="eIc-ok-dA9"/>
+                            <constraint firstItem="66r-D3-KRN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="8G6-g6-q3v"/>
+                            <constraint firstItem="66r-D3-KRN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BO7-Ej-JBa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="66r-D3-KRN" secondAttribute="trailing" id="MFW-3r-CT3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N7E-fY-XME" secondAttribute="trailing" id="QHi-sH-N0K"/>
+                            <constraint firstItem="HMI-wl-5VF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Qsc-gE-C49"/>
+                            <constraint firstItem="N7E-fY-XME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ro2-VN-Pga"/>
+                            <constraint firstItem="N7E-fY-XME" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ctg-SH-jPw"/>
+                            <constraint firstItem="66r-D3-KRN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="k8o-ly-ggS"/>
+                            <constraint firstItem="N7E-fY-XME" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.35" id="vcH-OF-Wcj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.375" y="114.08450704225352"/>
+            <point key="canvasLocation" x="-1056.8" y="105.69715142428787"/>
         </scene>
         <!--Scene Editor View Controller-->
         <scene sceneID="Prx-Qw-rLn">
             <objects>
                 <viewController storyboardIdentifier="SceneEditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anq-3P-ulp" customClass="SceneEditorViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZNQ-OG-RbE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-5W-Tn7" customClass="PaintView" customModule="ToonMaker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="110" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="142.66666666666663" width="414" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -93,7 +139,7 @@
                                 </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="apz-1K-r9q">
-                                <rect key="frame" x="5" y="519" width="310" height="44"/>
+                                <rect key="frame" x="5" y="687" width="404" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="FN6-si-5VZ"/>
@@ -220,17 +266,23 @@
             </objects>
             <point key="canvasLocation" x="1555" y="839"/>
         </scene>
-        <!--만화방-->
+        <!--보관함-->
         <scene sceneID="B9Z-H3-21Y">
             <objects>
                 <viewController storyboardIdentifier="BookShelfViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jti-J3-jN9" customClass="BookShelfViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xdd-T6-Roz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="웹툰이 존재하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-TP-yFH">
+                                <rect key="frame" x="128.66666666666666" y="360.66666666666669" width="156.99999999999997" height="15"/>
+                                <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NMS-OJ-RaT">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xS6-4s-hjS">
                                     <size key="itemSize" width="101" height="94"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -238,36 +290,90 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jti-J3-jN9" id="eGu-gA-XQO"/>
+                                    <outlet property="delegate" destination="Jti-J3-jN9" id="c7z-kM-4N3"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Rw0-TP-yFH" firstAttribute="centerY" secondItem="Xdd-T6-Roz" secondAttribute="centerY" id="BKr-nR-pdb"/>
                             <constraint firstItem="NMS-OJ-RaT" firstAttribute="top" secondItem="szb-9i-bpp" secondAttribute="top" id="OX0-M9-iHh"/>
                             <constraint firstItem="NMS-OJ-RaT" firstAttribute="leading" secondItem="szb-9i-bpp" secondAttribute="leading" id="P88-Y1-rZa"/>
+                            <constraint firstItem="Rw0-TP-yFH" firstAttribute="centerX" secondItem="Xdd-T6-Roz" secondAttribute="centerX" id="Vqe-kp-rkn"/>
                             <constraint firstItem="szb-9i-bpp" firstAttribute="trailing" secondItem="NMS-OJ-RaT" secondAttribute="trailing" id="sZL-Zg-xX2"/>
                             <constraint firstItem="szb-9i-bpp" firstAttribute="bottom" secondItem="NMS-OJ-RaT" secondAttribute="bottom" id="vQ0-K5-aDN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="szb-9i-bpp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="만화방" id="gtd-rH-J4d">
-                        <barButtonItem key="leftBarButtonItem" title="닫기" id="kas-O4-dkC"/>
+                    <navigationItem key="navigationItem" title="보관함" id="gtd-rH-J4d">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="og9-FW-c8k">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3h-ks-sRT">
+                                <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="etc_close"/>
+                                <connections>
+                                    <action selector="closeBtnClicked:" destination="Jti-J3-jN9" eventType="touchUpInside" id="RmV-GC-xVW"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="NMS-OJ-RaT" id="XV0-yS-kGp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ec-cf-RKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="-351"/>
+            <point key="canvasLocation" x="-289" y="-631"/>
+        </scene>
+        <!--만화 제목-->
+        <scene sceneID="CbK-Fv-OwB">
+            <objects>
+                <viewController storyboardIdentifier="ViewerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jCl-l7-nEg" customClass="ViewerViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pkc-Xe-cbE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-Gv-5QZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jCl-l7-nEg" id="2ov-rx-Yih"/>
+                                    <outlet property="delegate" destination="jCl-l7-nEg" id="LWN-Eb-rXj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HMf-Gv-5QZ" firstAttribute="leading" secondItem="oEf-3r-Ebb" secondAttribute="leading" id="17c-ny-yyh"/>
+                            <constraint firstItem="oEf-3r-Ebb" firstAttribute="trailing" secondItem="HMf-Gv-5QZ" secondAttribute="trailing" id="2d9-Pj-uVn"/>
+                            <constraint firstItem="HMf-Gv-5QZ" firstAttribute="top" secondItem="Pkc-Xe-cbE" secondAttribute="top" id="CeV-7b-8wX"/>
+                            <constraint firstItem="oEf-3r-Ebb" firstAttribute="bottom" secondItem="HMf-Gv-5QZ" secondAttribute="bottom" id="Ftt-AS-dwf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oEf-3r-Ebb"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="만화 제목" id="qtR-Or-0QG"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="HMf-Gv-5QZ" id="J2O-Zs-FXs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DM1-QL-H7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="-631"/>
         </scene>
         <!--허생전-->
         <scene sceneID="cac-bJ-PhG">
             <objects>
                 <viewController storyboardIdentifier="ToonMakerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NiS-yX-bcT" customClass="ToonMakerViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vbf-ze-Ee0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTG-0h-hei">
-                                <rect key="frame" x="0.0" y="64" width="320" height="20"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="20"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1960784314" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="e1a-6n-8nH"/>
@@ -281,7 +387,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1N-5t-qvw">
-                                <rect key="frame" x="0.0" y="544" width="320" height="24"/>
+                                <rect key="frame" x="0.0" y="712" width="414" height="24"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.1960784314" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fxa-Up-NAT"/>
@@ -295,10 +401,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWX-dB-b3Z">
-                                <rect key="frame" x="0.0" y="84" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="628"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mz8-dw-gts">
-                                        <rect key="frame" x="20" y="20.5" width="280" height="419.5"/>
+                                        <rect key="frame" x="11.333333333333343" y="20.666666666666686" width="391.66666666666663" height="587.33333333333326"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Mz8-dw-gts" secondAttribute="height" multiplier="2:3" id="Acf-qw-KF9"/>
                                         </constraints>
@@ -336,7 +442,7 @@
                         <leftBarButtonItems>
                             <barButtonItem style="plain" id="O8X-hj-Qfi">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dPr-4p-2HC">
-                                    <rect key="frame" x="16" y="6" width="35" height="32"/>
+                                    <rect key="frame" x="20" y="6" width="35" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="etc_close"/>
                                     <connections>
@@ -346,33 +452,45 @@
                             </barButtonItem>
                             <barButtonItem title="Item" style="plain" id="wVm-1V-etm">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OxQ-f6-la9">
-                                    <rect key="frame" x="59" y="6" width="35" height="32"/>
+                                    <rect key="frame" x="63" y="6" width="35" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="maker_view_comfy"/>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" id="Bb5-KJ-FWn">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ykK-2r-IXK">
-                                    <rect key="frame" x="102" y="6" width="35" height="32"/>
+                                    <rect key="frame" x="106" y="6" width="35" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="maker_new"/>
                                 </button>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="iy7-QA-Qi7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NDf-tC-zN7">
-                                <rect key="frame" x="269" y="6" width="35" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="maker_more"/>
-                                <connections>
-                                    <action selector="moreBtnClicked:" destination="NiS-yX-bcT" eventType="touchUpInside" id="DIA-48-6e8"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="iy7-QA-Qi7">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NDf-tC-zN7">
+                                    <rect key="frame" x="359" y="6" width="35" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="maker_save"/>
+                                    <connections>
+                                        <action selector="saveBtnClicked:" destination="NiS-yX-bcT" eventType="touchUpInside" id="qcb-hq-HhM"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="5dY-h4-WyZ">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KNb-fP-YVq">
+                                    <rect key="frame" x="316" y="6" width="35" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="maker_layout"/>
+                                    <connections>
+                                        <action selector="layoutBtnClicked:" destination="NiS-yX-bcT" eventType="touchUpInside" id="bYf-Wq-gNN"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="moreBarButtonItem" destination="iy7-QA-Qi7" id="DR3-0f-9qC"/>
+                        <outlet property="layoutBarButtonItem" destination="5dY-h4-WyZ" id="f19-j6-qBh"/>
                         <outlet property="toonPageView" destination="Mz8-dw-gts" id="MAa-ez-V0P"/>
                     </connections>
                 </viewController>
@@ -391,8 +509,9 @@
         <image name="etc_arrow_up" width="24" height="24"/>
         <image name="etc_back" width="24" height="24"/>
         <image name="etc_close" width="24" height="24"/>
-        <image name="maker_more" width="24" height="24"/>
+        <image name="maker_layout" width="24" height="24"/>
         <image name="maker_new" width="24" height="24"/>
+        <image name="maker_save" width="24" height="24"/>
         <image name="maker_view_comfy" width="24" height="24"/>
     </resources>
 </document>

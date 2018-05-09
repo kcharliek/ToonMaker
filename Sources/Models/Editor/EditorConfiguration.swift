@@ -17,8 +17,6 @@ class EditorConfiguration {
     
     var commandInvoker: PaintCommandInvoker!
     
-    
-    
     init() {
         commandInvoker = PaintCommandInvoker()
     }

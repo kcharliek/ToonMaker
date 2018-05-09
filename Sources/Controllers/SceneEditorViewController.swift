@@ -10,7 +10,7 @@ import UIKit
 import Then
 
 class SceneEditorViewController: BaseViewController {
-    let menus: [(Menu, UIImage)] = [(.save,#imageLiteral(resourceName: "editor_menu_save")), (.color,#imageLiteral(resourceName: "editor_menu_color")), (.grab, #imageLiteral(resourceName: "editor_menu_grab")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo"))]
+    let menus: [(Menu, UIImage)] = [(.save,#imageLiteral(resourceName: "editor_menu_save")), (.color,#imageLiteral(resourceName: "editor_menu_color")), (.grab, #imageLiteral(resourceName: "editor_menu_grab")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
     
     // MARK: - IBOutlet
     @IBOutlet weak var menuCollectionView: UICollectionView!
@@ -58,30 +58,48 @@ class SceneEditorViewController: BaseViewController {
     
     // MARK: - Method
     func panBeganAt(point: CGPoint) {
+        if mode == .pen || mode == .eraser {
+            lineCommand = LineCommand()
+        }
         lastPoint = point
-        lineCommand = LineCommand()
     }
     
     func panChangedAt(point: CGPoint) {
-        let width: CGFloat = mode == .pen ? config.penWidth : config.eraserWidth
-        let color: Color = mode == .eraser ? .white : config.currentColor
-        let dot = Dot(a: lastPoint, b: point, width: width, color: color)
+        if mode == .pen || mode == .eraser {
+            let width: CGFloat = mode == .pen ? config.penWidth : config.eraserWidth
+            let color: Color = mode == .eraser ? .white : config.currentColor
+            let dot = Dot(a: lastPoint, b: point, width: width, color: color)
+            
+            let dotCommand = DotCommand(current: dot, previous: lastDot)
+            editorView.execute(commands: [dotCommand])
+            lineCommand?.addDotCommand(command: dotCommand)
+            lastDot = dot
+        }
         
-        let dotCommand = DotCommand(current: dot, previous: lastDot)
-        editorView.execute(commands: [dotCommand])
-        lineCommand?.addDotCommand(command: dotCommand)
-        
-        lastDot = dot
         lastPoint = point
     }
     
     func panEndAt(point: CGPoint) {
-        if let lineCommand = lineCommand {
-            config.commandInvoker.add(command: lineCommand)
+        if mode == .pen || mode == .eraser {
+            if let lineCommand = lineCommand {
+                config.commandInvoker.add(command: lineCommand)
+            }
+            lastDot = nil
+            lineCommand = nil
         }
+        
         lastPoint = CGPoint.zero
-        lastDot = nil
-        lineCommand = nil
+    }
+    
+    func clearScene() {
+        let alert = UIAlertController(title: "화면 비우기", message: "화면 내 모든 내용이 사라집니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
+            self.config.commandInvoker.removeAllCommands()
+            self.editorView.reset()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(okAction); alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     public static func make(model: WebToonScene?) -> SceneEditorViewController {
@@ -112,7 +130,7 @@ class SceneEditorViewController: BaseViewController {
             $0.layer.borderWidth = 1
             $0.layoutIfNeeded()
         }
-        
+                
         configureFor(orientation: UIDevice.current.orientation)
     }
     
@@ -139,6 +157,10 @@ class SceneEditorViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        if (model?.layout?.aspectRatio)! < 1 {
+            AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeRight)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -202,9 +224,11 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
                 }
             }else if cell.type == .undo { undo() }
             else if cell.type == .redo { redo() }
+            else if cell.type == .clear { clearScene() }
             
             mode = cell.type
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -230,12 +254,26 @@ extension SceneEditorViewController: TMPopoverDelegate {
     }
 }
 
+extension SceneEditorViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        if gestureRecognizer is UIPanGestureRecognizer {
+//            if mode == .pen || mode == .eraser || mode == .grab {
+//                return true
+//            }
+//        }
+        return true
+    }
+}
+
 extension SceneEditorViewController: UIPopoverPresentationControllerDelegate {
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.permittedArrowDirections = isLandscape ? .right : .down
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
 }
