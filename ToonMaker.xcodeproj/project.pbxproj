@@ -59,6 +59,8 @@
 		C458436E20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458436D20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift */; };
 		C458437020A27FE400AC9C01 /* WebToonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458436F20A27FE400AC9C01 /* WebToonStore.swift */; };
 		C458437220A295E800AC9C01 /* ViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437120A295E800AC9C01 /* ViewerViewController.swift */; };
+		C458437520A3397D00AC9C01 /* ViewerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */; };
+		C458437620A3397D00AC9C01 /* ViewerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */; };
 		C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4968B35209C0FB500E93783 /* Popover.storyboard */; };
 		C4968B3A209C11A900E93783 /* ListPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */; };
 		C4D4CA9C209C388500685C5D /* ListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */; };
@@ -72,7 +74,6 @@
 		C4DF4486209EFF8A00D90A80 /* BasePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4485209EFF8A00D90A80 /* BasePopoverViewController.swift */; };
 		C4DF4489209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4487209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift */; };
 		C4DF448A209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4DF4488209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib */; };
-		C4DF448D209F0D0D00D90A80 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF448C209F0D0D00D90A80 /* TableViewCell.swift */; };
 		C4DF448F209F1FAF00D90A80 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */; };
 		C4DF4491209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */; };
 		C4DF4493209FF9B900D90A80 /* EditorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4492209FF9B900D90A80 /* EditorEnums.swift */; };
@@ -135,6 +136,8 @@
 		C458436D20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSamplePopoverViewController.swift; sourceTree = "<group>"; };
 		C458436F20A27FE400AC9C01 /* WebToonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonStore.swift; sourceTree = "<group>"; };
 		C458437120A295E800AC9C01 /* ViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewController.swift; sourceTree = "<group>"; };
+		C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerTableViewCell.swift; sourceTree = "<group>"; };
+		C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewerTableViewCell.xib; sourceTree = "<group>"; };
 		C4968B35209C0FB500E93783 /* Popover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverTableViewCell.swift; sourceTree = "<group>"; };
 		C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +151,6 @@
 		C4DF4485209EFF8A00D90A80 /* BasePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopoverViewController.swift; sourceTree = "<group>"; };
 		C4DF4487209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4DF4488209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorMenuColorCollectionViewCell.xib; sourceTree = "<group>"; };
-		C4DF448C209F0D0D00D90A80 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuDrawWidthPopoverViewController.swift; sourceTree = "<group>"; };
 		C4DF4492209FF9B900D90A80 /* EditorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorEnums.swift; sourceTree = "<group>"; };
@@ -184,7 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */,
-				C4DF448C209F0D0D00D90A80 /* TableViewCell.swift */,
+				C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */,
+				C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -348,12 +351,12 @@
 		C4DF4474209EAE1F00D90A80 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				C4DF4492209FF9B900D90A80 /* EditorEnums.swift */,
 				C433786520A13DB40092016D /* EditorConfiguration.swift */,
 				C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */,
 				C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */,
 				C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */,
 				C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */,
-				C4DF4492209FF9B900D90A80 /* EditorEnums.swift */,
 				C4DF4477209ED7C300D90A80 /* DotCommand.swift */,
 				C4DF449420A0987B00D90A80 /* LineCommand.swift */,
 				C433786320A126960092016D /* Dot.swift */,
@@ -489,6 +492,7 @@
 				C403AE3C209B36D700AEEE7D /* NanumPen.otf in Resources */,
 				C403AE49209B36D700AEEE7D /* NanumSquareRoundOTFL.otf in Resources */,
 				C407AF042099809700B7ECC7 /* Main.storyboard in Resources */,
+				C458437620A3397D00AC9C01 /* ViewerTableViewCell.xib in Resources */,
 				C403AE59209B40C700AEEE7D /* BookShelfCollectionViewCell.xib in Resources */,
 				C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */,
 				C403AE4C209B36D700AEEE7D /* NanumSquareOTFBold.otf in Resources */,
@@ -576,8 +580,8 @@
 				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
 				C43EFA7620A18F2700351238 /* AppUtility.swift in Sources */,
 				C4DF4478209ED7C300D90A80 /* DotCommand.swift in Sources */,
+				C458437520A3397D00AC9C01 /* ViewerTableViewCell.swift in Sources */,
 				C403AE58209B40C700AEEE7D /* BookShelfCollectionViewCell.swift in Sources */,
-				C4DF448D209F0D0D00D90A80 /* TableViewCell.swift in Sources */,
 				C403AE0F209ABDE100AEEE7D /* SceneEditorViewController.swift in Sources */,
 				C4D4CA9C209C388500685C5D /* ListPopoverViewController.swift in Sources */,
 				C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */,

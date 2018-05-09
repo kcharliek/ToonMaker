@@ -11,6 +11,12 @@ import UIKit
 class ViewerViewController: BaseViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
+    var model: WebToon!
+    
+    // MARK: - Action
+    @IBAction func backBtnClicked(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - Method
     static func make() -> ViewerViewController {
@@ -31,7 +37,7 @@ class ViewerViewController: BaseViewController {
 extension ViewerViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return model.pages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -8,7 +8,7 @@
 
 import UIKit
 import Then
-import SnapKit
+import Toaster
 import Actions
 import PKHUD
 
@@ -18,41 +18,76 @@ class ToonMakerViewController: BaseViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak var toonPageView: UIView!
-//    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var layoutBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var closeBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var newBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var moreBarButtonItem: UIBarButtonItem!
     
     // MARK: - Variable
     var webToonModel: WebToon! {
         didSet {
-            pageModel = webToonModel.pages[0]
             title = webToonModel.title
+            currentPage = 0
         }
     }
-    var currentPage: Int = -1
-//    {
-//        didSet {
-//            if currentPage > 0 {
-//                pageModel = webToonModel?.pages[]
-//            }
-//        }
-//    }
     var pageModel: WebToonPage! {
         didSet {
             if isViewDidAppearCalled {
-                drawScenes()
+                drawPage()
+            }
+        }
+    }
+    var currentPage: Int = -1 {
+        didSet {
+            if currentPage >= 0 {
+                pageModel = webToonModel?.pages[currentPage]
+                if currentPage > 0 {
+                    Toast(text: "\(currentPage)/\(webToonModel.pages.count - 1)").show()
+                }else {
+                    Toast(text: "표지").show()
+                }
             }
         }
     }
     var isViewDidAppearCalled: Bool = false // For checking the layout completion
     
     // MARK: - Actions
+    @IBAction func newPageBtnClicked(_ sender: Any) {
+        var menus = ["아래로 삽입"]
+        //cover cannot insert page to front
+        if currentPage > 0 { menus.insert("위로 삽입", at: 0) }
+        
+        let _ = ListPopoverViewController.make(source: menus).then {
+            $0.tag = 111
+            $0.modalPresentationStyle = .popover
+            $0.delegate = self
+            $0.popoverPresentationController?.delegate = self
+            $0.popoverPresentationController?.backgroundColor = .white
+            $0.popoverPresentationController?.barButtonItem = newBarButtonItem
+            $0.preferredContentSize = CGSize(width: 95, height: $0.rowHeight * CGFloat(menus.count))
+            present($0, animated: true, completion: nil)
+        }
+    }
     
-    @IBAction func saveBtnClicked(_ sender: UIButton) {
-        
-        
+    @IBAction func moreBtnClicked(_ sender: Any) {
+        let menus = ["페이지 삭제"]
+        let _ = ListPopoverViewController.make(source: menus).then {
+            $0.tag = 222
+            $0.modalPresentationStyle = .popover
+            $0.delegate = self
+            $0.popoverPresentationController?.delegate = self
+            $0.popoverPresentationController?.backgroundColor = .white
+            $0.popoverPresentationController?.barButtonItem = moreBarButtonItem
+            $0.preferredContentSize = CGSize(width: 95, height: $0.rowHeight * CGFloat(menus.count))
+            present($0, animated: true, completion: nil)
+        }
     }
     
     @IBAction func layoutBtnClicked(_ sender: Any) {
+        guard currentPage > 0 else {
+            Toast(text: "표지 레이아웃은 변경할 수 없습니다.").show()
+            return
+        }
         let alert = UIAlertController(title: "레이아웃 변경", message: "레이아웃을 변경하면 페이지 안의 모든 이미지는 삭제됩니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
             let _ = LayoutSamplePopoverViewController.make().then {
@@ -74,41 +109,51 @@ class ToonMakerViewController: BaseViewController {
     @IBAction func viewSwiped(_ sender: UISwipeGestureRecognizer) {
         print(sender.direction)
         if sender.direction == .up {
-            go(page: currentPage - 1)
+            currentPage = currentPage - 1
         }else if sender.direction == .down {
-            go(page: currentPage - 1)
+            currentPage = currentPage + 1
         }
     }
     
-    
     @IBAction func goBeforePageBtnClicked(_ sender: Any) {
-        go(page: currentPage - 1)
+        guard currentPage > 0 else {
+            Toast(text: "페이지의 처음입니다.").show()
+            return
+        }
+        currentPage = currentPage - 1
     }
     @IBAction func goNextPageBtnClicked(_ sender: Any) {
-        go(page: currentPage + 1)
+        guard currentPage < webToonModel.pages.count - 1 else {
+            Toast(text: "페이지의 마지막입니다.").show()
+            return
+        }
+        currentPage = currentPage + 1
     }
     
     @IBAction func backBtnClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if navigationController!.viewControllers.count > 1 {
+            navigationController!.popViewController(animated: true)
+        }else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func sceneSelected(sender: Any) {
         let sender = sender as! UIImageView
-        let selectedScene = pageModel?.scenes?[sender.tag]
-        let editorVC = SceneEditorViewController.make(model: selectedScene)
+        guard let model = pageModel?.scenes?[sender.tag] else { return }
+        let editorVC = SceneEditorViewController.make(model: model)
         navigationController?.pushViewController(editorVC, animated: true)
     }
-    // MARK: - Method
     
+    // MARK: - Method
     func go(page: Int) {
         
     }
     
-    private func drawScenes() {
+    private func drawPage() {
+        guard let toonLayout = pageModel?.layout else { return }
         HUD.show(.systemActivity)
         for v in toonPageView.subviews { v.removeFromSuperview() }
-        
-        guard let toonLayout = pageModel?.layout else { return }
         
         var idx = 0
         toonPageView.layoutIfNeeded()
@@ -120,11 +165,18 @@ class ToonMakerViewController: BaseViewController {
                 $0.layer.borderColor = Color.black.cgColor
                 $0.layer.borderWidth = 1
                 $0.tag = idx
+                $0.image = pageModel.scenes[idx].image
                 $0.addTap(action: {self.sceneSelected(sender: $0)})
                 toonPageView.addSubview($0)
             }
             idx = idx + 1
         }
+        toonPageView.backgroundColor = .white
+        //make page image
+        let image = UIImage(view: toonPageView)
+        pageModel.image = image
+        //auto save
+        let _ = WebToonStore.shared.save(webToon: webToonModel)
         HUD.hide()
     }
     
@@ -133,10 +185,10 @@ class ToonMakerViewController: BaseViewController {
     }
     
     func configureUI() {
+        closeBarButtonItem.image = navigationController!.viewControllers.count > 1 ? #imageLiteral(resourceName: "etc_arrow_left") : #imageLiteral(resourceName: "etc_close") //Pop or Dismiss
     }
     
     // MARK: - View Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -151,16 +203,55 @@ class ToonMakerViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        //start draw after view did appear
         isViewDidAppearCalled = true
-        drawScenes() //draw page after all layout is completed
+        drawPage()
     }
 }
 
 extension ToonMakerViewController: TMPopoverDelegate {
+    func popover(_ controller: BasePopoverViewController, didSelectIndex index: Int) {
+        if controller.tag == 111 {
+            //from new page button
+            var newPageIndex: Int = 0
+            if currentPage > 0 {
+                if index == 0 {
+                    //insert to front
+                    newPageIndex = currentPage
+                }else {
+                    //insert to back
+                    newPageIndex = currentPage + 1
+                }
+            }else {
+                //insert to back
+                newPageIndex = currentPage + 1
+            }
+            webToonModel.insertNewPage(at: newPageIndex)
+            currentPage = newPageIndex
+            controller.dismiss(animated: true, completion: nil)
+        }else if controller.tag == 222 {
+            //from more button
+            if index == 0 {
+                //remove page
+                controller.dismiss(animated: true) {
+                    guard self.currentPage > 0 else {
+                        Toast(text: "표지는 삭제할 수 없습니다.").show()
+                        return
+                    }
+                    let alert = UIAlertController(title: "삭제", message: "삭제 실행 이후 다시 되돌릴 수 없습니다.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                        self.webToonModel.removePage(at: self.currentPage)
+                        self.currentPage = self.currentPage - 1
+                    }))
+                    alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
     func popover(_ controller: BasePopoverViewController, didSelectLayout layout: ToonLayout) {
         pageModel?.layout = layout
-        drawScenes()
+        drawPage()
     }
 }
 

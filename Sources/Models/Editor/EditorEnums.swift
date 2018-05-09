@@ -19,4 +19,5 @@ enum Menu {
     case redo
     case save
     case clear
+    case photo
 }

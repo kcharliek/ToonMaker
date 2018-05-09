@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @objc protocol TMPopoverDelegate {
     @objc optional func popover(_ controller: BasePopoverViewController, didSelectIndex index: Int)
     @objc optional func popover(_ controller: BasePopoverViewController, didSelectValue value: CGFloat)
@@ -17,7 +16,9 @@ import UIKit
 }
 
 class BasePopoverViewController: UIViewController {
-
+    var data: Any?
+    var tag: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

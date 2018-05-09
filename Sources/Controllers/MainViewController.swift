@@ -11,7 +11,7 @@ import Toaster
 
 class MainViewController: BaseViewController {
 
-    
+    // MARK: - Actions
     @IBAction func bookShelfBtnClicked(_ sender: Any) {
         let nav = BaseNavigationController()
         let bookShelfVC = BookShelfViewController.make()

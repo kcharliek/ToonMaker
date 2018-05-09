@@ -8,9 +8,11 @@
 
 import UIKit
 import Then
+import PKHUD
 
 class SceneEditorViewController: BaseViewController {
-    let menus: [(Menu, UIImage)] = [(.save,#imageLiteral(resourceName: "editor_menu_save")), (.color,#imageLiteral(resourceName: "editor_menu_color")), (.grab, #imageLiteral(resourceName: "editor_menu_grab")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
+    // MARK: - Constant
+    let menus: [(Menu, UIImage)] = [(.color,#imageLiteral(resourceName: "editor_menu_color")), (.grab, #imageLiteral(resourceName: "editor_menu_grab")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.photo, #imageLiteral(resourceName: "editor_menu_photo")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
     
     // MARK: - IBOutlet
     @IBOutlet weak var menuCollectionView: UICollectionView!
@@ -20,7 +22,7 @@ class SceneEditorViewController: BaseViewController {
     var model: WebToonScene?
     var isLandscape: Bool = false
     var mode: Menu = .grab
-    var config: EditorConfiguration! = EditorConfiguration()
+    var config: EditorConfiguration!
     
     //Temporary Variables For Drawing Line
     var lastPoint: CGPoint = CGPoint.zero
@@ -29,6 +31,7 @@ class SceneEditorViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func backBtnClicked(_ sender: Any) {
+        model?.image = UIImage(view: editorView)
         navigationController?.popViewController(animated: true)
     }
     
@@ -44,16 +47,6 @@ class SceneEditorViewController: BaseViewController {
         default:
             break
         }
-    }
-    
-    func undo() {
-        editorView.reset()
-        editorView.execute(commands: config.commandInvoker.undoCommands())
-    }
-    
-    func redo() {
-        editorView.reset()
-        editorView.execute(commands: config.commandInvoker.redoCommands())
     }
     
     // MARK: - Method
@@ -91,6 +84,21 @@ class SceneEditorViewController: BaseViewController {
         lastPoint = CGPoint.zero
     }
     
+    func undo() {
+        editorView.reset()
+        editorView.execute(commands: config.commandInvoker.undoCommands())
+    }
+    
+    func redo() {
+        editorView.reset()
+        editorView.execute(commands: config.commandInvoker.redoCommands())
+    }
+    
+    func loadScene() {
+        editorView.execute(commands: config.commandInvoker.currentCommands())
+        HUD.hide()
+    }
+    
     func clearScene() {
         let alert = UIAlertController(title: "화면 비우기", message: "화면 내 모든 내용이 사라집니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
@@ -100,6 +108,25 @@ class SceneEditorViewController: BaseViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         alert.addAction(okAction); alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func configureFor(orientation: UIDeviceOrientation) {
+        if orientation.isLandscape {
+            if let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flowLayout.scrollDirection = .vertical
+            }
+            isLandscape = true
+        }else {
+            if let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flowLayout.scrollDirection = .horizontal
+            }
+            isLandscape = false
+        }
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        //Detect Orientation Change Here
+        configureFor(orientation: UIDevice.current.orientation)
     }
     
     public static func make(model: WebToonScene?) -> SceneEditorViewController {
@@ -130,46 +157,30 @@ class SceneEditorViewController: BaseViewController {
             $0.layer.borderWidth = 1
             $0.layoutIfNeeded()
         }
-                
         configureFor(orientation: UIDevice.current.orientation)
-    }
-    
-    func configureFor(orientation: UIDeviceOrientation) {
-        if orientation.isLandscape {
-            if let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                flowLayout.scrollDirection = .vertical
-            }
-            isLandscape = true
-        }else {
-            if let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                flowLayout.scrollDirection = .horizontal
-            }
-            isLandscape = false
-        }
     }
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        config = model?.config
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        HUD.show(.systemActivity)
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         if (model?.layout?.aspectRatio)! < 1 {
             AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeRight)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //메모리 문제 가능성 보임
-    }
     
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        configureFor(orientation: UIDevice.current.orientation)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadScene()
     }
 }
 
@@ -228,9 +239,9 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
             
             mode = cell.type
         }
-        
     }
     
+    // MARK: - CollectionView FlowLayout Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 30, height: 30)
     }
@@ -242,7 +253,7 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
 extension SceneEditorViewController: TMPopoverDelegate {
     func popover(_ controller: BasePopoverViewController, didSelectColor color: UIColor) {
         config.currentColor = color
-        let indexPath = IndexPath(item: 1, section: 0) //color cell
+        let indexPath = IndexPath(item: 0, section: 0) //color cell
         menuCollectionView.reloadItems(at: [indexPath])
     }
     

@@ -15,7 +15,7 @@ class ListPopoverViewController: BasePopoverViewController {
     var tableView: UITableView!
     var delegate: TMPopoverDelegate?
     public var source: [String]?
-    var rowHeight: CGFloat = 35
+    var rowHeight: CGFloat = 44
     // MARK: - Method
 
     func configureUI() {
@@ -24,12 +24,12 @@ class ListPopoverViewController: BasePopoverViewController {
             $0.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
             }
+            $0.bounces = false
             $0.delegate = self
             $0.dataSource = self
             $0.register(ListPopoverTableViewCell.self, forCellReuseIdentifier: ListPopoverTableViewCell.toString)
             $0.reloadData()
         }
-        
     }
     
     public static func make(source: [String]) -> ListPopoverViewController {

@@ -9,11 +9,13 @@
 import UIKit
 
 class WebToon: NSObject, NSCoding {
+    // MARK: - Variable
     var title: String!
     var creationDate: Date!
     var modifiedDate: Date!
     var pages = [WebToonPage]()
     
+    // MARK: - Method
     override init() {
         super.init()
     }
@@ -25,6 +27,16 @@ class WebToon: NSObject, NSCoding {
         let firstPage = WebToonPage()
         firstPage.layout = ToonLayout.Type1() //Default Layout
         pages.append(firstPage)
+    }
+    
+    func insertNewPage(at: Int) {
+        let newPage = WebToonPage()
+        newPage.layout = ToonLayout.Type1()
+        pages.insert(newPage, at: at)
+    }
+    
+    func removePage(at: Int) {
+        pages.remove(at: at)
     }
     
     // MARK: - NSCoding Implementation
@@ -56,7 +68,7 @@ class WebToonPage: NSObject, NSCoding {
         }
     }
     
-    var scenes: [WebToonScene]?
+    var scenes: [WebToonScene]!
     var image: UIImage?
     
     override init() {
@@ -80,7 +92,7 @@ class WebToonPage: NSObject, NSCoding {
 class WebToonScene: NSObject, NSCoding {
     var layout: SceneLayout!
     var image: UIImage?
-    //var components: [Component]?
+    var config: EditorConfiguration = EditorConfiguration()
     
     override init() {
         super.init()
@@ -90,10 +102,12 @@ class WebToonScene: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(layout, forKey: "layout")
         aCoder.encode(image, forKey: "image")
+        aCoder.encode(config, forKey: "config")
     }
     
     required init(coder aDecoder: NSCoder) {
         layout = aDecoder.decodeObject(forKey: "layout") as! SceneLayout
         image = aDecoder.decodeObject(forKey: "image") as? UIImage
+        config = aDecoder.decodeObject(forKey: "config") as! EditorConfiguration
     }
 }

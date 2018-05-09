@@ -9,12 +9,12 @@
 import UIKit
 
 
-class DotCommand: PaintCommand {
+class DotCommand: NSObject, NSCoding, PaintCommand {
     // MARK: - Variable
     var current: Dot!
     var previous: Dot?
     var width: CGFloat = 5
-    var color: UIColor = .black
+    var color: Color = .black
     
     // MARK: - Method
     init(current: Dot!, previous: Dot?) {
@@ -44,5 +44,20 @@ class DotCommand: PaintCommand {
         canvas.context.setStrokeColor(color.cgColor)
         canvas.context.setLineWidth(width)
         canvas.context.setLineCap(CGLineCap.round)
+    }
+    
+    // MARK: - NSCoding Implementation
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(current, forKey: "current")
+        aCoder.encode(previous, forKey: "previous")
+        aCoder.encode(width, forKey: "width")
+        aCoder.encode(color, forKey: "color")
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        current = aDecoder.decodeObject(forKey: "current") as! Dot
+        previous = aDecoder.decodeObject(forKey: "previous") as? Dot
+        width = aDecoder.decodeObject(forKey: "width") as! CGFloat
+        color = aDecoder.decodeObject(forKey: "color") as! Color
     }
 }
