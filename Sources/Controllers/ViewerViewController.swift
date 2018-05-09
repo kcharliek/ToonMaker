@@ -11,7 +11,11 @@ import UIKit
 class ViewerViewController: BaseViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-    var model: WebToon!
+    var model: WebToon! {
+        didSet {
+            self.title = model.title
+        }
+    }
     
     // MARK: - Action
     @IBAction func backBtnClicked(_ sender: Any) {
@@ -25,7 +29,7 @@ class ViewerViewController: BaseViewController {
     }
     
     func configureUI() {
-        
+        tableView.register(UINib(nibName: ViewerTableViewCell.toString, bundle: nil), forCellReuseIdentifier: ViewerTableViewCell.toString)
     }
     
     // MARK: - View Life Cycle
@@ -41,11 +45,13 @@ extension ViewerViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.cellForRow(at: indexPath)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: ViewerTableViewCell.toString, for: indexPath) as! ViewerTableViewCell
+        cell.set(model: model.pages[indexPath.row])
+        return cell
     }
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UIScreen.main.bounds.width * 1.5
     }
 }

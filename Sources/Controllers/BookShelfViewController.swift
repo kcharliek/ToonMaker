@@ -70,7 +70,7 @@ extension BookShelfViewController: UICollectionViewDelegate, UICollectionViewDat
     // MARK: - CollectionView Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! BookShelfCollectionViewCell
-        let menus = ["뷰어로 읽기", "이어서 편집", "갤러리에 저장", "삭제"]
+        let menus = ["뷰어로 읽기", "이어서 편집", "앨범에 저장", "삭제"]
         let _ = ListPopoverViewController.make(source: menus).then {
             $0.modalPresentationStyle = .popover
             $0.delegate = self
@@ -79,7 +79,7 @@ extension BookShelfViewController: UICollectionViewDelegate, UICollectionViewDat
             $0.popoverPresentationController?.sourceRect = cell.bounds
             $0.popoverPresentationController?.sourceView = cell
             $0.data = cell.model
-            $0.preferredContentSize = CGSize(width: 103, height: $0.rowHeight * CGFloat(menus.count))
+            $0.preferredContentSize = CGSize(width: 95, height: $0.rowHeight * CGFloat(menus.count))
             present($0, animated: true, completion: nil)
         }
     }
@@ -117,7 +117,19 @@ extension BookShelfViewController: TMPopoverDelegate {
                 toonMakerVC.webToonModel = model
                 self.navigationController?.pushViewController(toonMakerVC, animated: true)
             }else if index == 2 {
-                
+                //앨범에 저장
+                MyWebToonAlbum.shared.save(image: model.pages[0].image!, completion: { (result) in
+                    switch result {
+                    case 0:
+                        Toast(text: "앨범에 저장 되었습니다.").show()
+                    case 1:
+                        Toast(text: "앨범에 접근할 수 없습니다. 설정에서 권한을 허용해 주세요.").show()
+                    case 2:
+                        Toast(text: "파일을 저장할 수 없습니다. 저장 공간을 확인해 주세요.").show()
+                    default:
+                        break
+                    }
+                })
             }else if index == 3 {
                 //삭제
                 let alert = UIAlertController(title: "삭제", message: "삭제 실행 이후 다시 되돌릴 수 없습니다.", preferredStyle: .alert)

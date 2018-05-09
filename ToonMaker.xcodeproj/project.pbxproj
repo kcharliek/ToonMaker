@@ -61,6 +61,7 @@
 		C458437220A295E800AC9C01 /* ViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437120A295E800AC9C01 /* ViewerViewController.swift */; };
 		C458437520A3397D00AC9C01 /* ViewerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */; };
 		C458437620A3397D00AC9C01 /* ViewerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */; };
+		C458437820A3430600AC9C01 /* MyWebToonAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437720A3430600AC9C01 /* MyWebToonAlbum.swift */; };
 		C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4968B35209C0FB500E93783 /* Popover.storyboard */; };
 		C4968B3A209C11A900E93783 /* ListPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */; };
 		C4D4CA9C209C388500685C5D /* ListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */; };
@@ -138,6 +139,7 @@
 		C458437120A295E800AC9C01 /* ViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewController.swift; sourceTree = "<group>"; };
 		C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerTableViewCell.swift; sourceTree = "<group>"; };
 		C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewerTableViewCell.xib; sourceTree = "<group>"; };
+		C458437720A3430600AC9C01 /* MyWebToonAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebToonAlbum.swift; sourceTree = "<group>"; };
 		C4968B35209C0FB500E93783 /* Popover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverTableViewCell.swift; sourceTree = "<group>"; };
 		C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverViewController.swift; sourceTree = "<group>"; };
@@ -267,10 +269,13 @@
 		C407AF10209985B800B7ECC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C458437920A3455100AC9C01 /* Command */,
 				C4DF4474209EAE1F00D90A80 /* Editor */,
 				C403AE22209B229700AEEE7D /* WebToonModel.swift */,
+				C433786320A126960092016D /* Dot.swift */,
 				C403AE1E209AC8B900AEEE7D /* LayoutModel.swift */,
 				C403AE24209B333800AEEE7D /* Component.swift */,
+				C458437720A3430600AC9C01 /* MyWebToonAlbum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -338,6 +343,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C458437920A3455100AC9C01 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */,
+				C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */,
+				C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */,
+				C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */,
+				C4DF4477209ED7C300D90A80 /* DotCommand.swift */,
+				C4DF449420A0987B00D90A80 /* LineCommand.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
 		C4968B37209C10A300E93783 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,13 +371,6 @@
 			children = (
 				C4DF4492209FF9B900D90A80 /* EditorEnums.swift */,
 				C433786520A13DB40092016D /* EditorConfiguration.swift */,
-				C4DF4475209EAE4400D90A80 /* PaintProtocols.swift */,
-				C4DF4479209ED7DD00D90A80 /* MakeBubbleCommand.swift */,
-				C4DF447B209ED89B00D90A80 /* MakeStickerCommand.swift */,
-				C4DF447F209EDC2E00D90A80 /* PaintCommandInvoker.swift */,
-				C4DF4477209ED7C300D90A80 /* DotCommand.swift */,
-				C4DF449420A0987B00D90A80 /* LineCommand.swift */,
-				C433786320A126960092016D /* Dot.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -589,6 +600,7 @@
 				C4DF448F209F1FAF00D90A80 /* UIImageExtensions.swift in Sources */,
 				C458437020A27FE400AC9C01 /* WebToonStore.swift in Sources */,
 				C4DF4493209FF9B900D90A80 /* EditorEnums.swift in Sources */,
+				C458437820A3430600AC9C01 /* MyWebToonAlbum.swift in Sources */,
 				C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */,
 				C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */,
 				C433786420A126960092016D /* Dot.swift in Sources */,
