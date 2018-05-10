@@ -16,14 +16,7 @@ class DotCommand: NSObject, NSCoding, PaintCommand {
     var width: CGFloat = 5
     var color: Color = .black
     
-    // MARK: - Method
-    init(current: Dot!, previous: Dot?) {
-        self.current = current
-        self.previous = previous
-        self.width = current.width
-        self.color = current.color
-    }
-    
+    // MARK: - Command Protocol
     func execute(in canvas: Canvas) {
         configure(canvas: canvas)
         
@@ -39,6 +32,16 @@ class DotCommand: NSObject, NSCoding, PaintCommand {
         }
         canvas.context.strokePath()
     }
+    
+    // MARK: - Method
+    init(current: Dot!, previous: Dot?) {
+        self.current = current
+        self.previous = previous
+        self.width = current.width
+        self.color = current.color
+    }
+    
+    
     
     private func configure(canvas: Canvas) {
         canvas.context.setStrokeColor(color.cgColor)

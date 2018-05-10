@@ -9,19 +9,22 @@
 import UIKit
 import Then
 import PKHUD
+import Toaster
 
 class SceneEditorViewController: BaseViewController {
     // MARK: - Constant
-    let menus: [(Menu, UIImage)] = [(.color,#imageLiteral(resourceName: "editor_menu_color")), (.grab, #imageLiteral(resourceName: "editor_menu_grab")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.photo, #imageLiteral(resourceName: "editor_menu_photo")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
+    let menus: [(Menu, UIImage)] = [(.color,#imageLiteral(resourceName: "editor_menu_color")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.photo, #imageLiteral(resourceName: "editor_menu_photo")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
     
     // MARK: - IBOutlet
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var editorView: PaintView!
+    @IBOutlet weak var backButton: UIButton!
     
     // MARK: - Variable
-    var model: WebToonScene?
+    var webToonModel: WebToon!
+    var model: WebToonScene!
     var isLandscape: Bool = false
-    var mode: Menu = .grab
+    var mode: Menu = .pen
     var config: EditorConfiguration!
     
     //Temporary Variables For Drawing Line
@@ -33,6 +36,7 @@ class SceneEditorViewController: BaseViewController {
     @IBAction func backBtnClicked(_ sender: Any) {
         model?.image = UIImage(view: editorView)
         navigationController?.popViewController(animated: true)
+        let _ = WebToonStore.shared.save(webToon: webToonModel)
     }
     
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
@@ -99,6 +103,26 @@ class SceneEditorViewController: BaseViewController {
         HUD.hide()
     }
     
+    func showImageEditor(image: UIImage!) {
+        let imageEditorVC = ImageEditorViewController.make(image: image)
+        imageEditorVC.modalPresentationStyle = .overCurrentContext
+        imageEditorVC.modalTransitionStyle = .crossDissolve
+        imageEditorVC.delegate = self
+        hideAllComponents()
+        present(imageEditorVC, animated: true, completion: nil)
+    }
+    
+    //for image editor
+    func hideAllComponents() {
+        menuCollectionView.isHidden = true
+        backButton.isHidden = true
+    }
+    
+    func showAllComponents() {
+        menuCollectionView.isHidden = false
+        backButton.isHidden = false
+    }
+    
     func clearScene() {
         let alert = UIAlertController(title: "화면 비우기", message: "화면 내 모든 내용이 사라집니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
@@ -129,9 +153,10 @@ class SceneEditorViewController: BaseViewController {
         configureFor(orientation: UIDevice.current.orientation)
     }
     
-    public static func make(model: WebToonScene?) -> SceneEditorViewController {
+    public static func make(scene: WebToonScene, webtoon: WebToon) -> SceneEditorViewController {
         let vc = Storyboard.main.instantiateViewController(withIdentifier: "SceneEditorViewController") as! SceneEditorViewController
-        vc.model = model
+        vc.model = scene
+        vc.webToonModel = webtoon
         return vc
     }
     
@@ -170,7 +195,6 @@ class SceneEditorViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         HUD.show(.systemActivity)
-        
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         if (model?.layout?.aspectRatio)! < 1 {
@@ -185,7 +209,6 @@ class SceneEditorViewController: BaseViewController {
 }
 
 extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     // MARK: - CollectionView DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menus.count
@@ -233,7 +256,25 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
                     $0.preferredContentSize = CGSize(width: 300, height: 125)
                     present($0, animated: true, completion: nil)
                 }
-            }else if cell.type == .undo { undo() }
+            }else if cell.type == .photo {
+                let handler = CameraHandler(delegate: self)
+                let alert = UIAlertController(title: "이미지 추가", message: nil, preferredStyle: .actionSheet).then {
+                    $0.addAction(UIAlertAction(title: "갤러리에서 가져오기", style: .default, handler: { (_) in
+                        handler.getPhotoLibrary(on: self, canEdit: false)
+                    }))
+                    $0.addAction(UIAlertAction(title: "카메라로 사진찍기", style: .default, handler: { (_) in
+                        handler.getCamera(on: self, canEdit: false)
+                    }))
+                    $0.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+                }
+                //For Ipad
+                if let popoverPresentationController = alert.popoverPresentationController {
+                    popoverPresentationController.sourceView = cell
+                    popoverPresentationController.sourceRect = cell.bounds
+                }
+                present(alert, animated: true, completion: nil)
+            }
+            else if cell.type == .undo { undo() }
             else if cell.type == .redo { redo() }
             else if cell.type == .clear { clearScene() }
             
@@ -265,14 +306,50 @@ extension SceneEditorViewController: TMPopoverDelegate {
     }
 }
 
+extension SceneEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            Toast(text: "이미지를 가져오지 못했습니다.").show()
+            return
+        }
+        //make image small
+        var selectedImage = image
+        let MaxWidth: CGFloat = 1200
+        let MaxHeight: CGFloat = 1200
+        if selectedImage.size.width > MaxWidth {
+            selectedImage = selectedImage.resize(targetSize: CGSize(width: MaxWidth, height: selectedImage.size.height / selectedImage.size.width * MaxWidth))
+        }
+        if selectedImage.size.height > MaxHeight {
+            selectedImage = selectedImage.resize(targetSize: CGSize(width: selectedImage.size.width / selectedImage.size.height * MaxHeight, height: MaxHeight))
+        }
+        
+        picker.dismiss(animated: true) {
+            self.showImageEditor(image: selectedImage)
+        }
+    }
+}
+
+extension SceneEditorViewController: ImageEditorDelegate {
+    func imageEditor(_ controller: ImageEditorViewController, didFinishPosition image: UIImage, point: CGPoint, size: CGSize) {
+        let origin = CGPoint(x: point.x - editorView.frame.origin.x, y: point.y - editorView.frame.origin.y)
+        let imageCommand = ImageCommand(image: image, position: CGRect(origin: origin, size: size))
+        editorView.execute(commands: [imageCommand])
+        config.commandInvoker.add(command: imageCommand)
+        showAllComponents()
+    }
+    func imageEditor(_ controller: ImageEditorViewController, didFailToEditing: Error?) {
+        showAllComponents()
+    }
+}
+
 extension SceneEditorViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if gestureRecognizer is UIPanGestureRecognizer {
-//            if mode == .pen || mode == .eraser || mode == .grab {
-//                return true
-//            }
-//        }
-        return true
+        if gestureRecognizer is UIPanGestureRecognizer {
+            if mode == .pen || mode == .eraser {
+                return true
+            }
+        }
+        return false
     }
 }
 

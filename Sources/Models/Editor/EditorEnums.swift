@@ -9,7 +9,6 @@
 import Foundation
 
 enum Menu {
-    case grab
     case color
     case pen
     case eraser
@@ -17,7 +16,6 @@ enum Menu {
     case bubble
     case undo
     case redo
-    case save
     case clear
     case photo
 }

@@ -102,6 +102,60 @@
             </objects>
             <point key="canvasLocation" x="-1056.8" y="105.69715142428787"/>
         </scene>
+        <!--Image Editor View Controller-->
+        <scene sceneID="J03-Db-jvC">
+            <objects>
+                <viewController storyboardIdentifier="ImageEditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jW2-Kg-fFC" customClass="ImageEditorViewController" customModule="ToonMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FEC-uo-cue">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feG-kT-jpH" userLabel="backgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.2244220890410959" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luD-RM-Zwp">
+                                <rect key="frame" x="0.0" y="20" width="45" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="nAN-9d-MlH"/>
+                                    <constraint firstAttribute="height" constant="40" id="on3-gu-6Jl"/>
+                                </constraints>
+                                <state key="normal" image="etc_close"/>
+                                <connections>
+                                    <action selector="closeBtnClicked:" destination="jW2-Kg-fFC" eventType="touchUpInside" id="Uuo-0O-9LM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDw-uS-wzZ">
+                                <rect key="frame" x="369" y="20" width="45" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1Bp-Ia-NCk"/>
+                                    <constraint firstAttribute="width" constant="45" id="HcB-kv-MzA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NanumGothicOTFBold" family="NanumGothicOTF" pointSize="16"/>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="confirmBtnClicked:" destination="jW2-Kg-fFC" eventType="touchUpInside" id="0pV-Dn-mjS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="feG-kT-jpH" firstAttribute="top" secondItem="FEC-uo-cue" secondAttribute="top" id="41G-16-t7W"/>
+                            <constraint firstItem="luD-RM-Zwp" firstAttribute="leading" secondItem="fNp-ix-ySg" secondAttribute="leading" id="GFS-OQ-gaf"/>
+                            <constraint firstAttribute="trailing" secondItem="feG-kT-jpH" secondAttribute="trailing" id="Xek-sP-XAQ"/>
+                            <constraint firstAttribute="bottom" secondItem="feG-kT-jpH" secondAttribute="bottom" id="agr-A9-pXQ"/>
+                            <constraint firstItem="luD-RM-Zwp" firstAttribute="top" secondItem="fNp-ix-ySg" secondAttribute="top" id="fSi-hg-DI7"/>
+                            <constraint firstItem="fNp-ix-ySg" firstAttribute="trailing" secondItem="tDw-uS-wzZ" secondAttribute="trailing" id="unC-fy-8if"/>
+                            <constraint firstItem="tDw-uS-wzZ" firstAttribute="top" secondItem="fNp-ix-ySg" secondAttribute="top" id="vTS-av-ogS"/>
+                            <constraint firstItem="feG-kT-jpH" firstAttribute="leading" secondItem="FEC-uo-cue" secondAttribute="leading" id="wyf-S7-uWP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fNp-ix-ySg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3E-qu-vXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442.0289855072465" y="790.76086956521749"/>
+        </scene>
         <!--Scene Editor View Controller-->
         <scene sceneID="Prx-Qw-rLn">
             <objects>
@@ -253,6 +307,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="LNt-2f-KNQ" id="0D7-aI-Hs8"/>
                         <outlet property="editorView" destination="jnX-5W-Tn7" id="1Tw-r5-Rel"/>
                         <outlet property="menuCollectionView" destination="apz-1K-r9q" id="RDj-nJ-YR0"/>
                     </connections>
@@ -264,7 +319,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1555" y="839"/>
+            <point key="canvasLocation" x="659" y="774"/>
         </scene>
         <!--보관함-->
         <scene sceneID="B9Z-H3-21Y">
@@ -386,7 +441,7 @@
                                     <constraint firstAttribute="height" constant="20" id="e1a-6n-8nH"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="swipe up to go before" image="button:dTG-0h-hei:image">
+                                <state key="normal" title="swipe down to go before" image="button:dTG-0h-hei:image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -400,7 +455,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fxa-Up-NAT"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="swipe down to go next" image="button:Y1N-5t-qvw:image">
+                                <state key="normal" title="swipe up to go next" image="button:Y1N-5t-qvw:image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -443,6 +498,7 @@
                         <viewLayoutGuide key="safeArea" id="Kng-Ay-sES"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="E6d-Ua-tXC" appends="YES" id="64C-Zj-II1"/>
+                            <outletCollection property="gestureRecognizers" destination="2aO-B9-aqP" appends="YES" id="mai-hv-i21"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="허생전" id="dtv-bd-jwv">
@@ -504,13 +560,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bE3-Vb-v6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="E6d-Ua-tXC">
+                <swipeGestureRecognizer direction="up" id="E6d-Ua-tXC">
                     <connections>
                         <action selector="viewSwiped:" destination="NiS-yX-bcT" id="0yS-4J-aeT"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="2aO-B9-aqP">
+                    <connections>
+                        <action selector="viewSwiped:" destination="NiS-yX-bcT" id="UZj-Mu-nzm"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="926" y="839"/>
+            <point key="canvasLocation" x="-64" y="774"/>
         </scene>
     </scenes>
     <resources>

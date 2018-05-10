@@ -45,7 +45,7 @@ class WebToonStore {
         
         let data = NSKeyedArchiver.archivedData(withRootObject: allWebToons)
         UserDefaults.standard.set(data, forKey: WebToonStoreKey)
-        
+        print("Successfully Data Saved")
         return true
     }
     

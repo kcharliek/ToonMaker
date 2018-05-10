@@ -12,15 +12,16 @@ class LineCommand: NSObject, NSCoding, PaintCommand {
     // MARK: - Variable
     private var dotCommands = [DotCommand]()
     
-    // MARK: - Method
-    override init() {
-        super.init()
-    }
-    
+    // MARK: - Command Protocol
     func execute(in canvas: Canvas) {
         for dotCmd in dotCommands {
             dotCmd.execute(in: canvas)
         }
+    }
+    
+    // MARK: - Method
+    override init() {
+        super.init()
     }
     
     func addDotCommand(command: DotCommand) {

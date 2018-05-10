@@ -7,21 +7,44 @@
 //
 
 import UIKit
+import PKHUD
 import Toaster
 
 class BookShelfViewController: BaseViewController {
+    // MARK: - Constant
+    private let sectionInsetValue: CGFloat = 20
+    private let itemSpcing: CGFloat = 20
+    
     // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-    let sectionInsetValue: CGFloat = 20
-    let itemSpcing: CGFloat = 20
+    
     // MARK: - Variable
-    var webToons: [WebToon]?
+    private var webToons: [WebToon]?
     
     @IBAction func closeBtnClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Method
+    //For Extport WebToon
+    func combine(images: [UIImage], title: String, width: CGFloat) -> UIImage {
+        let labelHeight: CGFloat = 100
+        //WebToon Title
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: labelHeight)).then {
+            $0.text = title
+            $0.isOpaque = false
+            $0.textAlignment = .center
+            $0.font = UIFont(name: "NanumGothicOTFBold", size: 30)
+        }
+        let labelImage = UIImage(view: label)
+        
+        var cache: UIImage = labelImage
+        for img in images {
+            cache = UIImage(top: cache, bottom: img, width: width)
+        }
+        return cache
+    }
+    
     func fetchData() {
         webToons = WebToonStore.shared.fetchAllWebToons()
     }
@@ -46,14 +69,18 @@ class BookShelfViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        HUD.show(.systemActivity)
         fetchData()
         collectionView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        HUD.hide()
     }
 }
 
 extension BookShelfViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - CollectionView DataSource
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let ret = webToons?.count ?? 0
         if ret == 0 { collectionView.isHidden = true }
@@ -84,6 +111,7 @@ extension BookShelfViewController: UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
+    // MARK: - CollectionView FlowLayout Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (UIScreen.main.bounds.width - sectionInsetValue * 2 - itemSpcing) / 2
         return CGSize(width: width, height: width * 1.5)
@@ -106,7 +134,7 @@ extension BookShelfViewController: TMPopoverDelegate {
                 //뷰어로 읽기
                 if let _ = model.pages[0].image {
                     let viewerVC = ViewerViewController.make()
-                    viewerVC.model = model
+                    viewerVC.set(model: model)
                     self.navigationController?.pushViewController(viewerVC, animated: true)
                 }else {
                     Toast(text: "이미지가 없습니다. '이어서 편집' 기능으로 웹툰을 채워주세요.").show()
@@ -114,11 +142,12 @@ extension BookShelfViewController: TMPopoverDelegate {
             }else if index == 1 {
                 //이어서 편집
                 let toonMakerVC = ToonMakerViewController.make()
-                toonMakerVC.webToonModel = model
+                toonMakerVC.set(model: model)
                 self.navigationController?.pushViewController(toonMakerVC, animated: true)
             }else if index == 2 {
                 //앨범에 저장
-                MyWebToonAlbum.shared.save(image: model.pages[0].image!, completion: { (result) in
+                let outputImage = self.combine(images: model.pages.map({$0.image!}), title: model.title, width: 400)
+                MyWebToonAlbum.shared.save(image: outputImage, completion: { (result) in
                     switch result {
                     case 0:
                         Toast(text: "앨범에 저장 되었습니다.").show()
@@ -153,7 +182,6 @@ extension BookShelfViewController: UIPopoverPresentationControllerDelegate {
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.permittedArrowDirections = .any
     }
-    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }

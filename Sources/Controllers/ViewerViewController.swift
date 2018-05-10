@@ -11,11 +11,7 @@ import UIKit
 class ViewerViewController: BaseViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-    var model: WebToon! {
-        didSet {
-            self.title = model.title
-        }
-    }
+    private var model: WebToon!
     
     // MARK: - Action
     @IBAction func backBtnClicked(_ sender: Any) {
@@ -23,6 +19,11 @@ class ViewerViewController: BaseViewController {
     }
     
     // MARK: - Method
+    func set(model: WebToon) {
+        self.model = model
+        self.title = model.title
+    }
+    
     static func make() -> ViewerViewController {
         let vc = Storyboard.main.instantiateViewController(withIdentifier: "ViewerViewController") as! ViewerViewController
         return vc

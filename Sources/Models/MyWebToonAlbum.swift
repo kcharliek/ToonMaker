@@ -78,6 +78,8 @@ class MyWebToonAlbum: NSObject {
         return nil
     }
     
+    
+    
     func save(image: UIImage, completion: @escaping (Int) -> Void) { //0: Success, 1: Authoriztion Request Fail, 2: Write Fail
         checkAuthorizationWithHandler { (success) in
             if success, self.assetCollection != nil {

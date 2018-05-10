@@ -32,7 +32,7 @@ class MainViewController: BaseViewController {
             let newWebToon = WebToon(title: titleText)
             
             if WebToonStore.shared.save(webToon: newWebToon) {
-                toonMakerVC.webToonModel = newWebToon
+                toonMakerVC.set(model: newWebToon)
                 nav.viewControllers = [toonMakerVC]
                 self.present(nav, animated: true, completion: nil)
             }else {

@@ -24,20 +24,15 @@ class ToonMakerViewController: BaseViewController {
     @IBOutlet weak var moreBarButtonItem: UIBarButtonItem!
     
     // MARK: - Variable
-    var webToonModel: WebToon! {
-        didSet {
-            title = webToonModel.title
-            currentPage = 0
-        }
-    }
-    var pageModel: WebToonPage! {
+    private var webToonModel: WebToon!
+    private var pageModel: WebToonPage! {
         didSet {
             if isViewDidAppearCalled {
                 drawPage()
             }
         }
     }
-    var currentPage: Int = -1 {
+    private var currentPage: Int = -1 {
         didSet {
             if currentPage >= 0 {
                 pageModel = webToonModel?.pages[currentPage]
@@ -46,10 +41,12 @@ class ToonMakerViewController: BaseViewController {
                 }else {
                     Toast(text: "표지").show()
                 }
+            }else {
+                currentPage = 0
             }
         }
     }
-    var isViewDidAppearCalled: Bool = false // For checking the layout completion
+    private var isViewDidAppearCalled: Bool = false
     
     // MARK: - Actions
     @IBAction func newPageBtnClicked(_ sender: Any) {
@@ -107,27 +104,18 @@ class ToonMakerViewController: BaseViewController {
     }
     
     @IBAction func viewSwiped(_ sender: UISwipeGestureRecognizer) {
-        print(sender.direction)
         if sender.direction == .up {
-            currentPage = currentPage - 1
+            go(page: currentPage + 1)
         }else if sender.direction == .down {
-            currentPage = currentPage + 1
+            go(page: currentPage - 1)
         }
     }
     
     @IBAction func goBeforePageBtnClicked(_ sender: Any) {
-        guard currentPage > 0 else {
-            Toast(text: "페이지의 처음입니다.").show()
-            return
-        }
-        currentPage = currentPage - 1
+        go(page: currentPage - 1)
     }
     @IBAction func goNextPageBtnClicked(_ sender: Any) {
-        guard currentPage < webToonModel.pages.count - 1 else {
-            Toast(text: "페이지의 마지막입니다.").show()
-            return
-        }
-        currentPage = currentPage + 1
+        go(page: currentPage + 1)
     }
     
     @IBAction func backBtnClicked(_ sender: Any) {
@@ -136,23 +124,38 @@ class ToonMakerViewController: BaseViewController {
         }else {
             dismiss(animated: true, completion: nil)
         }
+        let _ = WebToonStore.shared.save(webToon: webToonModel)
     }
     
     @objc func sceneSelected(sender: Any) {
         let sender = sender as! UIImageView
-        guard let model = pageModel?.scenes?[sender.tag] else { return }
-        let editorVC = SceneEditorViewController.make(model: model)
+        guard let scene = pageModel?.scenes?[sender.tag] else { return }
+        let editorVC = SceneEditorViewController.make(scene: scene, webtoon: webToonModel)
         navigationController?.pushViewController(editorVC, animated: true)
     }
     
     // MARK: - Method
+    func set(model: WebToon) {
+        webToonModel = model
+        title = model.title
+        go(page: 0)
+    }
+    
     func go(page: Int) {
+        if page < 0 {
+            Toast(text: "웹툰의 처음입니다.").show()
+            return
+        }else if page > webToonModel.pages.count - 1 {
+            Toast(text: "웹툰의 마지막입니다.").show()
+            return
+        }
         
+        currentPage = page
     }
     
     private func drawPage() {
         guard let toonLayout = pageModel?.layout else { return }
-        HUD.show(.systemActivity)
+        
         for v in toonPageView.subviews { v.removeFromSuperview() }
         
         var idx = 0
@@ -175,9 +178,6 @@ class ToonMakerViewController: BaseViewController {
         //make page image
         let image = UIImage(view: toonPageView)
         pageModel.image = image
-        //auto save
-        let _ = WebToonStore.shared.save(webToon: webToonModel)
-        HUD.hide()
     }
     
     public static func make() -> ToonMakerViewController {
@@ -185,7 +185,8 @@ class ToonMakerViewController: BaseViewController {
     }
     
     func configureUI() {
-        closeBarButtonItem.image = navigationController!.viewControllers.count > 1 ? #imageLiteral(resourceName: "etc_arrow_left") : #imageLiteral(resourceName: "etc_close") //Pop or Dismiss
+        //pop or dismiss
+        closeBarButtonItem.image = navigationController!.viewControllers.count > 1 ? #imageLiteral(resourceName: "etc_arrow_left") : #imageLiteral(resourceName: "etc_close")
     }
     
     // MARK: - View Life Cycle
@@ -197,8 +198,8 @@ class ToonMakerViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         HUD.show(.systemActivity)
-        navigationController?.setNavigationBarHidden(false, animated: true)
         AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -206,6 +207,7 @@ class ToonMakerViewController: BaseViewController {
         //start draw after view did appear
         isViewDidAppearCalled = true
         drawPage()
+        HUD.hide()
     }
 }
 
@@ -227,8 +229,9 @@ extension ToonMakerViewController: TMPopoverDelegate {
                 newPageIndex = currentPage + 1
             }
             webToonModel.insertNewPage(at: newPageIndex)
-            currentPage = newPageIndex
+            go(page: newPageIndex)
             controller.dismiss(animated: true, completion: nil)
+            let _ = WebToonStore.shared.save(webToon: self.webToonModel)
         }else if controller.tag == 222 {
             //from more button
             if index == 0 {
@@ -241,7 +244,8 @@ extension ToonMakerViewController: TMPopoverDelegate {
                     let alert = UIAlertController(title: "삭제", message: "삭제 실행 이후 다시 되돌릴 수 없습니다.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
                         self.webToonModel.removePage(at: self.currentPage)
-                        self.currentPage = self.currentPage - 1
+                        self.go(page: self.currentPage - 1)
+                        let _ = WebToonStore.shared.save(webToon: self.webToonModel)
                     }))
                     alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
@@ -250,8 +254,9 @@ extension ToonMakerViewController: TMPopoverDelegate {
         }
     }
     func popover(_ controller: BasePopoverViewController, didSelectLayout layout: ToonLayout) {
-        pageModel?.layout = layout
+        pageModel.layout = layout
         drawPage()
+        let _ = WebToonStore.shared.save(webToon: webToonModel)
     }
 }
 
