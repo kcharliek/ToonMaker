@@ -1,5 +1,5 @@
 //
-//  PaintInvoker.swift
+//  CommandInvoker.swift
 //  ToonMaker
 //
 //  Created by CHANHEE KIM on 2018. 5. 6..
@@ -8,17 +8,19 @@
 
 import UIKit
 
-class PaintCommandInvoker: NSObject, NSCoding {
+class CommandInvoker: NSObject, NSCoding {
     // MARK: - Variable
-    private var commands = [PaintCommand]()
+    private var commands: [Command]!
     private var itr: Int = -1
     
-    // MARK: - Method
-    override init() {
+    // MARK: - Constructor
+    public override init() {
         super.init()
+        commands = [Command]()
     }
     
-    func add(command: PaintCommand) {
+    // MARK: - Method
+    public func add(command: Command!) {
         if itr >= 0 { commands = Array(commands[0...itr]) }
         else { commands.removeAll() }
         
@@ -26,38 +28,38 @@ class PaintCommandInvoker: NSObject, NSCoding {
         itr = commands.count - 1
     }
     
-    func removeAllCommands() {
+    public func removeAllCommands() {
         commands.removeAll()
         itr = -1
     }
     
-    func redoCommands() -> [PaintCommand]? {
+    public func redoCommands() -> [Command]? {
         guard itr < commands.count - 1 else { return commands }
         
         itr = itr + 1
         return Array(commands[0...itr])
     }
     
-    func undoCommands() -> [PaintCommand]? {
+    public func undoCommands() -> [Command]? {
         guard itr > 0 else { itr = -1; return nil }
         
         itr = itr - 1
         return Array(commands[0...itr])
     }
     
-    func currentCommands() -> [PaintCommand]? {
+    public func currentCommands() -> [Command]? {
         guard itr >= 0 else { return nil }
         return Array(commands[0...itr])
     }
     
-    // MARK: - NSCoding Implementation
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(commands, forKey: "commands")
         aCoder.encode(itr, forKey: "itr")
     }
     
     required init(coder aDecoder: NSCoder) {
-        commands = aDecoder.decodeObject(forKey: "commands") as! [PaintCommand]
+        commands = aDecoder.decodeObject(forKey: "commands") as! [Command]
         itr = aDecoder.decodeInteger(forKey: "itr")
     }
  }

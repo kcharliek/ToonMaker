@@ -16,10 +16,37 @@ import UIKit
 }
 
 class BasePopoverViewController: UIViewController {
-    var data: Any?
-    var tag: Int = 0
+    // MARK: - Variable
+    public var data: Any?
+    public var tag: Int = 0
+    public var delegate: TMPopoverDelegate? {
+        didSet {
+            self.modalPresentationStyle = .popover
+            self.popoverPresentationController?.delegate = self
+        }
+    }
+    public var sourceView: UIView! {
+        didSet {
+            self.popoverPresentationController?.sourceView = self.sourceView
+            self.popoverPresentationController?.sourceRect = self.sourceView.bounds
+        }
+    }
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.popoverPresentationController?.backgroundColor = .white
+    }
+}
+
+extension BasePopoverViewController: UIPopoverPresentationControllerDelegate {
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        popoverPresentationController.permittedArrowDirections = .any
+    }
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
 }

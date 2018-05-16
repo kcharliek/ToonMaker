@@ -10,36 +10,39 @@ import UIKit
 
 class WebToon: NSObject, NSCoding {
     // MARK: - Variable
-    var title: String!
-    var creationDate: Date!
-    var modifiedDate: Date!
-    var pages = [WebToonPage]()
+    public private(set) var title: String!
+    public private(set) var pages: [WebToonPage]!
     
-    // MARK: - Method
-    override init() {
+    public private(set) var creationDate: Date!
+    public var modifiedDate: Date!
+    
+    // MARK: - Constructor
+    private override init() {
         super.init()
     }
     
-    init(title: String!) {
+    public init(title: String!) {
         self.title = title
+        
         creationDate = Date()
         modifiedDate = Date()
-        let firstPage = WebToonPage()
-        firstPage.layout = ToonLayout.Type1() //Default Layout
-        pages.append(firstPage)
+        
+        let cover = WebToonPage()
+        pages = [WebToonPage]()
+        pages.append(cover)
     }
     
-    func insertNewPage(at: Int) {
+    // MARK: - Method
+    public func insertNewPage(at: Int) {
         let newPage = WebToonPage()
-        newPage.layout = ToonLayout.Type1()
         pages.insert(newPage, at: at)
     }
     
-    func removePage(at: Int) {
+    public func removePage(at: Int) {
         pages.remove(at: at)
     }
     
-    // MARK: - NSCoding Implementation
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(title, forKey: "title")
         aCoder.encode(creationDate, forKey: "creationDate")
@@ -56,26 +59,38 @@ class WebToon: NSObject, NSCoding {
 }
 
 class WebToonPage: NSObject, NSCoding {
-    var layout: ToonLayout! {
-        didSet {
-            var newScenes = [WebToonScene]()
-            for sceneLayout in layout.sceneLayouts {
-                let scene = WebToonScene()
-                scene.layout = sceneLayout
-                newScenes.append(scene)
-            }
-            scenes = newScenes
-        }
-    }
+    // MARK: - Variable
+    private var scenes: [WebToonScene]!
+    public var image: UIImage?
+    public private(set) var layout: ToonLayout!
     
-    var scenes: [WebToonScene]!
-    var image: UIImage?
-    
-    override init() {
+    // MARK: - Method
+    private override init() {
         super.init()
     }
     
-    // MARK: - NSCoding Implementation
+    init(layout: ToonLayout = ToonLayout.Type1()) {
+        super.init()
+        self.set(layout: layout)
+    }
+    
+    public func scene(index: Int) -> WebToonScene? {
+        guard index < scenes.count else { return nil }
+        return self.scenes[index]
+    }
+    
+    public func set(layout: ToonLayout) {
+        self.layout = layout
+        
+        var newScenes = [WebToonScene]()
+        for sceneLayout in layout.sceneLayouts {
+            let scene = WebToonScene(layout: sceneLayout)
+            newScenes.append(scene)
+        }
+        scenes = newScenes
+    }
+    
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(scenes, forKey: "scenes")
         aCoder.encode(layout, forKey: "layout")
@@ -83,22 +98,29 @@ class WebToonPage: NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        scenes = aDecoder.decodeObject(forKey: "scenes") as? [WebToonScene]
-        layout = aDecoder.decodeObject(forKey: "layout") as? ToonLayout
+        scenes = aDecoder.decodeObject(forKey: "scenes") as! [WebToonScene]
+        layout = aDecoder.decodeObject(forKey: "layout") as! ToonLayout
         image = aDecoder.decodeObject(forKey: "image") as? UIImage
     }
 }
 
 class WebToonScene: NSObject, NSCoding {
+    // MARK: - Variable
     var layout: SceneLayout!
     var image: UIImage?
-    var config: EditorConfiguration = EditorConfiguration()
+    var config: EditorConfiguration!
     
-    override init() {
+    // MARK: - Constructor
+    private override init() {
         super.init()
     }
     
-    // MARK: - NSCoding Implementation
+    public init(layout: SceneLayout) {
+        self.layout = layout
+        config = EditorConfiguration()
+    }
+    
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(layout, forKey: "layout")
         aCoder.encode(image, forKey: "image")

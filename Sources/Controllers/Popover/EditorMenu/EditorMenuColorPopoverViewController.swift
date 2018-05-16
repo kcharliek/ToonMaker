@@ -18,7 +18,7 @@ class EditorMenuColorPopoverViewController: BasePopoverViewController {
     
     // MARK: - Variable
     var colors = [[Color]]()
-    var delegate: TMPopoverDelegate?
+    
     
     // MARK: - Method
     func configureUI() {

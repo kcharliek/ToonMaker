@@ -1,5 +1,5 @@
 //
-//  PageEditorViewController.swift
+//  SceneEditorViewController.swift
 //  ToonMaker
 //
 //  Created by CHANHEE KIM on 2018. 5. 3..
@@ -13,7 +13,7 @@ import Toaster
 
 class SceneEditorViewController: BaseViewController {
     // MARK: - Constant
-    let menus: [(Menu, UIImage)] = [(.color,#imageLiteral(resourceName: "editor_menu_color")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.photo, #imageLiteral(resourceName: "editor_menu_photo")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
+    private let menus: [(Menu, UIImage)] = [(.color,#imageLiteral(resourceName: "editor_menu_color")), (.pen, #imageLiteral(resourceName: "editor_menu_pen")), (.eraser, #imageLiteral(resourceName: "editor_menu_eraser")), (.photo, #imageLiteral(resourceName: "editor_menu_photo")), (.sticker, #imageLiteral(resourceName: "editor_menu_sticker")), (.bubble, #imageLiteral(resourceName: "editor_menu_bubble")),(.undo,#imageLiteral(resourceName: "editor_menu_undo")),(.redo,#imageLiteral(resourceName: "editor_menu_redo")), (.clear, #imageLiteral(resourceName: "editor_menu_clear"))]
     
     // MARK: - IBOutlet
     @IBOutlet weak var menuCollectionView: UICollectionView!
@@ -21,24 +21,23 @@ class SceneEditorViewController: BaseViewController {
     @IBOutlet weak var backButton: UIButton!
     
     // MARK: - Variable
-    var webToonModel: WebToon!
-    var model: WebToonScene!
-    var isLandscape: Bool = false
-    var mode: Menu = .pen
-    var config: EditorConfiguration!
+    private var model: WebToonScene!
+    private var isLandscape: Bool = false
+    private var mode: Menu = .pen
+    private var config: EditorConfiguration!
     
     //Temporary Variables For Drawing Line
-    var lastPoint: CGPoint = CGPoint.zero
-    var lineCommand: LineCommand?
-    var lastDot: Dot?
+    private var lastPoint: CGPoint = CGPoint.zero
+    private var lineCommand: LineCommand?
+    private var lastDot: Dot?
     
     // MARK: - Actions
     @IBAction func backBtnClicked(_ sender: Any) {
-        model?.image = UIImage(view: editorView)
+        model.image = UIImage(view: editorView)
         navigationController?.popViewController(animated: true)
-        let _ = WebToonStore.shared.save(webToon: webToonModel)
     }
     
+    // MARK: - Pan Gesture Method
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         let point = sender.location(in: sender.view)
         switch sender.state {
@@ -53,15 +52,14 @@ class SceneEditorViewController: BaseViewController {
         }
     }
     
-    // MARK: - Method
-    func panBeganAt(point: CGPoint) {
+    private func panBeganAt(point: CGPoint) {
         if mode == .pen || mode == .eraser {
             lineCommand = LineCommand()
         }
         lastPoint = point
     }
     
-    func panChangedAt(point: CGPoint) {
+    private func panChangedAt(point: CGPoint) {
         if mode == .pen || mode == .eraser {
             let width: CGFloat = mode == .pen ? config.penWidth : config.eraserWidth
             let color: Color = mode == .eraser ? .white : config.currentColor
@@ -76,7 +74,7 @@ class SceneEditorViewController: BaseViewController {
         lastPoint = point
     }
     
-    func panEndAt(point: CGPoint) {
+    private func panEndAt(point: CGPoint) {
         if mode == .pen || mode == .eraser {
             if let lineCommand = lineCommand {
                 config.commandInvoker.add(command: lineCommand)
@@ -88,53 +86,13 @@ class SceneEditorViewController: BaseViewController {
         lastPoint = CGPoint.zero
     }
     
-    func undo() {
-        editorView.reset()
-        editorView.execute(commands: config.commandInvoker.undoCommands())
+    // MARK: - Method
+    private func isAllComponentHidden(flag : Bool) {
+        menuCollectionView.isHidden = flag
+        backButton.isHidden = flag
     }
     
-    func redo() {
-        editorView.reset()
-        editorView.execute(commands: config.commandInvoker.redoCommands())
-    }
-    
-    func loadScene() {
-        editorView.execute(commands: config.commandInvoker.currentCommands())
-        HUD.hide()
-    }
-    
-    func showImageEditor(image: UIImage!) {
-        let imageEditorVC = ImageEditorViewController.make(image: image)
-        imageEditorVC.modalPresentationStyle = .overCurrentContext
-        imageEditorVC.modalTransitionStyle = .crossDissolve
-        imageEditorVC.delegate = self
-        hideAllComponents()
-        present(imageEditorVC, animated: true, completion: nil)
-    }
-    
-    //for image editor
-    func hideAllComponents() {
-        menuCollectionView.isHidden = true
-        backButton.isHidden = true
-    }
-    
-    func showAllComponents() {
-        menuCollectionView.isHidden = false
-        backButton.isHidden = false
-    }
-    
-    func clearScene() {
-        let alert = UIAlertController(title: "화면 비우기", message: "화면 내 모든 내용이 사라집니다.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
-            self.config.commandInvoker.removeAllCommands()
-            self.editorView.reset()
-        }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alert.addAction(okAction); alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func configureFor(orientation: UIDeviceOrientation) {
+    private func configureFor(orientation: UIDeviceOrientation) {
         if orientation.isLandscape {
             if let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 flowLayout.scrollDirection = .vertical
@@ -148,19 +106,14 @@ class SceneEditorViewController: BaseViewController {
         }
     }
     
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        //Detect Orientation Change Here
-        configureFor(orientation: UIDevice.current.orientation)
-    }
-    
-    public static func make(scene: WebToonScene, webtoon: WebToon) -> SceneEditorViewController {
+    public static func make(scene: WebToonScene) -> SceneEditorViewController {
         let vc = Storyboard.main.instantiateViewController(withIdentifier: "SceneEditorViewController") as! SceneEditorViewController
         vc.model = scene
-        vc.webToonModel = webtoon
+        vc.config = scene.config
         return vc
     }
     
-    func configureUI() {
+    private func configureUI() {
         view.do {
             $0.backgroundColor = TMColor.primaryColor
         }
@@ -189,7 +142,6 @@ class SceneEditorViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        config = model?.config
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -197,14 +149,21 @@ class SceneEditorViewController: BaseViewController {
         HUD.show(.systemActivity)
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        if (model?.layout?.aspectRatio)! < 1 {
+        if model.layout.aspectRatio < 1 {
             AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeRight)
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadScene()
+        //Load Scene
+        editorView.execute(commands: config.commandInvoker.currentCommands())
+        HUD.hide()
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        //Detect Orientation Change Here
+        configureFor(orientation: UIDevice.current.orientation)
     }
 }
 
@@ -233,29 +192,22 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.cellForItem(at: indexPath) as! EditorMenuCollectionViewCell
             if cell.type == .color {
                 let _ = EditorMenuColorPopoverViewController.make().then {
-                    $0.modalPresentationStyle = .popover
                     $0.delegate = self
-                    $0.popoverPresentationController?.delegate = self
-                    $0.popoverPresentationController?.backgroundColor = .white
-                    $0.popoverPresentationController?.sourceRect = cell.bounds
-                    $0.popoverPresentationController?.sourceView = cell
+                    $0.sourceView = cell
                     let width: CGFloat = 200
                     $0.preferredContentSize = CGSize(width: width, height: width * 1.5)
                     present($0, animated: true, completion: nil)
                 }
             }else if cell.type == .pen || cell.type == .eraser {
                 let _ = EditorMenuDrawWidthPopoverViewController.make().then {
-                    $0.modalPresentationStyle = .popover
                     $0.delegate = self
-                    $0.popoverPresentationController?.delegate = self
-                    $0.popoverPresentationController?.backgroundColor = .white
-                    $0.popoverPresentationController?.sourceRect = cell.bounds
-                    $0.popoverPresentationController?.sourceView = cell
+                    $0.sourceView = cell
                     $0.type = cell.type
                     $0.dotWidth = cell.type == .pen ? config.penWidth : config.eraserWidth
                     $0.preferredContentSize = CGSize(width: 300, height: 125)
                     present($0, animated: true, completion: nil)
                 }
+                mode = cell.type
             }else if cell.type == .photo {
                 let handler = CameraHandler(delegate: self)
                 let alert = UIAlertController(title: "이미지 추가", message: nil, preferredStyle: .actionSheet).then {
@@ -274,11 +226,24 @@ extension SceneEditorViewController: UICollectionViewDelegate, UICollectionViewD
                 }
                 present(alert, animated: true, completion: nil)
             }
-            else if cell.type == .undo { undo() }
-            else if cell.type == .redo { redo() }
-            else if cell.type == .clear { clearScene() }
-            
-            mode = cell.type
+            else if cell.type == .undo {
+                editorView.reset()
+                editorView.execute(commands: config.commandInvoker.undoCommands())
+            }
+            else if cell.type == .redo {
+                editorView.reset()
+                editorView.execute(commands: config.commandInvoker.redoCommands())
+            }
+            else if cell.type == .clear {
+                let alert = UIAlertController(title: "화면 비우기", message: "화면 내 모든 내용이 사라집니다.", preferredStyle: .alert).then {
+                    $0.addAction(UIAlertAction(title: "확인", style: .default) { (_) in
+                        self.config.commandInvoker.removeAllCommands()
+                        self.editorView.reset()
+                    })
+                    $0.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+                }
+                present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -324,7 +289,13 @@ extension SceneEditorViewController: UIImagePickerControllerDelegate, UINavigati
         }
         
         picker.dismiss(animated: true) {
-            self.showImageEditor(image: selectedImage)
+            let imageEditorVC = ImageEditorViewController.make(image: selectedImage).then {
+                $0.modalPresentationStyle = .overCurrentContext
+                $0.modalTransitionStyle = .crossDissolve
+                $0.delegate = self
+            }
+            self.isAllComponentHidden(flag: true)
+            self.present(imageEditorVC, animated: true, completion: nil)
         }
     }
 }
@@ -335,10 +306,10 @@ extension SceneEditorViewController: ImageEditorDelegate {
         let imageCommand = ImageCommand(image: image, position: CGRect(origin: origin, size: size))
         editorView.execute(commands: [imageCommand])
         config.commandInvoker.add(command: imageCommand)
-        showAllComponents()
+        isAllComponentHidden(flag: false)
     }
     func imageEditor(_ controller: ImageEditorViewController, didFailToEditing: Error?) {
-        showAllComponents()
+        isAllComponentHidden(flag: false)
     }
 }
 
@@ -350,18 +321,5 @@ extension SceneEditorViewController: UIGestureRecognizerDelegate {
             }
         }
         return false
-    }
-}
-
-extension SceneEditorViewController: UIPopoverPresentationControllerDelegate {
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        popoverPresentationController.permittedArrowDirections = isLandscape ? .right : .down
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return .none
     }
 }

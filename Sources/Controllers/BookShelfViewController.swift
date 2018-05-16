@@ -99,13 +99,9 @@ extension BookShelfViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.cellForItem(at: indexPath) as! BookShelfCollectionViewCell
         let menus = ["뷰어로 읽기", "이어서 편집", "앨범에 저장", "삭제"]
         let _ = ListPopoverViewController.make(source: menus).then {
-            $0.modalPresentationStyle = .popover
             $0.delegate = self
-            $0.popoverPresentationController?.delegate = self
-            $0.popoverPresentationController?.backgroundColor = .white
-            $0.popoverPresentationController?.sourceRect = cell.bounds
-            $0.popoverPresentationController?.sourceView = cell
             $0.data = cell.model
+            $0.sourceView = cell
             $0.preferredContentSize = CGSize(width: 95, height: $0.rowHeight * CGFloat(menus.count))
             present($0, animated: true, completion: nil)
         }
@@ -175,18 +171,6 @@ extension BookShelfViewController: TMPopoverDelegate {
                 self.present(alert, animated: true, completion: nil)
             }
         })
-    }
-}
-
-extension BookShelfViewController: UIPopoverPresentationControllerDelegate {
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        popoverPresentationController.permittedArrowDirections = .any
-    }
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return .none
     }
 }
 

@@ -8,11 +8,10 @@
 
 import UIKit
 
-@objc protocol PaintCommand {
+protocol Command {
     func execute(in canvas: Canvas)
 }
 
-@objc protocol Canvas {
+protocol Canvas {
     var context: CGContext { get }
-    var contentView: UIView { get }
 }

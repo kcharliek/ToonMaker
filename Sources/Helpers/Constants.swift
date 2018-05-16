@@ -8,13 +8,8 @@
 
 import UIKit
 
-enum Config {
-//    static let baseURL = NSURL(string: "http://www.example.org/")!
-}
-
 enum TMColor {
     static let primaryColor = Color.Material.blueGrey900
-//    static let secondaryColor = Color.init(red: 0, green: 0, blue: 0)
 }
 
 enum Storyboard {

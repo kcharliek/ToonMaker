@@ -47,6 +47,7 @@ class ToonMakerViewController: BaseViewController {
         }
     }
     private var isViewDidAppearCalled: Bool = false
+    private var isDataChanged: Bool = false
     
     // MARK: - Actions
     @IBAction func newPageBtnClicked(_ sender: Any) {
@@ -58,8 +59,7 @@ class ToonMakerViewController: BaseViewController {
             $0.tag = 111
             $0.modalPresentationStyle = .popover
             $0.delegate = self
-            $0.popoverPresentationController?.delegate = self
-            $0.popoverPresentationController?.backgroundColor = .white
+//            $0.popoverPresentationController?.delegate = self
             $0.popoverPresentationController?.barButtonItem = newBarButtonItem
             $0.preferredContentSize = CGSize(width: 95, height: $0.rowHeight * CGFloat(menus.count))
             present($0, animated: true, completion: nil)
@@ -72,8 +72,7 @@ class ToonMakerViewController: BaseViewController {
             $0.tag = 222
             $0.modalPresentationStyle = .popover
             $0.delegate = self
-            $0.popoverPresentationController?.delegate = self
-            $0.popoverPresentationController?.backgroundColor = .white
+//            $0.popoverPresentationController?.delegate = self
             $0.popoverPresentationController?.barButtonItem = moreBarButtonItem
             $0.preferredContentSize = CGSize(width: 95, height: $0.rowHeight * CGFloat(menus.count))
             present($0, animated: true, completion: nil)
@@ -88,10 +87,7 @@ class ToonMakerViewController: BaseViewController {
         let alert = UIAlertController(title: "레이아웃 변경", message: "레이아웃을 변경하면 페이지 안의 모든 이미지는 삭제됩니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { (_) in
             let _ = LayoutSamplePopoverViewController.make().then {
-                $0.modalPresentationStyle = .popover
                 $0.delegate = self
-                $0.popoverPresentationController?.delegate = self
-                $0.popoverPresentationController?.backgroundColor = .white
                 $0.popoverPresentationController?.barButtonItem = self.layoutBarButtonItem
                 $0.preferredContentSize = CGSize(width: 320, height: 400)
                 self.present($0, animated: true, completion: nil)
@@ -124,14 +120,15 @@ class ToonMakerViewController: BaseViewController {
         }else {
             dismiss(animated: true, completion: nil)
         }
-        let _ = WebToonStore.shared.save(webToon: webToonModel)
+        isDataChanged = true
     }
     
     @objc func sceneSelected(sender: Any) {
         let sender = sender as! UIImageView
-        guard let scene = pageModel?.scenes?[sender.tag] else { return }
-        let editorVC = SceneEditorViewController.make(scene: scene, webtoon: webToonModel)
+        guard let scene = pageModel.scene(index: sender.tag) else { return }
+        let editorVC = SceneEditorViewController.make(scene: scene)
         navigationController?.pushViewController(editorVC, animated: true)
+        isDataChanged = true
     }
     
     // MARK: - Method
@@ -154,21 +151,19 @@ class ToonMakerViewController: BaseViewController {
     }
     
     private func drawPage() {
-        guard let toonLayout = pageModel?.layout else { return }
-        
         for v in toonPageView.subviews { v.removeFromSuperview() }
         
         var idx = 0
         toonPageView.layoutIfNeeded()
         
-        for sceneLayout in toonLayout.sceneLayouts {
+        for sceneLayout in pageModel.layout.sceneLayouts {
             let sceneFrame = sceneLayout.frame(in: toonPageView.bounds)
             let _ = UIImageView().then {
                 $0.frame = sceneFrame.insetBy(dx: sceneSpacing, dy: sceneSpacing)
                 $0.layer.borderColor = Color.black.cgColor
                 $0.layer.borderWidth = 1
                 $0.tag = idx
-                $0.image = pageModel.scenes[idx].image
+                $0.image = pageModel.scene(index: idx)?.image
                 $0.addTap(action: {self.sceneSelected(sender: $0)})
                 toonPageView.addSubview($0)
             }
@@ -231,7 +226,7 @@ extension ToonMakerViewController: TMPopoverDelegate {
             webToonModel.insertNewPage(at: newPageIndex)
             go(page: newPageIndex)
             controller.dismiss(animated: true, completion: nil)
-            let _ = WebToonStore.shared.save(webToon: self.webToonModel)
+            isDataChanged = true
         }else if controller.tag == 222 {
             //from more button
             if index == 0 {
@@ -245,7 +240,7 @@ extension ToonMakerViewController: TMPopoverDelegate {
                     alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
                         self.webToonModel.removePage(at: self.currentPage)
                         self.go(page: self.currentPage - 1)
-                        let _ = WebToonStore.shared.save(webToon: self.webToonModel)
+                        self.isDataChanged = true
                     }))
                     alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
@@ -254,9 +249,9 @@ extension ToonMakerViewController: TMPopoverDelegate {
         }
     }
     func popover(_ controller: BasePopoverViewController, didSelectLayout layout: ToonLayout) {
-        pageModel.layout = layout
+        pageModel.set(layout: layout)
         drawPage()
-        let _ = WebToonStore.shared.save(webToon: webToonModel)
+        isDataChanged = true
     }
 }
 
@@ -266,15 +261,3 @@ extension ToonMakerViewController: UIGestureRecognizerDelegate {
     }
 }
 
-extension ToonMakerViewController: UIPopoverPresentationControllerDelegate {
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        popoverPresentationController.permittedArrowDirections = .any
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return .none
-    }
-}

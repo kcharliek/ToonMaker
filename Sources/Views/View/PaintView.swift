@@ -22,27 +22,20 @@ class PaintView: UIView, Canvas {
     private var buffer: UIImage?
     
     // MARK: - Method
-    func reset() {
+    public func reset() {
         buffer = nil
         layer.contents = nil
     }
     
-    func execute(commands: [PaintCommand]?) {
+    public func execute(commands: [Command]?) {
         guard let commands = commands else { return }
-        
-        buffer = drawView(fire: {
-            for cmd in commands { cmd.execute(in: self) }
-        })
-        
+        buffer = drawView(with: commands)
         layer.contents = buffer?.cgImage ?? nil
     }
     
-    private func drawView(fire :() -> Void) -> UIImage? {
-        let size = bounds.size
+    private func drawView(with commands: [Command]) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0)
         
-        UIGraphicsBeginImageContextWithOptions(size, true, 0)
-//        let context = UIGraphicsGetCurrentContext()
-        let context = self.context
         context.setFillColor(Color.white.cgColor)
         context.fill(bounds)
         
@@ -50,7 +43,7 @@ class PaintView: UIView, Canvas {
             buffer.draw(in: bounds)
         }
         
-        fire()
+        for cmd in commands { cmd.execute(in: self) }
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

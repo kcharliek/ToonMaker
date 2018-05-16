@@ -9,10 +9,13 @@
 import UIKit
 
 class EditorMenuCollectionViewCell: UICollectionViewCell {
-    
+    // MARK: - IBOutlet
     @IBOutlet weak var iconImageView: UIImageView!
+    
+    // MARK: - Variable
     var type: Menu!
     
+    // MARK: - Method
     func setIcon(image: UIImage) {
         iconImageView.image = image
     }
@@ -24,6 +27,11 @@ class EditorMenuCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
+            guard type == .pen || type == .eraser  else {
+                layer.borderWidth = 0
+                return
+            }
+            
             if isSelected {
                 layer.borderColor = Color.white.cgColor
                 layer.borderWidth = 1

@@ -13,7 +13,6 @@ import SnapKit
 
 class ListPopoverViewController: BasePopoverViewController {
     var tableView: UITableView!
-    var delegate: TMPopoverDelegate?
     public var source: [String]?
     var rowHeight: CGFloat = 44
     // MARK: - Method
@@ -45,6 +44,8 @@ class ListPopoverViewController: BasePopoverViewController {
         configureUI()
     }
 }
+
+
 
 extension ListPopoverViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableView DataSource

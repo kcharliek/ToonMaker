@@ -19,7 +19,6 @@ class EditorMenuDrawWidthPopoverViewController: BasePopoverViewController {
     // MARK: - Variable
     
     var dotWidth: CGFloat?
-    var delegate: TMPopoverDelegate?
     var type: Menu!
     // MARK: - Action
     

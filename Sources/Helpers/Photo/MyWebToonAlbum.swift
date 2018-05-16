@@ -11,10 +11,11 @@ import Photos
 
 class MyWebToonAlbum: NSObject {
     // MARK: - Variable
-    static let albumName = "내 웹툰"
+    private let albumName = "내 웹툰"
+    private var assetCollection: PHAssetCollection!
     
     //For Singleton
-    static let shared = MyWebToonAlbum()
+    public static let shared = MyWebToonAlbum()
     private override init() {
         super.init()
         
@@ -24,9 +25,33 @@ class MyWebToonAlbum: NSObject {
         }
     }
     
-    private var assetCollection: PHAssetCollection!
-    
     // MARK: - Method
+    public func save(image: UIImage, completion: @escaping (Int) -> Void) { //0: Success, 1: Authoriztion Request Fail, 2: Write Fail
+        checkAuthorizationWithHandler { (success) in
+            if success, self.assetCollection != nil {
+                PHPhotoLibrary.shared().performChanges({
+                    let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)
+                    let assetPlaceHolder = assetChangeRequest.placeholderForCreatedAsset
+                    if let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection) {
+                        let enumeration: NSArray = [assetPlaceHolder!]
+                        albumChangeRequest.addAssets(enumeration)
+                    }
+                }, completionHandler: { (success, error) in
+                    if success {
+                        print("Successfully Saved Image to Album")
+                        completion(0)
+                    } else {
+                        print("Fail To Save Image, Error: \(error!.localizedDescription)")
+                        completion(2)
+                    }
+                })
+            }else {
+                print("Photo Authoriztion Deny")
+                completion(1)
+            }
+        }
+    }
+    
     private func checkAuthorizationWithHandler(completion: @escaping ((_ success: Bool) -> Void)) {
         if PHPhotoLibrary.authorizationStatus() == .notDetermined {
             PHPhotoLibrary.requestAuthorization({ (status) in
@@ -54,7 +79,7 @@ class MyWebToonAlbum: NSObject {
             completion(true)
         } else {
             PHPhotoLibrary.shared().performChanges({
-                PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: MyWebToonAlbum.albumName)   // create an asset collection with the album name
+                PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: self.albumName)   // create an asset collection with the album name
             }) { success, error in
                 if success {
                     self.assetCollection = self.fetchAssetCollectionForAlbum()
@@ -69,7 +94,7 @@ class MyWebToonAlbum: NSObject {
     
     private func fetchAssetCollectionForAlbum() -> PHAssetCollection? {
         let fetchOptions = PHFetchOptions()
-        fetchOptions.predicate = NSPredicate(format: "title = %@", MyWebToonAlbum.albumName)
+        fetchOptions.predicate = NSPredicate(format: "title = %@", albumName)
         let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
         
         if let _: AnyObject = collection.firstObject {
@@ -77,33 +102,4 @@ class MyWebToonAlbum: NSObject {
         }
         return nil
     }
-    
-    
-    
-    func save(image: UIImage, completion: @escaping (Int) -> Void) { //0: Success, 1: Authoriztion Request Fail, 2: Write Fail
-        checkAuthorizationWithHandler { (success) in
-            if success, self.assetCollection != nil {
-                PHPhotoLibrary.shared().performChanges({
-                    let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)
-                    let assetPlaceHolder = assetChangeRequest.placeholderForCreatedAsset
-                    if let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection) {
-                        let enumeration: NSArray = [assetPlaceHolder!]
-                        albumChangeRequest.addAssets(enumeration)
-                    }
-                }, completionHandler: { (success, error) in
-                    if success {
-                        print("Successfully Saved Image to Album")
-                        completion(0)
-                    } else {
-                        print("Fail To Save Image, Error: \(error!.localizedDescription)")
-                        completion(2)
-                    }
-                })
-            }else {
-                print("Photo Authoriztion Deny")
-                completion(1)
-            }
-        }
-    }
-    
 }

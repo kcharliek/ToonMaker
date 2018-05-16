@@ -1,5 +1,5 @@
 //
-//  ToonLayout.swift
+//  Layout.swift
 //  ToonMaker
 //
 //  Created by CHANHEE KIM on 2018. 5. 3..
@@ -9,19 +9,28 @@
 import UIKit
 
 class SceneLayout: NSObject, NSCoding {
-    private var startPoint: (Int, Int) //Horizontal Position : 0, 1, Vertical Position : 0, 1, 2
-    private var widthRatio: CGFloat
-    private var heightRatio: CGFloat
-    public var aspectRatio: CGFloat
+    // MARK: - Variable
+    private var startPoint: (Int, Int)! //Horizontal Position : 0, 1, Vertical Position : 0, 1, 2
+    private var widthRatio: CGFloat!
+    private var heightRatio: CGFloat!
+    public private(set) var aspectRatio: CGFloat!
     
-    init(sp: (Int, Int), wr: CGFloat, hr: CGFloat) {
-        startPoint = sp
-        widthRatio = wr / 2
-        heightRatio = hr / 3
-        aspectRatio = hr / wr
+    // MARK: - Constructor
+    private override init() {
+        super.init()
     }
     
-    func frame(in superViewFrame: CGRect) ->CGRect {
+    public init(sp: (Int, Int), wr: CGFloat, hr: CGFloat) {
+        super.init()
+        
+        self.startPoint = sp
+        self.widthRatio = wr / 2
+        self.heightRatio = hr / 3
+        self.aspectRatio = hr / wr
+    }
+    
+    // MARK: - Method
+    public func frame(in superViewFrame: CGRect) -> CGRect {
         let x = superViewFrame.width * CGFloat(startPoint.0) / 2
         let y = superViewFrame.height * CGFloat(startPoint.1) / 3
         let width = superViewFrame.width * widthRatio
@@ -30,7 +39,7 @@ class SceneLayout: NSObject, NSCoding {
         return CGRect(x: x, y: y, width: width, height: height)
     }
     
-    // MARK: - NSCoding Implementation
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(startPoint.0, forKey: "startPoint0")
         aCoder.encode(startPoint.1, forKey: "startPoint1")
@@ -50,31 +59,32 @@ class SceneLayout: NSObject, NSCoding {
 }
 
 class ToonLayout: NSObject, NSCoding {
-    var sceneLayouts = [SceneLayout]()
-    var numberOfSecenes: Int = 0
-    var sample: UIImage!
+    // MARK: - Variable
+    public private(set) var sceneLayouts: [SceneLayout]!
+    public private(set) var sample: UIImage!
     
+    // MARK: - Constructor
     override init() {
         super.init()
+        self.sceneLayouts = [SceneLayout]()
     }
     
-    static func getAll() -> [ToonLayout] {
+    // MARK: - Predesigned Layout
+    public static func getAll() -> [ToonLayout] {
         return [Type1(), Type2(), Type3(), Type4(), Type5(), Type6(), Type7(), Type8()]
     }
     
-    static func Type1() -> ToonLayout {
+    public static func Type1() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type1")
         
         let scene1 = SceneLayout(sp: (0,0), wr: 2, hr: 3)
         layout.sceneLayouts.append(scene1)
         
-        layout.numberOfSecenes = layout.sceneLayouts.count
-        
         return layout
     }
     
-    static func Type2() -> ToonLayout {
+    public static func Type2() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type2")
         let scene1 = SceneLayout(sp: (0,0), wr: 2, hr: 2)
@@ -82,12 +92,11 @@ class ToonLayout: NSObject, NSCoding {
         
         layout.sceneLayouts.append(scene1)
         layout.sceneLayouts.append(scene2)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
     
-    static func Type3() -> ToonLayout {
+    public static func Type3() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type3")
         let scene1 = SceneLayout(sp: (0,0), wr: 2, hr: 1)
@@ -95,13 +104,11 @@ class ToonLayout: NSObject, NSCoding {
         
         layout.sceneLayouts.append(scene1)
         layout.sceneLayouts.append(scene2)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
-
     
-    static func Type4() -> ToonLayout {
+    public static func Type4() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type4")
         let scene1 = SceneLayout(sp: (0,0), wr: 2, hr: 1)
@@ -111,12 +118,11 @@ class ToonLayout: NSObject, NSCoding {
         layout.sceneLayouts.append(scene1)
         layout.sceneLayouts.append(scene2)
         layout.sceneLayouts.append(scene3)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
     
-    static func Type5() -> ToonLayout {
+    public static func Type5() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type5")
         let scene1 = SceneLayout(sp: (0,0), wr: 1, hr: 2)
@@ -128,12 +134,11 @@ class ToonLayout: NSObject, NSCoding {
         layout.sceneLayouts.append(scene2)
         layout.sceneLayouts.append(scene3)
         layout.sceneLayouts.append(scene4)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
     
-    static func Type6() -> ToonLayout {
+    public static func Type6() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type6")
         let scene1 = SceneLayout(sp: (0,0), wr: 1, hr: 1)
@@ -145,12 +150,11 @@ class ToonLayout: NSObject, NSCoding {
         layout.sceneLayouts.append(scene2)
         layout.sceneLayouts.append(scene3)
         layout.sceneLayouts.append(scene4)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
     
-    static func Type7() -> ToonLayout {
+    public static func Type7() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type7")
         let scene1 = SceneLayout(sp: (0,0), wr: 2, hr: 1)
@@ -162,12 +166,11 @@ class ToonLayout: NSObject, NSCoding {
         layout.sceneLayouts.append(scene2)
         layout.sceneLayouts.append(scene3)
         layout.sceneLayouts.append(scene4)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
     
-    static func Type8() -> ToonLayout {
+    public static func Type8() -> ToonLayout {
         let layout = ToonLayout()
         layout.sample = #imageLiteral(resourceName: "Layout_Sample_Type8")
         let scene1 = SceneLayout(sp: (0,0), wr: 1, hr: 1)
@@ -181,21 +184,16 @@ class ToonLayout: NSObject, NSCoding {
         layout.sceneLayouts.append(scene3)
         layout.sceneLayouts.append(scene4)
         layout.sceneLayouts.append(scene5)
-        layout.numberOfSecenes = layout.sceneLayouts.count
         
         return layout
     }
     
-    // MARK: - NSCoding Implementation
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(sceneLayouts, forKey: "sceneLayouts")
-        aCoder.encode(numberOfSecenes, forKey: "numberOfSecenes")
-        aCoder.encode(sample, forKey: "sample")
     }
     
     required init(coder aDecoder: NSCoder) {
         sceneLayouts = aDecoder.decodeObject(forKey: "sceneLayouts") as! [SceneLayout]
-        numberOfSecenes = aDecoder.decodeInteger(forKey: "numberOfSecenes")
-        sample = aDecoder.decodeObject(forKey: "sample") as! UIImage
     }
 }

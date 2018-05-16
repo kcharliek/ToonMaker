@@ -13,7 +13,6 @@ class LayoutSamplePopoverViewController: BasePopoverViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-    var delegate: TMPopoverDelegate?
     
     // MARK: - Method
     func configureUI() {
@@ -31,6 +30,8 @@ class LayoutSamplePopoverViewController: BasePopoverViewController {
         configureUI()
     }
 }
+
+
 
 extension LayoutSamplePopoverViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - CollectionView DataSource

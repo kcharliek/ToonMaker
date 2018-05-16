@@ -8,9 +8,15 @@
 
 import UIKit
 
-class LineCommand: NSObject, NSCoding, PaintCommand {
+class LineCommand: NSObject, NSCoding, Command {
     // MARK: - Variable
-    private var dotCommands = [DotCommand]()
+    private var dotCommands : [DotCommand]!
+    
+    // MARK: - Constructor
+    public override init() {
+        super.init()
+        dotCommands = [DotCommand]()
+    }
     
     // MARK: - Command Protocol
     func execute(in canvas: Canvas) {
@@ -20,15 +26,11 @@ class LineCommand: NSObject, NSCoding, PaintCommand {
     }
     
     // MARK: - Method
-    override init() {
-        super.init()
-    }
-    
-    func addDotCommand(command: DotCommand) {
+    public func addDotCommand(command: DotCommand!) {
         dotCommands.append(command)
     }
     
-    // MARK: - NSCoding Implementation
+    // MARK: - NSCoding Protocol
     func encode(with aCoder: NSCoder) {
         aCoder.encode(dotCommands, forKey: "dotCommands")
     }
