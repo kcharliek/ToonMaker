@@ -7,21 +7,159 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213161713609D4D8DC9FB303 /* Pods_ToonMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */; };
+		C403AE0F209ABDE100AEEE7D /* SceneEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE0E209ABDE100AEEE7D /* SceneEditorViewController.swift */; };
+		C403AE11209ABDF400AEEE7D /* ToonMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE10209ABDF400AEEE7D /* ToonMakerViewController.swift */; };
+		C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */; };
+		C403AE17209AC39800AEEE7D /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C403AE16209AC39800AEEE7D /* Alert.storyboard */; };
+		C403AE1A209AC40D00AEEE7D /* EditorMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE18209AC40D00AEEE7D /* EditorMenuCollectionViewCell.swift */; };
+		C403AE1B209AC40D00AEEE7D /* EditorMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403AE19209AC40D00AEEE7D /* EditorMenuCollectionViewCell.xib */; };
+		C403AE1F209AC8B900AEEE7D /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE1E209AC8B900AEEE7D /* Layout.swift */; };
+		C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */; };
+		C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE22209B229700AEEE7D /* WebToonModel.swift */; };
+		C403AE3C209B36D700AEEE7D /* NanumPen.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE28209B36CD00AEEE7D /* NanumPen.otf */; };
+		C403AE3D209B36D700AEEE7D /* NanumBarunGothicUltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE29209B36CD00AEEE7D /* NanumBarunGothicUltraLight.otf */; };
+		C403AE3E209B36D700AEEE7D /* NanumBarunpenBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2A209B36CE00AEEE7D /* NanumBarunpenBold.otf */; };
+		C403AE3F209B36D700AEEE7D /* NanumBrush.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2B209B36CE00AEEE7D /* NanumBrush.otf */; };
+		C403AE40209B36D700AEEE7D /* NanumGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2C209B36CF00AEEE7D /* NanumGothicBold.otf */; };
+		C403AE41209B36D700AEEE7D /* NanumMyeongjo.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2D209B36CF00AEEE7D /* NanumMyeongjo.otf */; };
+		C403AE42209B36D700AEEE7D /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2E209B36D000AEEE7D /* NanumSquareRoundOTFEB.otf */; };
+		C403AE43209B36D700AEEE7D /* NanumGothicExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE2F209B36D000AEEE7D /* NanumGothicExtraBold.otf */; };
+		C403AE44209B36D700AEEE7D /* NanumBarunpenRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE30209B36D100AEEE7D /* NanumBarunpenRegular.otf */; };
+		C403AE45209B36D700AEEE7D /* NanumBarunGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE31209B36D100AEEE7D /* NanumBarunGothicBold.otf */; };
+		C403AE46209B36D700AEEE7D /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE32209B36D200AEEE7D /* NanumGothicLight.otf */; };
+		C403AE47209B36D700AEEE7D /* NanumMyeongjoExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE33209B36D200AEEE7D /* NanumMyeongjoExtraBold.otf */; };
+		C403AE48209B36D700AEEE7D /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE34209B36D300AEEE7D /* NanumSquareRoundOTFB.otf */; };
+		C403AE49209B36D700AEEE7D /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE35209B36D300AEEE7D /* NanumSquareRoundOTFL.otf */; };
+		C403AE4A209B36D700AEEE7D /* NanumBarunGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE36209B36D400AEEE7D /* NanumBarunGothicLight.otf */; };
+		C403AE4B209B36D700AEEE7D /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE37209B36D400AEEE7D /* NanumSquareRoundOTFR.otf */; };
+		C403AE4C209B36D700AEEE7D /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE38209B36D500AEEE7D /* NanumSquareOTFBold.otf */; };
+		C403AE4D209B36D700AEEE7D /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE39209B36D500AEEE7D /* NanumBarunGothic.otf */; };
+		C403AE4E209B36D700AEEE7D /* NanumGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE3A209B36D600AEEE7D /* NanumGothic.otf */; };
+		C403AE4F209B36D700AEEE7D /* NanumMyeongjoBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE3B209B36D600AEEE7D /* NanumMyeongjoBold.otf */; };
+		C403AE53209B36E500AEEE7D /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */; };
+		C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */; };
+		C403AE55209B36E500AEEE7D /* NanumSquareOTFLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */; };
+		C403AE58209B40C700AEEE7D /* BookShelfCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403AE56209B40C700AEEE7D /* BookShelfCollectionViewCell.swift */; };
+		C403AE59209B40C700AEEE7D /* BookShelfCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403AE57209B40C700AEEE7D /* BookShelfCollectionViewCell.xib */; };
 		C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AEFE2099809700B7ECC7 /* AppDelegate.swift */; };
-		C407AF012099809700B7ECC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF002099809700B7ECC7 /* ViewController.swift */; };
 		C407AF042099809700B7ECC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF022099809700B7ECC7 /* Main.storyboard */; };
 		C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407AF052099809900B7ECC7 /* Assets.xcassets */; };
 		C407AF092099809900B7ECC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */; };
+		C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF16209987CD00B7ECC7 /* Constants.swift */; };
+		C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */; };
+		C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407AF1D2099929500B7ECC7 /* MainViewController.swift */; };
+		C433786620A13DB40092016D /* EditorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433786520A13DB40092016D /* EditorConfiguration.swift */; };
+		C433786820A166D50092016D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433786720A166D50092016D /* BaseNavigationController.swift */; };
+		C43EFA7620A18F2700351238 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43EFA7520A18F2700351238 /* AppUtility.swift */; };
+		C458436B20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458436920A2679B00AC9C01 /* LayoutSampleCollectionViewCell.swift */; };
+		C458436C20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C458436A20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.xib */; };
+		C458436E20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458436D20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift */; };
+		C458437020A27FE400AC9C01 /* WebToonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458436F20A27FE400AC9C01 /* WebToonStore.swift */; };
+		C458437220A295E800AC9C01 /* ViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437120A295E800AC9C01 /* ViewerViewController.swift */; };
+		C458437520A3397D00AC9C01 /* ViewerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */; };
+		C458437620A3397D00AC9C01 /* ViewerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */; };
+		C458437820A3430600AC9C01 /* MyWebToonAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C458437720A3430600AC9C01 /* MyWebToonAlbum.swift */; };
+		C45F80BC20A42784001FD38C /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F80BB20A42784001FD38C /* ImageEditorViewController.swift */; };
+		C45F80BE20A42930001FD38C /* ImageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F80BD20A42930001FD38C /* ImageCommand.swift */; };
+		C45F80C020A42D15001FD38C /* EditorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F80BF20A42D15001FD38C /* EditorImageView.swift */; };
+		C45F80C520A43BF2001FD38C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F80C420A43BF2001FD38C /* CameraHandler.swift */; };
+		C45F80C720A440DB001FD38C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F80C620A440DB001FD38C /* UIViewExtensions.swift */; };
+		C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4968B35209C0FB500E93783 /* Popover.storyboard */; };
+		C4968B3A209C11A900E93783 /* ListPopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */; };
+		C4D4CA9C209C388500685C5D /* ListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */; };
+		C4DF4476209EAE4400D90A80 /* CommandProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4475209EAE4400D90A80 /* CommandProtocols.swift */; };
+		C4DF4478209ED7C300D90A80 /* DotCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4477209ED7C300D90A80 /* DotCommand.swift */; };
+		C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447D209EDAFC00D90A80 /* PaintView.swift */; };
+		C4DF4480209EDC2E00D90A80 /* CommandInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF447F209EDC2E00D90A80 /* CommandInvoker.swift */; };
+		C4DF4483209EFE3900D90A80 /* EditorMenuColorPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4482209EFE3900D90A80 /* EditorMenuColorPopoverViewController.swift */; };
+		C4DF4486209EFF8A00D90A80 /* BasePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4485209EFF8A00D90A80 /* BasePopoverViewController.swift */; };
+		C4DF4489209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4487209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift */; };
+		C4DF448A209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4DF4488209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib */; };
+		C4DF448F209F1FAF00D90A80 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */; };
+		C4DF4491209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */; };
+		C4DF4493209FF9B900D90A80 /* EditorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4492209FF9B900D90A80 /* EditorEnums.swift */; };
+		C4DF449520A0987B00D90A80 /* LineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF449420A0987B00D90A80 /* LineCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToonMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C403AE0E209ABDE100AEEE7D /* SceneEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneEditorViewController.swift; sourceTree = "<group>"; };
+		C403AE10209ABDF400AEEE7D /* ToonMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonMakerViewController.swift; sourceTree = "<group>"; };
+		C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C403AE16209AC39800AEEE7D /* Alert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
+		C403AE18209AC40D00AEEE7D /* EditorMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		C403AE19209AC40D00AEEE7D /* EditorMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		C403AE1E209AC8B900AEEE7D /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
+		C403AE22209B229700AEEE7D /* WebToonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonModel.swift; sourceTree = "<group>"; };
+		C403AE28209B36CD00AEEE7D /* NanumPen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.otf; sourceTree = "<group>"; };
+		C403AE29209B36CD00AEEE7D /* NanumBarunGothicUltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.otf; sourceTree = "<group>"; };
+		C403AE2A209B36CE00AEEE7D /* NanumBarunpenBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenBold.otf; sourceTree = "<group>"; };
+		C403AE2B209B36CE00AEEE7D /* NanumBrush.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBrush.otf; sourceTree = "<group>"; };
+		C403AE2C209B36CF00AEEE7D /* NanumGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.otf; sourceTree = "<group>"; };
+		C403AE2D209B36CF00AEEE7D /* NanumMyeongjo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumMyeongjo.otf; sourceTree = "<group>"; };
+		C403AE2E209B36D000AEEE7D /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
+		C403AE2F209B36D000AEEE7D /* NanumGothicExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.otf; sourceTree = "<group>"; };
+		C403AE30209B36D100AEEE7D /* NanumBarunpenRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenRegular.otf; sourceTree = "<group>"; };
+		C403AE31209B36D100AEEE7D /* NanumBarunGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.otf; sourceTree = "<group>"; };
+		C403AE32209B36D200AEEE7D /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
+		C403AE33209B36D200AEEE7D /* NanumMyeongjoExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumMyeongjoExtraBold.otf; sourceTree = "<group>"; };
+		C403AE34209B36D300AEEE7D /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
+		C403AE35209B36D300AEEE7D /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
+		C403AE36209B36D400AEEE7D /* NanumBarunGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.otf; sourceTree = "<group>"; };
+		C403AE37209B36D400AEEE7D /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
+		C403AE38209B36D500AEEE7D /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		C403AE39209B36D500AEEE7D /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
+		C403AE3A209B36D600AEEE7D /* NanumGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothic.otf; sourceTree = "<group>"; };
+		C403AE3B209B36D600AEEE7D /* NanumMyeongjoBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumMyeongjoBold.otf; sourceTree = "<group>"; };
+		C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
+		C403AE56209B40C700AEEE7D /* BookShelfCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfCollectionViewCell.swift; sourceTree = "<group>"; };
+		C403AE57209B40C700AEEE7D /* BookShelfCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookShelfCollectionViewCell.xib; sourceTree = "<group>"; };
 		C407AEFB2099809700B7ECC7 /* ToonMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToonMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407AEFE2099809700B7ECC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C407AF002099809700B7ECC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C407AF032099809700B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C407AF052099809900B7ECC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C407AF082099809900B7ECC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C407AF0A2099809900B7ECC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C407AF16209987CD00B7ECC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		C407AF1D2099929500B7ECC7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C433786520A13DB40092016D /* EditorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorConfiguration.swift; sourceTree = "<group>"; };
+		C433786720A166D50092016D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		C43EFA7520A18F2700351238 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		C458436920A2679B00AC9C01 /* LayoutSampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		C458436A20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LayoutSampleCollectionViewCell.xib; sourceTree = "<group>"; };
+		C458436D20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSamplePopoverViewController.swift; sourceTree = "<group>"; };
+		C458436F20A27FE400AC9C01 /* WebToonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToonStore.swift; sourceTree = "<group>"; };
+		C458437120A295E800AC9C01 /* ViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewController.swift; sourceTree = "<group>"; };
+		C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerTableViewCell.swift; sourceTree = "<group>"; };
+		C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewerTableViewCell.xib; sourceTree = "<group>"; };
+		C458437720A3430600AC9C01 /* MyWebToonAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebToonAlbum.swift; sourceTree = "<group>"; };
+		C45F80BB20A42784001FD38C /* ImageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewController.swift; sourceTree = "<group>"; };
+		C45F80BD20A42930001FD38C /* ImageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommand.swift; sourceTree = "<group>"; };
+		C45F80BF20A42D15001FD38C /* EditorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorImageView.swift; sourceTree = "<group>"; };
+		C45F80C420A43BF2001FD38C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		C45F80C620A440DB001FD38C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		C4968B35209C0FB500E93783 /* Popover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
+		C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverTableViewCell.swift; sourceTree = "<group>"; };
+		C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopoverViewController.swift; sourceTree = "<group>"; };
+		C4DF4475209EAE4400D90A80 /* CommandProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProtocols.swift; sourceTree = "<group>"; };
+		C4DF4477209ED7C300D90A80 /* DotCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotCommand.swift; sourceTree = "<group>"; };
+		C4DF447D209EDAFC00D90A80 /* PaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
+		C4DF447F209EDC2E00D90A80 /* CommandInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandInvoker.swift; sourceTree = "<group>"; };
+		C4DF4482209EFE3900D90A80 /* EditorMenuColorPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuColorPopoverViewController.swift; sourceTree = "<group>"; };
+		C4DF4485209EFF8A00D90A80 /* BasePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopoverViewController.swift; sourceTree = "<group>"; };
+		C4DF4487209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4DF4488209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditorMenuColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorMenuDrawWidthPopoverViewController.swift; sourceTree = "<group>"; };
+		C4DF4492209FF9B900D90A80 /* EditorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorEnums.swift; sourceTree = "<group>"; };
+		C4DF449420A0987B00D90A80 /* LineCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCommand.swift; sourceTree = "<group>"; };
+		EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToonMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +167,82 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213161713609D4D8DC9FB303 /* Pods_ToonMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C403AE14209AC2F300AEEE7D /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF448B209F0BA100D90A80 /* EditorMenu */,
+				C403AE56209B40C700AEEE7D /* BookShelfCollectionViewCell.swift */,
+				C403AE57209B40C700AEEE7D /* BookShelfCollectionViewCell.xib */,
+				C458436920A2679B00AC9C01 /* LayoutSampleCollectionViewCell.swift */,
+				C458436A20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		C403AE15209AC2FE00AEEE7D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4968B38209C11A900E93783 /* ListPopoverTableViewCell.swift */,
+				C458437320A3397D00AC9C01 /* ViewerTableViewCell.swift */,
+				C458437420A3397D00AC9C01 /* ViewerTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		C403AE26209B367800AEEE7D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C403AE50209B36E400AEEE7D /* NanumSquareOTFExtraBold.otf */,
+				C403AE52209B36E500AEEE7D /* NanumSquareOTFLight.otf */,
+				C403AE51209B36E400AEEE7D /* NanumSquareOTFRegular.otf */,
+				C403AE39209B36D500AEEE7D /* NanumBarunGothic.otf */,
+				C403AE31209B36D100AEEE7D /* NanumBarunGothicBold.otf */,
+				C403AE36209B36D400AEEE7D /* NanumBarunGothicLight.otf */,
+				C403AE29209B36CD00AEEE7D /* NanumBarunGothicUltraLight.otf */,
+				C403AE2A209B36CE00AEEE7D /* NanumBarunpenBold.otf */,
+				C403AE30209B36D100AEEE7D /* NanumBarunpenRegular.otf */,
+				C403AE2B209B36CE00AEEE7D /* NanumBrush.otf */,
+				C403AE3A209B36D600AEEE7D /* NanumGothic.otf */,
+				C403AE2C209B36CF00AEEE7D /* NanumGothicBold.otf */,
+				C403AE2F209B36D000AEEE7D /* NanumGothicExtraBold.otf */,
+				C403AE32209B36D200AEEE7D /* NanumGothicLight.otf */,
+				C403AE2D209B36CF00AEEE7D /* NanumMyeongjo.otf */,
+				C403AE3B209B36D600AEEE7D /* NanumMyeongjoBold.otf */,
+				C403AE33209B36D200AEEE7D /* NanumMyeongjoExtraBold.otf */,
+				C403AE28209B36CD00AEEE7D /* NanumPen.otf */,
+				C403AE38209B36D500AEEE7D /* NanumSquareOTFBold.otf */,
+				C403AE34209B36D300AEEE7D /* NanumSquareRoundOTFB.otf */,
+				C403AE2E209B36D000AEEE7D /* NanumSquareRoundOTFEB.otf */,
+				C403AE35209B36D300AEEE7D /* NanumSquareRoundOTFL.otf */,
+				C403AE37209B36D400AEEE7D /* NanumSquareRoundOTFR.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C403AE27209B367F00AEEE7D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C407AF022099809700B7ECC7 /* Main.storyboard */,
+				C403AE16209AC39800AEEE7D /* Alert.storyboard */,
+				C4968B35209C0FB500E93783 /* Popover.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C407AEF22099809700B7ECC7 = {
 			isa = PBXGroup;
 			children = (
-				C407AEFD2099809700B7ECC7 /* ToonMaker */,
+				C407AEFD2099809700B7ECC7 /* Sources */,
 				C407AEFC2099809700B7ECC7 /* Products */,
+				EA37D24C0661BF0BBBA8E67F /* Pods */,
+				D9742BF0DA6F8C1876F758CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,22 +254,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C407AEFD2099809700B7ECC7 /* ToonMaker */ = {
+		C407AEFD2099809700B7ECC7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C407AF15209985F700B7ECC7 /* Resources */,
 				C407AF10209985B800B7ECC7 /* Models */,
 				C407AF11209985C200B7ECC7 /* Views */,
 				C407AF12209985CB00B7ECC7 /* Controllers */,
 				C407AF13209985D300B7ECC7 /* Stores */,
+				C407AF1820998CEA00B7ECC7 /* Extensions */,
 				C407AF14209985D900B7ECC7 /* Helpers */,
-				C407AF15209985F700B7ECC7 /* Resources */,
 			);
-			path = ToonMaker;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C407AF10209985B800B7ECC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C403AE22209B229700AEEE7D /* WebToonModel.swift */,
+				C458437920A3455100AC9C01 /* Command */,
+				C4DF4474209EAE1F00D90A80 /* Editor */,
+				C403AE1E209AC8B900AEEE7D /* Layout.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -74,6 +282,10 @@
 		C407AF11209985C200B7ECC7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C4812AB020ABDD9E00ED51B8 /* Picker */,
+				C45F80C120A42D1A001FD38C /* View */,
+				C403AE15209AC2FE00AEEE7D /* TableViewCell */,
+				C403AE14209AC2F300AEEE7D /* CollectionViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -81,7 +293,14 @@
 		C407AF12209985CB00B7ECC7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C407AF002099809700B7ECC7 /* ViewController.swift */,
+				C4DF4484209EFF7100D90A80 /* Base */,
+				C4968B37209C10A300E93783 /* Popover */,
+				C407AF1D2099929500B7ECC7 /* MainViewController.swift */,
+				C403AE0E209ABDE100AEEE7D /* SceneEditorViewController.swift */,
+				C403AE10209ABDF400AEEE7D /* ToonMakerViewController.swift */,
+				C403AE20209AFE0500AEEE7D /* BookShelfViewController.swift */,
+				C458437120A295E800AC9C01 /* ViewerViewController.swift */,
+				C45F80BB20A42784001FD38C /* ImageEditorViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -89,6 +308,7 @@
 		C407AF13209985D300B7ECC7 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				C458436F20A27FE400AC9C01 /* WebToonStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -96,8 +316,11 @@
 		C407AF14209985D900B7ECC7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C4812AAF20ABDA9800ED51B8 /* Photo */,
 				C407AEFE2099809700B7ECC7 /* AppDelegate.swift */,
 				C407AF0A2099809900B7ECC7 /* Info.plist */,
+				C407AF16209987CD00B7ECC7 /* Constants.swift */,
+				C43EFA7520A18F2700351238 /* AppUtility.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -105,11 +328,125 @@
 		C407AF15209985F700B7ECC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C407AF022099809700B7ECC7 /* Main.storyboard */,
+				C403AE27209B367F00AEEE7D /* Storyboard */,
+				C403AE26209B367800AEEE7D /* Font */,
 				C407AF052099809900B7ECC7 /* Assets.xcassets */,
 				C407AF072099809900B7ECC7 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C407AF1820998CEA00B7ECC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C407AF1B20998E6A00B7ECC7 /* ColorExtensions.swift */,
+				C4DF448E209F1FAF00D90A80 /* UIImageExtensions.swift */,
+				C45F80C620A440DB001FD38C /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C458437920A3455100AC9C01 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF4475209EAE4400D90A80 /* CommandProtocols.swift */,
+				C4DF447F209EDC2E00D90A80 /* CommandInvoker.swift */,
+				C4DF4477209ED7C300D90A80 /* DotCommand.swift */,
+				C4DF449420A0987B00D90A80 /* LineCommand.swift */,
+				C45F80BD20A42930001FD38C /* ImageCommand.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		C45F80C120A42D1A001FD38C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF447D209EDAFC00D90A80 /* PaintView.swift */,
+				C45F80BF20A42D15001FD38C /* EditorImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4812AAF20ABDA9800ED51B8 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C458437720A3430600AC9C01 /* MyWebToonAlbum.swift */,
+				C45F80C420A43BF2001FD38C /* CameraHandler.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		C4812AB020ABDD9E00ED51B8 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		C4968B37209C10A300E93783 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF4481209EFD8000D90A80 /* EditorMenu */,
+				C4D4CA9B209C388500685C5D /* ListPopoverViewController.swift */,
+				C458436D20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		C4DF4474209EAE1F00D90A80 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF4492209FF9B900D90A80 /* EditorEnums.swift */,
+				C433786520A13DB40092016D /* EditorConfiguration.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		C4DF4481209EFD8000D90A80 /* EditorMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C4DF4482209EFE3900D90A80 /* EditorMenuColorPopoverViewController.swift */,
+				C4DF4490209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift */,
+			);
+			path = EditorMenu;
+			sourceTree = "<group>";
+		};
+		C4DF4484209EFF7100D90A80 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C403AE12209ABE1C00AEEE7D /* BaseViewController.swift */,
+				C4DF4485209EFF8A00D90A80 /* BasePopoverViewController.swift */,
+				C433786720A166D50092016D /* BaseNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C4DF448B209F0BA100D90A80 /* EditorMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C403AE18209AC40D00AEEE7D /* EditorMenuCollectionViewCell.swift */,
+				C403AE19209AC40D00AEEE7D /* EditorMenuCollectionViewCell.xib */,
+				C4DF4487209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift */,
+				C4DF4488209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib */,
+			);
+			path = EditorMenu;
+			sourceTree = "<group>";
+		};
+		D9742BF0DA6F8C1876F758CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCA02F1B342B910CDEF98B16 /* Pods_ToonMaker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA37D24C0661BF0BBBA8E67F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */,
+				EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,9 +456,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C407AF0D2099809900B7ECC7 /* Build configuration list for PBXNativeTarget "ToonMaker" */;
 			buildPhases = (
+				4143E3B4C653AEE8F0A9EF28 /* [CP] Check Pods Manifest.lock */,
 				C407AEF72099809700B7ECC7 /* Sources */,
 				C407AEF82099809700B7ECC7 /* Frameworks */,
 				C407AEF92099809700B7ECC7 /* Resources */,
+				00247B525926D1842CD72517 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,21 +509,137 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C403AE46209B36D700AEEE7D /* NanumGothicLight.otf in Resources */,
+				C4DF448A209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.xib in Resources */,
+				C458436C20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.xib in Resources */,
+				C403AE47209B36D700AEEE7D /* NanumMyeongjoExtraBold.otf in Resources */,
+				C403AE42209B36D700AEEE7D /* NanumSquareRoundOTFEB.otf in Resources */,
+				C403AE55209B36E500AEEE7D /* NanumSquareOTFLight.otf in Resources */,
+				C403AE4E209B36D700AEEE7D /* NanumGothic.otf in Resources */,
+				C403AE1B209AC40D00AEEE7D /* EditorMenuCollectionViewCell.xib in Resources */,
 				C407AF092099809900B7ECC7 /* LaunchScreen.storyboard in Resources */,
+				C403AE3D209B36D700AEEE7D /* NanumBarunGothicUltraLight.otf in Resources */,
+				C403AE48209B36D700AEEE7D /* NanumSquareRoundOTFB.otf in Resources */,
+				C403AE3F209B36D700AEEE7D /* NanumBrush.otf in Resources */,
+				C403AE45209B36D700AEEE7D /* NanumBarunGothicBold.otf in Resources */,
+				C403AE4A209B36D700AEEE7D /* NanumBarunGothicLight.otf in Resources */,
 				C407AF062099809900B7ECC7 /* Assets.xcassets in Resources */,
+				C403AE4D209B36D700AEEE7D /* NanumBarunGothic.otf in Resources */,
+				C403AE4F209B36D700AEEE7D /* NanumMyeongjoBold.otf in Resources */,
+				C403AE41209B36D700AEEE7D /* NanumMyeongjo.otf in Resources */,
+				C403AE3C209B36D700AEEE7D /* NanumPen.otf in Resources */,
+				C403AE49209B36D700AEEE7D /* NanumSquareRoundOTFL.otf in Resources */,
 				C407AF042099809700B7ECC7 /* Main.storyboard in Resources */,
+				C458437620A3397D00AC9C01 /* ViewerTableViewCell.xib in Resources */,
+				C403AE59209B40C700AEEE7D /* BookShelfCollectionViewCell.xib in Resources */,
+				C403AE54209B36E500AEEE7D /* NanumSquareOTFRegular.otf in Resources */,
+				C403AE4C209B36D700AEEE7D /* NanumSquareOTFBold.otf in Resources */,
+				C403AE4B209B36D700AEEE7D /* NanumSquareRoundOTFR.otf in Resources */,
+				C403AE53209B36E500AEEE7D /* NanumSquareOTFExtraBold.otf in Resources */,
+				C403AE17209AC39800AEEE7D /* Alert.storyboard in Resources */,
+				C403AE43209B36D700AEEE7D /* NanumGothicExtraBold.otf in Resources */,
+				C403AE40209B36D700AEEE7D /* NanumGothicBold.otf in Resources */,
+				C403AE3E209B36D700AEEE7D /* NanumBarunpenBold.otf in Resources */,
+				C4968B36209C0FB500E93783 /* Popover.storyboard in Resources */,
+				C403AE44209B36D700AEEE7D /* NanumBarunpenRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00247B525926D1842CD72517 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Actions/Actions.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Actions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ToonMaker/Pods-ToonMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4143E3B4C653AEE8F0A9EF28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToonMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C407AEF72099809700B7ECC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C407AF012099809700B7ECC7 /* ViewController.swift in Sources */,
+				C403AE11209ABDF400AEEE7D /* ToonMakerViewController.swift in Sources */,
+				C458436E20A267C200AC9C01 /* LayoutSamplePopoverViewController.swift in Sources */,
+				C4DF4489209F0B9D00D90A80 /* EditorMenuColorCollectionViewCell.swift in Sources */,
+				C45F80BC20A42784001FD38C /* ImageEditorViewController.swift in Sources */,
+				C403AE23209B229700AEEE7D /* WebToonModel.swift in Sources */,
+				C4DF449520A0987B00D90A80 /* LineCommand.swift in Sources */,
 				C407AEFF2099809700B7ECC7 /* AppDelegate.swift in Sources */,
+				C4DF4476209EAE4400D90A80 /* CommandProtocols.swift in Sources */,
+				C4DF4483209EFE3900D90A80 /* EditorMenuColorPopoverViewController.swift in Sources */,
+				C433786820A166D50092016D /* BaseNavigationController.swift in Sources */,
+				C433786620A13DB40092016D /* EditorConfiguration.swift in Sources */,
+				C45F80BE20A42930001FD38C /* ImageCommand.swift in Sources */,
+				C403AE1A209AC40D00AEEE7D /* EditorMenuCollectionViewCell.swift in Sources */,
+				C407AF17209987CD00B7ECC7 /* Constants.swift in Sources */,
+				C407AF1C20998E6A00B7ECC7 /* ColorExtensions.swift in Sources */,
+				C43EFA7620A18F2700351238 /* AppUtility.swift in Sources */,
+				C4DF4478209ED7C300D90A80 /* DotCommand.swift in Sources */,
+				C458437520A3397D00AC9C01 /* ViewerTableViewCell.swift in Sources */,
+				C403AE58209B40C700AEEE7D /* BookShelfCollectionViewCell.swift in Sources */,
+				C403AE0F209ABDE100AEEE7D /* SceneEditorViewController.swift in Sources */,
+				C4D4CA9C209C388500685C5D /* ListPopoverViewController.swift in Sources */,
+				C403AE13209ABE1C00AEEE7D /* BaseViewController.swift in Sources */,
+				C4DF4486209EFF8A00D90A80 /* BasePopoverViewController.swift in Sources */,
+				C4DF448F209F1FAF00D90A80 /* UIImageExtensions.swift in Sources */,
+				C458437020A27FE400AC9C01 /* WebToonStore.swift in Sources */,
+				C45F80C020A42D15001FD38C /* EditorImageView.swift in Sources */,
+				C45F80C720A440DB001FD38C /* UIViewExtensions.swift in Sources */,
+				C4DF4493209FF9B900D90A80 /* EditorEnums.swift in Sources */,
+				C458437820A3430600AC9C01 /* MyWebToonAlbum.swift in Sources */,
+				C4DF447E209EDAFC00D90A80 /* PaintView.swift in Sources */,
+				C407AF1E2099929500B7ECC7 /* MainViewController.swift in Sources */,
+				C4968B3A209C11A900E93783 /* ListPopoverTableViewCell.swift in Sources */,
+				C458436B20A2679B00AC9C01 /* LayoutSampleCollectionViewCell.swift in Sources */,
+				C45F80C520A43BF2001FD38C /* CameraHandler.swift in Sources */,
+				C403AE21209AFE0500AEEE7D /* BookShelfViewController.swift in Sources */,
+				C4DF4491209F26CE00D90A80 /* EditorMenuDrawWidthPopoverViewController.swift in Sources */,
+				C4DF4480209EDC2E00D90A80 /* CommandInvoker.swift in Sources */,
+				C458437220A295E800AC9C01 /* ViewerViewController.swift in Sources */,
+				C403AE1F209AC8B900AEEE7D /* Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,11 +781,12 @@
 		};
 		C407AF0E2099809900B7ECC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BD23A2C96BBDE8D33343E55 /* Pods-ToonMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
-				INFOPLIST_FILE = ToonMaker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,11 +801,12 @@
 		};
 		C407AF0F2099809900B7ECC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE6DCC5FE2CCD5B278701C62 /* Pods-ToonMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HQ6PG585Q;
-				INFOPLIST_FILE = ToonMaker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Helpers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

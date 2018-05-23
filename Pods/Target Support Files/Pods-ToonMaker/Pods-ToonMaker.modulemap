@@ -1,0 +1,6 @@
+framework module Pods_ToonMaker {
+  umbrella header "Pods-ToonMaker-umbrella.h"
+
+  export *
+  module * { export * }
+}
